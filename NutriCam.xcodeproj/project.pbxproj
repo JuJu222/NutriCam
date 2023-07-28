@@ -11,6 +11,7 @@
 		4C30EECA2A73625900D91D59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C30EEC92A73625900D91D59 /* ContentView.swift */; };
 		4C30EECC2A73625B00D91D59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C30EECB2A73625B00D91D59 /* Assets.xcassets */; };
 		4C30EECF2A73625B00D91D59 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C30EECE2A73625B00D91D59 /* Preview Assets.xcassets */; };
+		8D2676CA2A73650400F4E6BC /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 8D2676C92A73650400F4E6BC /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		4C30EEC92A73625900D91D59 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4C30EECB2A73625B00D91D59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C30EECE2A73625B00D91D59 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8D2676C92A73650400F4E6BC /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +37,7 @@
 		4C30EEBB2A73625900D91D59 = {
 			isa = PBXGroup;
 			children = (
+				8D2676C92A73650400F4E6BC /* .gitignore */,
 				4C30EEC62A73625900D91D59 /* NutriCam */,
 				4C30EEC52A73625900D91D59 /* Products */,
 			);
@@ -126,6 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C30EECF2A73625B00D91D59 /* Preview Assets.xcassets in Resources */,
+				8D2676CA2A73650400F4E6BC /* .gitignore in Resources */,
 				4C30EECC2A73625B00D91D59 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
