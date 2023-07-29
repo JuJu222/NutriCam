@@ -12,7 +12,37 @@
 		4C30EECC2A73625B00D91D59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C30EECB2A73625B00D91D59 /* Assets.xcassets */; };
 		4C30EECF2A73625B00D91D59 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C30EECE2A73625B00D91D59 /* Preview Assets.xcassets */; };
 		8D2676CA2A73650400F4E6BC /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 8D2676C92A73650400F4E6BC /* .gitignore */; };
+		8D2814532A75363E0077D7D3 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D2814522A75363E0077D7D3 /* WidgetKit.framework */; };
+		8D2814552A75363E0077D7D3 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D2814542A75363E0077D7D3 /* SwiftUI.framework */; };
+		8D2814582A75363E0077D7D3 /* NutriCamWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2814572A75363E0077D7D3 /* NutriCamWidgetBundle.swift */; };
+		8D28145A2A75363E0077D7D3 /* NutriCamWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2814592A75363E0077D7D3 /* NutriCamWidget.swift */; };
+		8D28145C2A75363F0077D7D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D28145B2A75363F0077D7D3 /* Assets.xcassets */; };
+		8D2814602A75363F0077D7D3 /* NutriCamWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8D2814502A75363E0077D7D3 /* NutriCamWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8D28145E2A75363F0077D7D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4C30EEBC2A73625900D91D59 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D28144F2A75363E0077D7D3;
+			remoteInfo = NutriCamWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8D2814612A75363F0077D7D3 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				8D2814602A75363F0077D7D3 /* NutriCamWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		4C30EEC42A73625900D91D59 /* NutriCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -21,6 +51,13 @@
 		4C30EECB2A73625B00D91D59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C30EECE2A73625B00D91D59 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8D2676C92A73650400F4E6BC /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		8D2814502A75363E0077D7D3 /* NutriCamWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NutriCamWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D2814522A75363E0077D7D3 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		8D2814542A75363E0077D7D3 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		8D2814572A75363E0077D7D3 /* NutriCamWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutriCamWidgetBundle.swift; sourceTree = "<group>"; };
+		8D2814592A75363E0077D7D3 /* NutriCamWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutriCamWidget.swift; sourceTree = "<group>"; };
+		8D28145B2A75363F0077D7D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8D28145D2A75363F0077D7D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,6 +65,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D28144D2A75363E0077D7D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D2814552A75363E0077D7D3 /* SwiftUI.framework in Frameworks */,
+				8D2814532A75363E0077D7D3 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,6 +85,8 @@
 			children = (
 				8D2676C92A73650400F4E6BC /* .gitignore */,
 				4C30EEC62A73625900D91D59 /* NutriCam */,
+				8D2814562A75363E0077D7D3 /* NutriCamWidget */,
+				8D2814512A75363E0077D7D3 /* Frameworks */,
 				4C30EEC52A73625900D91D59 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				4C30EEC42A73625900D91D59 /* NutriCam.app */,
+				8D2814502A75363E0077D7D3 /* NutriCamWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,6 +119,26 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		8D2814512A75363E0077D7D3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8D2814522A75363E0077D7D3 /* WidgetKit.framework */,
+				8D2814542A75363E0077D7D3 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8D2814562A75363E0077D7D3 /* NutriCamWidget */ = {
+			isa = PBXGroup;
+			children = (
+				8D2814572A75363E0077D7D3 /* NutriCamWidgetBundle.swift */,
+				8D2814592A75363E0077D7D3 /* NutriCamWidget.swift */,
+				8D28145B2A75363F0077D7D3 /* Assets.xcassets */,
+				8D28145D2A75363F0077D7D3 /* Info.plist */,
+			);
+			path = NutriCamWidget;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -80,15 +149,34 @@
 				4C30EEC02A73625900D91D59 /* Sources */,
 				4C30EEC12A73625900D91D59 /* Frameworks */,
 				4C30EEC22A73625900D91D59 /* Resources */,
+				8D2814612A75363F0077D7D3 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				8D28145F2A75363F0077D7D3 /* PBXTargetDependency */,
 			);
 			name = NutriCam;
 			productName = NutriCam;
 			productReference = 4C30EEC42A73625900D91D59 /* NutriCam.app */;
 			productType = "com.apple.product-type.application";
+		};
+		8D28144F2A75363E0077D7D3 /* NutriCamWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D2814642A75363F0077D7D3 /* Build configuration list for PBXNativeTarget "NutriCamWidgetExtension" */;
+			buildPhases = (
+				8D28144C2A75363E0077D7D3 /* Sources */,
+				8D28144D2A75363E0077D7D3 /* Frameworks */,
+				8D28144E2A75363E0077D7D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NutriCamWidgetExtension;
+			productName = NutriCamWidgetExtension;
+			productReference = 8D2814502A75363E0077D7D3 /* NutriCamWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -101,6 +189,9 @@
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					4C30EEC32A73625900D91D59 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					8D28144F2A75363E0077D7D3 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
 				};
@@ -119,6 +210,7 @@
 			projectRoot = "";
 			targets = (
 				4C30EEC32A73625900D91D59 /* NutriCam */,
+				8D28144F2A75363E0077D7D3 /* NutriCamWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -134,6 +226,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8D28144E2A75363E0077D7D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D28145C2A75363F0077D7D3 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -146,7 +246,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8D28144C2A75363E0077D7D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D28145A2A75363E0077D7D3 /* NutriCamWidget.swift in Sources */,
+				8D2814582A75363E0077D7D3 /* NutriCamWidgetBundle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8D28145F2A75363F0077D7D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D28144F2A75363E0077D7D3 /* NutriCamWidgetExtension */;
+			targetProxy = 8D28145E2A75363F0077D7D3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		4C30EED02A73625B00D91D59 /* Debug */ = {
@@ -266,12 +383,13 @@
 		4C30EED32A73625B00D91D59 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NutriCam/Preview Content\"";
-				DEVELOPMENT_TEAM = 594Q84397D;
+				DEVELOPMENT_TEAM = 83FZ3J9AN9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -298,12 +416,13 @@
 		4C30EED42A73625B00D91D59 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NutriCam/Preview Content\"";
-				DEVELOPMENT_TEAM = 594Q84397D;
+				DEVELOPMENT_TEAM = 83FZ3J9AN9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -327,6 +446,60 @@
 			};
 			name = Release;
 		};
+		8D2814622A75363F0077D7D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 83FZ3J9AN9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NutriCamWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NutriCamWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ada.NutriCam.NutriCamWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8D2814632A75363F0077D7D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 83FZ3J9AN9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NutriCamWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = NutriCamWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ada.NutriCam.NutriCamWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -344,6 +517,15 @@
 			buildConfigurations = (
 				4C30EED32A73625B00D91D59 /* Debug */,
 				4C30EED42A73625B00D91D59 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8D2814642A75363F0077D7D3 /* Build configuration list for PBXNativeTarget "NutriCamWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D2814622A75363F0077D7D3 /* Debug */,
+				8D2814632A75363F0077D7D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
