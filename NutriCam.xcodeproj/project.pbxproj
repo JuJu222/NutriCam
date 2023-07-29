@@ -58,6 +58,8 @@
 		8D2814592A75363E0077D7D3 /* NutriCamWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutriCamWidget.swift; sourceTree = "<group>"; };
 		8D28145B2A75363F0077D7D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D28145D2A75363F0077D7D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D2814652A7536730077D7D3 /* NutriCam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NutriCam.entitlements; sourceTree = "<group>"; };
+		8D2814662A75368D0077D7D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,8 @@
 		4C30EEC62A73625900D91D59 /* NutriCam */ = {
 			isa = PBXGroup;
 			children = (
+				8D2814662A75368D0077D7D3 /* Info.plist */,
+				8D2814652A7536730077D7D3 /* NutriCam.entitlements */,
 				4C30EEC72A73625900D91D59 /* NutriCamApp.swift */,
 				4C30EEC92A73625900D91D59 /* ContentView.swift */,
 				4C30EECB2A73625B00D91D59 /* Assets.xcassets */,
@@ -386,12 +390,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NutriCam/NutriCam.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NutriCam/Preview Content\"";
 				DEVELOPMENT_TEAM = 83FZ3J9AN9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NutriCam/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -419,12 +425,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = NutriCam/NutriCam.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NutriCam/Preview Content\"";
 				DEVELOPMENT_TEAM = 83FZ3J9AN9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NutriCam/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
