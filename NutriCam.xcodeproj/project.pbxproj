@@ -18,6 +18,13 @@
 		8D28145A2A75363E0077D7D3 /* NutriCamWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2814592A75363E0077D7D3 /* NutriCamWidget.swift */; };
 		8D28145C2A75363F0077D7D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D28145B2A75363F0077D7D3 /* Assets.xcassets */; };
 		8D2814602A75363F0077D7D3 /* NutriCamWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8D2814502A75363E0077D7D3 /* NutriCamWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8D4D648C2A7D103C002B6200 /* NutritionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4D648B2A7D103C002B6200 /* NutritionViewModel.swift */; };
+		8D4D648F2A7D1053002B6200 /* NutriCamData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8D4D648D2A7D1053002B6200 /* NutriCamData.xcdatamodeld */; };
+		8D4D64912A7D106C002B6200 /* NutritionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4D64902A7D106C002B6200 /* NutritionView.swift */; };
+		8D4D64932A7D10A5002B6200 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4D64922A7D10A5002B6200 /* ProfileViewModel.swift */; };
+		8D4D64952A7D10AC002B6200 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4D64942A7D10AC002B6200 /* ProfileView.swift */; };
+		8D4D64972A7D10C7002B6200 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4D64962A7D10C7002B6200 /* StatisticsView.swift */; };
+		8D4D64992A7D10CF002B6200 /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4D64982A7D10CF002B6200 /* StatisticsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +67,13 @@
 		8D28145D2A75363F0077D7D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D2814652A7536730077D7D3 /* NutriCam.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NutriCam.entitlements; sourceTree = "<group>"; };
 		8D2814662A75368D0077D7D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8D4D648B2A7D103C002B6200 /* NutritionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionViewModel.swift; sourceTree = "<group>"; };
+		8D4D648E2A7D1053002B6200 /* NutriCamData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NutriCamData.xcdatamodel; sourceTree = "<group>"; };
+		8D4D64902A7D106C002B6200 /* NutritionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionView.swift; sourceTree = "<group>"; };
+		8D4D64922A7D10A5002B6200 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		8D4D64942A7D10AC002B6200 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		8D4D64962A7D10C7002B6200 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
+		8D4D64982A7D10CF002B6200 /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,10 +119,12 @@
 		4C30EEC62A73625900D91D59 /* NutriCam */ = {
 			isa = PBXGroup;
 			children = (
+				8D4D64882A7D100E002B6200 /* Model */,
+				8D4D648A2A7D1018002B6200 /* ViewModel */,
+				8D4D64892A7D1012002B6200 /* View */,
 				8D2814662A75368D0077D7D3 /* Info.plist */,
 				8D2814652A7536730077D7D3 /* NutriCam.entitlements */,
 				4C30EEC72A73625900D91D59 /* NutriCamApp.swift */,
-				4C30EEC92A73625900D91D59 /* ContentView.swift */,
 				4C30EECB2A73625B00D91D59 /* Assets.xcassets */,
 				4C30EECD2A73625B00D91D59 /* Preview Content */,
 			);
@@ -141,6 +157,35 @@
 				8D28145D2A75363F0077D7D3 /* Info.plist */,
 			);
 			path = NutriCamWidget;
+			sourceTree = "<group>";
+		};
+		8D4D64882A7D100E002B6200 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8D4D648D2A7D1053002B6200 /* NutriCamData.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8D4D64892A7D1012002B6200 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4C30EEC92A73625900D91D59 /* ContentView.swift */,
+				8D4D64902A7D106C002B6200 /* NutritionView.swift */,
+				8D4D64962A7D10C7002B6200 /* StatisticsView.swift */,
+				8D4D64942A7D10AC002B6200 /* ProfileView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8D4D648A2A7D1018002B6200 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8D4D648B2A7D103C002B6200 /* NutritionViewModel.swift */,
+				8D4D64982A7D10CF002B6200 /* StatisticsViewModel.swift */,
+				8D4D64922A7D10A5002B6200 /* ProfileViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,8 +290,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D4D64932A7D10A5002B6200 /* ProfileViewModel.swift in Sources */,
+				8D4D648C2A7D103C002B6200 /* NutritionViewModel.swift in Sources */,
 				4C30EECA2A73625900D91D59 /* ContentView.swift in Sources */,
+				8D4D648F2A7D1053002B6200 /* NutriCamData.xcdatamodeld in Sources */,
 				4C30EEC82A73625900D91D59 /* NutriCamApp.swift in Sources */,
+				8D4D64972A7D10C7002B6200 /* StatisticsView.swift in Sources */,
+				8D4D64952A7D10AC002B6200 /* ProfileView.swift in Sources */,
+				8D4D64912A7D106C002B6200 /* NutritionView.swift in Sources */,
+				8D4D64992A7D10CF002B6200 /* StatisticsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,6 +591,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8D4D648D2A7D1053002B6200 /* NutriCamData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8D4D648E2A7D1053002B6200 /* NutriCamData.xcdatamodel */,
+			);
+			currentVersion = 8D4D648E2A7D1053002B6200 /* NutriCamData.xcdatamodel */;
+			path = NutriCamData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4C30EEBC2A73625900D91D59 /* Project object */;
 }
