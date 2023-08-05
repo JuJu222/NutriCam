@@ -13,10 +13,18 @@ struct SelectFoodView: View {
     @ObservedObject var vm: NutritionViewModel
     @State private var searchText = ""
     
+    var searchResults: [Hint] {
+        if searchText.isEmpty {
+            return vm.hintFoods
+        } else {
+            return vm.hintFoods.filter { $0.food?.label?.contains(searchText) ?? false }
+        }
+    }
+    
     var body: some View {
         VStack {
             ScrollView {
-                ForEach(vm.hintFoods, id: \.self) { food in
+                ForEach(searchResults, id: \.self) { food in
                     NavigationLink(destination: FoodNutritionResultView(vm: vm, food: food)) {
                         HStack (spacing: 16) {
                             AsyncImage(url: URL(string: food.food?.image ?? "")) { image in

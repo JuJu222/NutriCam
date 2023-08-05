@@ -19,8 +19,10 @@ struct FoodNutritionResultView: View {
             AsyncImage(url: URL(string: food.food?.image ?? "")) { image in
                 image
                     .resizable()
-                    .scaledToFit()
+                    .aspectRatio(contentMode: .fill)
                     .frame(height: 200)
+                    .clipped()
+                    .cornerRadius(16)
 
             } placeholder: {
                 Color.gray
