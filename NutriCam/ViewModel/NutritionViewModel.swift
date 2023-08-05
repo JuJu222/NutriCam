@@ -30,6 +30,8 @@ class NutritionViewModel: ObservableObject {
         container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
         
         fetchFoodNutritionRequest()
+        
+        fetchCurrentWeek()
     }
 
     func fetchFoodNutritionRequest() {
