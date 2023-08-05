@@ -10,6 +10,8 @@ import SwiftUI
 struct AddMealCardView: View {
     
     @Environment(\.colorScheme) var colorScheme
+    @Binding var showAddSheet: Bool
+    @ObservedObject var vm: NutritionViewModel
     
     let meal: String
     
@@ -24,20 +26,13 @@ struct AddMealCardView: View {
                         .fontWeight(.semibold)
                     Spacer()
                     Button {
-                        
+                        vm.selectedMeal = meal
+                        showAddSheet.toggle()
                     } label: {
-                        HStack {
-                            Image(systemName: "plus.circle")
-                                .font(.subheadline)
-                            Text("Add")
-                                .font(.subheadline)
-                        }
-                        .padding(.horizontal)
-                        .padding(.vertical, 8)
-                        .background(Color.accentColor)
-                        .foregroundColor(.white)
-                        .cornerRadius(100)
+                        Label("Add", systemImage: "plus.circle")
                     }
+                    .buttonStyle(.borderedProminent)
+                    .cornerRadius(100)
                 }
                 .padding([.horizontal, .top])
                 
@@ -48,15 +43,15 @@ struct AddMealCardView: View {
                         Text("Calories")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
-                        Text("1000 kcal")
+                        Text("10000 kcal")
                     }
-                    .frame(width: UIScreen.main.bounds.width / 5)
+                    .frame(width: UIScreen.main.bounds.width / 4.7)
                     
                     VStack {
                         Text("Protein")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
-                        Text("10 g")
+                        Text("100 g")
                     }
                     .frame(width: UIScreen.main.bounds.width / 5.5)
                     
@@ -64,7 +59,7 @@ struct AddMealCardView: View {
                         Text("Carbs")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
-                        Text("20 g")
+                        Text("200 g")
                     }
                     .frame(width: UIScreen.main.bounds.width / 5.5)
                     
@@ -72,7 +67,7 @@ struct AddMealCardView: View {
                         Text("Fat")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
-                        Text("30 g")
+                        Text("300 g")
                     }
                     .frame(width: UIScreen.main.bounds.width / 5.5)
                 }
@@ -87,6 +82,6 @@ struct AddMealCardView: View {
 
 struct AddMealCardView_Previews: PreviewProvider {
     static var previews: some View {
-        AddMealCardView(meal: "Breakfast")
+        AddMealCardView(showAddSheet: .constant(false), vm: NutritionViewModel(), meal: "Breakfast")
     }
 }

@@ -12,7 +12,7 @@ struct ContentView: View {
         TabView {
             NutritionView()
                 .tabItem {
-                    Label("Nutrition", systemImage: "fork.knife")
+                    Label("My Nutrition", systemImage: "fork.knife")
                 }
 
             StatisticsView()

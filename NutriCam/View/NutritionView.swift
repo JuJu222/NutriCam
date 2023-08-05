@@ -10,6 +10,8 @@ import SwiftUI
 struct NutritionView: View {
     
     @StateObject var vm: NutritionViewModel = NutritionViewModel()
+    @State var meal: String = ""
+    
     var meals = ["Breakfast", "Lunch", "Dinner", "Snacks"]
     
     var body: some View {
@@ -117,14 +119,14 @@ struct NutritionView: View {
                     .padding([.horizontal, .bottom])
                     
                     ForEach(meals, id: \.self) { meal in
-                        AddMealCardView(meal: meal)
+                        AddMealCardView(showAddSheet: $vm.showAddSheet, vm: vm, meal: meal)
                     }
                     
                     Spacer()
                 }
             }
             .background(Color("Background"))
-            .navigationTitle("Nutrition")
+            .navigationTitle("My Nutrition")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     DatePicker("", selection: $vm.currentDay, displayedComponents: .date)
@@ -132,6 +134,9 @@ struct NutritionView: View {
             }
             .onChange(of: vm.currentDay) { _ in
                 vm.fetchCurrentWeek()
+            }
+            .fullScreenCover(isPresented: $vm.showAddSheet) {
+                AddFoodCameraView(vm: vm)
             }
         }
         

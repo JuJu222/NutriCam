@@ -9,11 +9,17 @@ import Foundation
 import CoreData
 
 class NutritionViewModel: ObservableObject {
+    @Published var showAddSheet: Bool = false
     
     @Published var foods: [FoodNutrition] = []
     
+    @Published var selectedMeal: String = ""
+    
     @Published var currentWeek: [Date] = []
     @Published var currentDay: Date = Date()
+    
+    @Published var foodName: String = ""
+    @Published var hintFoods: [Hint] = []
     
     let container: NSPersistentCloudKitContainer
     
@@ -71,20 +77,17 @@ class NutritionViewModel: ObservableObject {
         save()
     }
     
-//    func editFood(food: FoodNutrition, calories: Double, carbs: Double, fat: Double, protein: Double, name: String, meal: String, date: Date) {
-//        food.calories = calories
-//        food.carbs = carbs
-//        food.fat = fat
-//        food.protein = protein
-//        food.name = name
-//        food.meal = meal
-//        food.date = date
-//
-//        save()
-//    }
-    
     func deleteFood(food: FoodNutrition) {
         container.viewContext.delete(food)
+        
+        save()
+    }
+    
+    // Dummy Function
+    func deleteAll() {
+        foods.forEach { food in
+            container.viewContext.delete(food)
+        }
         
         save()
     }
@@ -122,12 +125,26 @@ class NutritionViewModel: ObservableObject {
         return calendar.isDate(currentDay, inSameDayAs: date)
     }
     
-    // Dummy Function
-    func deleteAll() {
-        foods.forEach { food in
-            container.viewContext.delete(food)
+    func fetchEdamamFoods() {
+        guard let url = URL(string: "https://api.edamam.com/api/food-database/v2/parser?app_id=\(appId)&app_key=\(appKey)&ingr=\(foodName)&nutrition-type=cooking") else {
+            return
         }
         
-        save()
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            do {
+                let food = try JSONDecoder().decode(Food.self, from: data)
+                DispatchQueue.main.async {
+                    self?.hintFoods = food.hints ?? []
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        
+        task.resume()
     }
 }
