@@ -107,11 +107,6 @@ struct FoodNutritionResultView: View {
                     weight = measure.weight ?? 0
                 }
             })
-//            ForEach(food.measures ?? [], id: \.self) { measure in
-//                if measure.label == "Serving" {
-//                    weight = measure.weight ?? 0
-//                }
-//            }
         }
     }
 }

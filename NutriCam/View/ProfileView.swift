@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct ProfileView: View {
+    
+    @StateObject var vm: ProfileViewModel = ProfileViewModel()
+    @State var showEditProfileSheet: Bool = false
+    
     var body: some View {
         NavigationStack {
             VStack {
@@ -15,6 +19,16 @@ struct ProfileView: View {
             }
             .background(Color("Background"))
             .navigationTitle("Profile")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Edit") {
+                        showEditProfileSheet.toggle()
+                    }
+                }
+            }
+            .fullScreenCover(isPresented: $showEditProfileSheet) {
+                EditProfileView(vm: vm)
+            }
         }
     }
 }

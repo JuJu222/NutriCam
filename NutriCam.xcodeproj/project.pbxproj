@@ -32,6 +32,7 @@
 		8DC7587D2A7E4008001E98BE /* FoodNutritionResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7587C2A7E4008001E98BE /* FoodNutritionResultView.swift */; };
 		8DC758832A7E585B001E98BE /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC758822A7E585B001E98BE /* APIKey.swift */; };
 		8DC758852A7E587A001E98BE /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC758842A7E587A001E98BE /* Food.swift */; };
+		8DC758872A7EB37B001E98BE /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC758862A7EB37B001E98BE /* EditProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		8DC7587C2A7E4008001E98BE /* FoodNutritionResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodNutritionResultView.swift; sourceTree = "<group>"; };
 		8DC758822A7E585B001E98BE /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		8DC758842A7E587A001E98BE /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		8DC758862A7EB37B001E98BE /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 				8DC758782A7E3F6D001E98BE /* AddFoodCameraView.swift */,
 				8DC7587A2A7E3FF9001E98BE /* SelectFoodView.swift */,
 				8DC7587C2A7E4008001E98BE /* FoodNutritionResultView.swift */,
+				8DC758862A7EB37B001E98BE /* EditProfileView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D4D64932A7D10A5002B6200 /* ProfileViewModel.swift in Sources */,
+				8DC758872A7EB37B001E98BE /* EditProfileView.swift in Sources */,
 				8D4D648C2A7D103C002B6200 /* NutritionViewModel.swift in Sources */,
 				4C30EECA2A73625900D91D59 /* ContentView.swift in Sources */,
 				8DC758792A7E3F6D001E98BE /* AddFoodCameraView.swift in Sources */,
