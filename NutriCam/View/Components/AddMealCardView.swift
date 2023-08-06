@@ -43,7 +43,7 @@ struct AddMealCardView: View {
                         Text("Calories")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
-                        Text("10000 kcal")
+                        Text(meal == "Breakfast" ? "\(vm.breakfastNutrition.calories, specifier: "%.0f") kcal" : meal == "Lunch" ? "\(vm.lunchNutrition.calories, specifier: "%.0f") kcal" : meal == "Dinner" ? "\(vm.dinnerNutrition.calories, specifier: "%.0f") kcal" : "\(vm.snackNutrition.calories, specifier: "%.0f") kcal")
                     }
                     .frame(width: UIScreen.main.bounds.width / 4.7)
                     
@@ -51,7 +51,7 @@ struct AddMealCardView: View {
                         Text("Protein")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
-                        Text("100 g")
+                        Text(meal == "Breakfast" ? "\(vm.breakfastNutrition.protein, specifier: "%.1f") g" : meal == "Lunch" ? "\(vm.lunchNutrition.protein, specifier: "%.1f") g" : meal == "Dinner" ? "\(vm.dinnerNutrition.protein, specifier: "%.1f") g" : "\(vm.snackNutrition.protein, specifier: "%.1f") g")
                     }
                     .frame(width: UIScreen.main.bounds.width / 5.5)
                     
@@ -59,7 +59,7 @@ struct AddMealCardView: View {
                         Text("Carbs")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
-                        Text("200 g")
+                        Text(meal == "Breakfast" ? "\(vm.breakfastNutrition.carbs, specifier: "%.1f") g" : meal == "Lunch" ? "\(vm.lunchNutrition.carbs, specifier: "%.1f") g" : meal == "Dinner" ? "\(vm.dinnerNutrition.carbs, specifier: "%.1f") g" : "\(vm.snackNutrition.carbs, specifier: "%.1f") g")
                     }
                     .frame(width: UIScreen.main.bounds.width / 5.5)
                     
@@ -67,7 +67,7 @@ struct AddMealCardView: View {
                         Text("Fat")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
-                        Text("300 g")
+                        Text(meal == "Breakfast" ? "\(vm.breakfastNutrition.fat, specifier: "%.1f") g" : meal == "Lunch" ? "\(vm.lunchNutrition.fat, specifier: "%.1f") g" : meal == "Dinner" ? "\(vm.dinnerNutrition.fat, specifier: "%.1f") g" : "\(vm.snackNutrition.fat, specifier: "%.1f") g")
                     }
                     .frame(width: UIScreen.main.bounds.width / 5.5)
                 }

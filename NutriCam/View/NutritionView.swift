@@ -43,7 +43,10 @@ struct NutritionView: View {
                                 .foregroundStyle(vm.isToday(date: day) ? .primary : .secondary)
                                 .frame(width: 45, height: 60)
                                 .onTapGesture {
-                                    vm.currentDay = day
+                                    withAnimation {
+                                        vm.currentDay = day
+                                        vm.fetchDailyNutrition()
+                                    }
                                 }
                             }
                         }
@@ -53,7 +56,7 @@ struct NutritionView: View {
                     HStack(spacing: 12) {
                         VStack(spacing: 12) {
                             ZStack {
-                                CircularProgressView(progress: 0.5)
+                                CircularProgressView(progress: vm.dailyNutrition.calories / 2000)
                                     .frame(width: UIScreen.main.bounds.width / 2.5)
                                 
                                 VStack {
@@ -63,11 +66,11 @@ struct NutritionView: View {
                                         .frame(height: 40)
                                         .foregroundColor(Color.accentColor)
                                     
-                                    Text("2000")
+                                    Text("\(vm.dailyNutrition.calories, specifier: "%.0f")")
                                         .font(.title)
                                         .bold()
                                     
-                                    Text("/ 4000 kcal")
+                                    Text("/ 2000 kcal")
                                         .font(.subheadline)
                                         .foregroundColor(.secondary)
                                 }
@@ -80,34 +83,33 @@ struct NutritionView: View {
                         Spacer()
                         
                         VStack(spacing: 24) {
-                            ProgressView(value: 7, total: 10) {
+                            ProgressView(value: vm.dailyNutrition.protein, total: 60) {
                                 HStack {
                                     Text("Protein")
                                         .font(.subheadline)
                                         .bold()
                                     Spacer()
-                                    Text("7 / 10 g")
-                                        .font(.subheadline)
-//                                    Text("\(content.nutrientConsumed, specifier: "%.2f") / \(content.nutrientTarget, specifier: "%.2f") g")
-                                }
-                            }
-                            ProgressView(value: 4, total: 10) {
-                                HStack {
-                                    Text("Carbs")
-                                        .font(.subheadline)
-                                        .bold()
-                                    Spacer()
-                                    Text("4 / 10 g")
+                                    Text("\(vm.dailyNutrition.protein, specifier: "%.1f") / 60 g")
                                         .font(.subheadline)
                                 }
                             }
-                            ProgressView(value: 5, total: 10) {
+                            ProgressView(value: vm.dailyNutrition.fat, total: 30) {
                                 HStack {
                                     Text("Fat")
                                         .font(.subheadline)
                                         .bold()
                                     Spacer()
-                                    Text("5 / 10 g")
+                                    Text("\(vm.dailyNutrition.fat, specifier: "%.1f") / 30 g")
+                                        .font(.subheadline)
+                                }
+                            }
+                            ProgressView(value: vm.dailyNutrition.carbs, total: 70) {
+                                HStack {
+                                    Text("Carbs")
+                                        .font(.subheadline)
+                                        .bold()
+                                    Spacer()
+                                    Text("\(vm.dailyNutrition.carbs, specifier: "%.1f") / 70 g")
                                         .font(.subheadline)
                                 }
                             }
@@ -139,36 +141,6 @@ struct NutritionView: View {
                 AddFoodCameraView(vm: vm)
             }
         }
-        
-//        VStack {
-//            HStack {
-//                Button("Add Examples") {
-//                    vm.addFood(calories: 400, carbs: 20, fat: 10, protein: 5, name: "Rendang", meal: "Breakfast", date: Date())
-//                    print("Tes add \(vm.foods)")
-//                }
-//
-//                Spacer()
-//
-//                Button("Delete All") {
-//                    vm.deleteAll()
-//                }
-//                .foregroundColor(.red)
-//            }
-//
-//            List {
-//                ForEach(vm.foods) { food in
-//                    Section(vm.extractDate(date: food.date ?? Date(), format: "E, dd MMM yyyy")) {
-//                        VStack(spacing: 10) {
-//                            Text("\(food.calories)")
-//                            Text("\(food.fat)")
-//                            Text("\(food.protein)")
-//                            Text("\(food.carbs)")
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//        .padding()
     }
 }
 

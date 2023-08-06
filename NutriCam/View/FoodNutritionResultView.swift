@@ -84,6 +84,8 @@ struct FoodNutritionResultView: View {
             Spacer()
             
             Button {
+                vm.addFood(calories: food.food?.nutrients?.ENERC_KCAL ?? 0, carbs: food.food?.nutrients?.CHOCDF ?? 0, fat: food.food?.nutrients?.FAT ?? 0, protein: food.food?.nutrients?.PROCNT ?? 0, name: food.food?.label ?? "Food Name", meal: vm.selectedMeal, date: Date())
+                
                 vm.showAddSheet.toggle()
             } label: {
                 HStack {

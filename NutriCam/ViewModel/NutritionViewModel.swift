@@ -10,16 +10,26 @@ import CoreData
 
 class NutritionViewModel: ObservableObject {
     @Published var showAddSheet: Bool = false
+    @Published var selectedMeal: String = ""
     
     @Published var foods: [FoodNutrition] = []
-    
-    @Published var selectedMeal: String = ""
+    @Published var dailyFoods: [FoodNutrition] = []
+    @Published var breakfastFoods: [FoodNutrition] = []
+    @Published var lunchFoods: [FoodNutrition] = []
+    @Published var dinnerFoods: [FoodNutrition] = []
+    @Published var snackFoods: [FoodNutrition] = []
     
     @Published var currentWeek: [Date] = []
     @Published var currentDay: Date = Date()
     
     @Published var foodName: String = ""
     @Published var hintFoods: [Hint] = []
+    
+    @Published var dailyNutrition: Nutrition = Nutrition()
+    @Published var breakfastNutrition: Nutrition = Nutrition()
+    @Published var lunchNutrition: Nutrition = Nutrition()
+    @Published var dinnerNutrition: Nutrition = Nutrition()
+    @Published var snackNutrition: Nutrition = Nutrition()
     
     let container: NSPersistentCloudKitContainer
     
@@ -38,6 +48,8 @@ class NutritionViewModel: ObservableObject {
         fetchFoodNutritionRequest()
         
         fetchCurrentWeek()
+        
+        fetchDailyNutrition()
     }
 
     func fetchFoodNutritionRequest() {
@@ -79,15 +91,6 @@ class NutritionViewModel: ObservableObject {
     
     func deleteFood(food: FoodNutrition) {
         container.viewContext.delete(food)
-        
-        save()
-    }
-    
-    // Dummy Function
-    func deleteAll() {
-        foods.forEach { food in
-            container.viewContext.delete(food)
-        }
         
         save()
     }
@@ -146,5 +149,65 @@ class NutritionViewModel: ObservableObject {
         }
         
         task.resume()
+    }
+    
+    func fetchDailyNutrition() {
+        let request = NSFetchRequest<FoodNutrition>(entityName: "FoodNutrition")
+        request.predicate = NSPredicate(format: "date < %@", currentDay as CVarArg)
+        
+        do {
+            dailyFoods = try container.viewContext.fetch(request)
+            print("Daily Nutritions: \(dailyFoods)")
+            
+            countNutrition()
+        } catch let error {
+            print("Fetch Error: \(error)")
+        }
+    }
+    
+    func countNutrition() {
+        breakfastFoods = []
+        lunchFoods = []
+        dinnerFoods = []
+        snackFoods = []
+        
+        dailyNutrition = Nutrition()
+        breakfastNutrition = Nutrition()
+        lunchNutrition = Nutrition()
+        dinnerNutrition = Nutrition()
+        snackNutrition = Nutrition()
+
+        dailyFoods.forEach { food in
+            dailyNutrition.calories += food.calories
+            dailyNutrition.protein += food.protein
+            dailyNutrition.fat += food.fat
+            dailyNutrition.carbs += food.carbs
+            
+            if food.meal == "Breakfast" {
+                breakfastFoods.append(food)
+                breakfastNutrition.calories += food.calories
+                breakfastNutrition.protein += food.protein
+                breakfastNutrition.fat += food.fat
+                breakfastNutrition.carbs += food.carbs
+            } else if food.meal == "Lunch" {
+                lunchFoods.append(food)
+                lunchNutrition.calories += food.calories
+                lunchNutrition.protein += food.protein
+                lunchNutrition.fat += food.fat
+                lunchNutrition.carbs += food.carbs
+            } else if food.meal == "Dinner" {
+                dinnerFoods.append(food)
+                dinnerNutrition.calories += food.calories
+                dinnerNutrition.protein += food.protein
+                dinnerNutrition.fat += food.fat
+                dinnerNutrition.carbs += food.carbs
+            } else {
+                snackFoods.append(food)
+                snackNutrition.calories += food.calories
+                snackNutrition.protein += food.protein
+                snackNutrition.fat += food.fat
+                snackNutrition.carbs += food.carbs
+            }
+        }
     }
 }
