@@ -7,19 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C002F112A77554200DB9844 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C002F102A77554200DB9844 /* CameraView.swift */; };
+		4C002F152A77571600DB9844 /* ImageClassification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C002F142A77571600DB9844 /* ImageClassification.swift */; };
+		4C002F182A77575400DB9844 /* FoodClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4C002F172A77575400DB9844 /* FoodClassifier.mlmodel */; };
+		4C002F1A2A7757E500DB9844 /* CGImagePropertyOrientation+UIImageOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C002F192A7757E500DB9844 /* CGImagePropertyOrientation+UIImageOrientation.swift */; };
 		4C30EEC82A73625900D91D59 /* NutriCamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C30EEC72A73625900D91D59 /* NutriCamApp.swift */; };
 		4C30EECA2A73625900D91D59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C30EEC92A73625900D91D59 /* ContentView.swift */; };
 		4C30EECC2A73625B00D91D59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C30EECB2A73625B00D91D59 /* Assets.xcassets */; };
 		4C30EECF2A73625B00D91D59 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C30EECE2A73625B00D91D59 /* Preview Assets.xcassets */; };
+		4C765CF82A7CAC28003E9748 /* best.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 4C765CF72A7CAC28003E9748 /* best.mlpackage */; };
 		8D2676CA2A73650400F4E6BC /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 8D2676C92A73650400F4E6BC /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C002F102A77554200DB9844 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		4C002F142A77571600DB9844 /* ImageClassification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClassification.swift; sourceTree = "<group>"; };
+		4C002F172A77575400DB9844 /* FoodClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FoodClassifier.mlmodel; sourceTree = "<group>"; };
+		4C002F192A7757E500DB9844 /* CGImagePropertyOrientation+UIImageOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImagePropertyOrientation+UIImageOrientation.swift"; sourceTree = "<group>"; };
 		4C30EEC42A73625900D91D59 /* NutriCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C30EEC72A73625900D91D59 /* NutriCamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutriCamApp.swift; sourceTree = "<group>"; };
 		4C30EEC92A73625900D91D59 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4C30EECB2A73625B00D91D59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C30EECE2A73625B00D91D59 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4C765CF72A7CAC28003E9748 /* best.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = best.mlpackage; sourceTree = "<group>"; };
 		8D2676C92A73650400F4E6BC /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -34,6 +44,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C002F122A7756FD00DB9844 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				4C002F142A77571600DB9844 /* ImageClassification.swift */,
+				4C002F192A7757E500DB9844 /* CGImagePropertyOrientation+UIImageOrientation.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		4C002F132A77570400DB9844 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4C002F102A77554200DB9844 /* CameraView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4C002F162A77572A00DB9844 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4C765CF72A7CAC28003E9748 /* best.mlpackage */,
+				4C002F172A77575400DB9844 /* FoodClassifier.mlmodel */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		4C30EEBB2A73625900D91D59 = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +90,9 @@
 		4C30EEC62A73625900D91D59 /* NutriCam */ = {
 			isa = PBXGroup;
 			children = (
+				4C002F162A77572A00DB9844 /* Model */,
+				4C002F132A77570400DB9844 /* View */,
+				4C002F122A7756FD00DB9844 /* Helper */,
 				4C30EEC72A73625900D91D59 /* NutriCamApp.swift */,
 				4C30EEC92A73625900D91D59 /* ContentView.swift */,
 				4C30EECB2A73625B00D91D59 /* Assets.xcassets */,
@@ -141,8 +180,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C002F112A77554200DB9844 /* CameraView.swift in Sources */,
 				4C30EECA2A73625900D91D59 /* ContentView.swift in Sources */,
+				4C002F182A77575400DB9844 /* FoodClassifier.mlmodel in Sources */,
+				4C765CF82A7CAC28003E9748 /* best.mlpackage in Sources */,
 				4C30EEC82A73625900D91D59 /* NutriCamApp.swift in Sources */,
+				4C002F1A2A7757E500DB9844 /* CGImagePropertyOrientation+UIImageOrientation.swift in Sources */,
+				4C002F152A77571600DB9844 /* ImageClassification.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +318,7 @@
 				DEVELOPMENT_TEAM = 594Q84397D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Takes pictures to demonstrate image recognition.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -306,6 +351,7 @@
 				DEVELOPMENT_TEAM = 594Q84397D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Takes pictures to demonstrate image recognition.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
