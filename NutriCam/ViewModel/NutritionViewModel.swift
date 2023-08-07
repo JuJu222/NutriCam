@@ -20,7 +20,7 @@ class NutritionViewModel: ObservableObject {
     @Published var snackFoods: [FoodNutrition] = []
     
     @Published var currentWeek: [Date] = []
-    @Published var currentDay: Date = Date()
+    @Published var currentDay: Date = Date().midnight()
     
     @Published var foodName: String = ""
     @Published var hintFoods: [Hint] = []
@@ -59,7 +59,7 @@ class NutritionViewModel: ObservableObject {
         
         do {
             foods = try container.viewContext.fetch(request)
-            print("Fetch Success")
+            print("Daily Foods: \(foods)")
         } catch let error {
             print("Fetch Error: \(error)")
         }
@@ -153,7 +153,7 @@ class NutritionViewModel: ObservableObject {
     
     func fetchDailyNutrition() {
         let request = NSFetchRequest<FoodNutrition>(entityName: "FoodNutrition")
-        request.predicate = NSPredicate(format: "date < %@", currentDay as CVarArg)
+        request.predicate = NSPredicate(format: "date >= %@", currentDay as CVarArg)
         
         do {
             dailyFoods = try container.viewContext.fetch(request)

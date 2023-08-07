@@ -8,41 +8,48 @@
 import WidgetKit
 import SwiftUI
 
+struct SimpleEntry: TimelineEntry {
+    let date: Date
+    let nutritions: Nutrition
+}
+
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date())
+        SimpleEntry(date: Date(), nutritions: Nutrition())
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date())
-        completion(entry)
+        Task {
+            let entry = SimpleEntry(date: Date(), nutritions: WidgetService.shared.nutrition)
+            completion(entry)
+        }
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        var entries: [SimpleEntry] = []
-
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate)
-            entries.append(entry)
+        Task {
+            let entry = SimpleEntry(date: Date(), nutritions: WidgetService.shared.nutrition)
+            
+            let timeline = Timeline(entries: [entry], policy: .after(.now.advanced(by: 60 * 60 * 30)))
+            
+            completion(timeline)
         }
-
-        let timeline = Timeline(entries: entries, policy: .atEnd)
-        completion(timeline)
     }
 }
 
-struct SimpleEntry: TimelineEntry {
-    let date: Date
-}
-
 struct NutriCamWidgetEntryView : View {
+    @Environment(\.widgetFamily) var widgetFamily
+    
     var entry: Provider.Entry
 
     var body: some View {
-        Text(entry.date, style: .time)
+        switch widgetFamily {
+        case .systemSmall:
+            SmallSizeView(entry: entry)
+        case .systemMedium:
+            MediumSizeView(entry: entry)
+        default:
+            Text("Not implemented!")
+        }
     }
 }
 
@@ -60,7 +67,7 @@ struct NutriCamWidget: Widget {
 
 struct NutriCamWidget_Previews: PreviewProvider {
     static var previews: some View {
-        NutriCamWidgetEntryView(entry: SimpleEntry(date: Date()))
+        NutriCamWidgetEntryView(entry: SimpleEntry(date: Date(), nutritions: Nutrition()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

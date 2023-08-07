@@ -56,18 +56,18 @@ struct AddMealCardView: View {
                     .frame(width: UIScreen.main.bounds.width / 5.5)
                     
                     VStack {
-                        Text("Carbs")
-                            .font(.subheadline)
-                            .foregroundColor(.secondary)
-                        Text(meal == "Breakfast" ? "\(vm.breakfastNutrition.carbs, specifier: "%.1f") g" : meal == "Lunch" ? "\(vm.lunchNutrition.carbs, specifier: "%.1f") g" : meal == "Dinner" ? "\(vm.dinnerNutrition.carbs, specifier: "%.1f") g" : "\(vm.snackNutrition.carbs, specifier: "%.1f") g")
-                    }
-                    .frame(width: UIScreen.main.bounds.width / 5.5)
-                    
-                    VStack {
                         Text("Fat")
                             .font(.subheadline)
                             .foregroundColor(.secondary)
                         Text(meal == "Breakfast" ? "\(vm.breakfastNutrition.fat, specifier: "%.1f") g" : meal == "Lunch" ? "\(vm.lunchNutrition.fat, specifier: "%.1f") g" : meal == "Dinner" ? "\(vm.dinnerNutrition.fat, specifier: "%.1f") g" : "\(vm.snackNutrition.fat, specifier: "%.1f") g")
+                    }
+                    .frame(width: UIScreen.main.bounds.width / 5.5)
+                    
+                    VStack {
+                        Text("Carbs")
+                            .font(.subheadline)
+                            .foregroundColor(.secondary)
+                        Text(meal == "Breakfast" ? "\(vm.breakfastNutrition.carbs, specifier: "%.1f") g" : meal == "Lunch" ? "\(vm.lunchNutrition.carbs, specifier: "%.1f") g" : meal == "Dinner" ? "\(vm.dinnerNutrition.carbs, specifier: "%.1f") g" : "\(vm.snackNutrition.carbs, specifier: "%.1f") g")
                     }
                     .frame(width: UIScreen.main.bounds.width / 5.5)
                 }

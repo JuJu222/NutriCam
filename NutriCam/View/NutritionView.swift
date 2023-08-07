@@ -47,6 +47,7 @@ struct NutritionView: View {
                                         vm.currentDay = day
                                         vm.fetchDailyNutrition()
                                     }
+                                    print("Current date \(vm.currentDay)")
                                 }
                             }
                         }
@@ -136,6 +137,10 @@ struct NutritionView: View {
             }
             .onChange(of: vm.currentDay) { _ in
                 vm.fetchCurrentWeek()
+            }
+            .onAppear {
+                print("Current date \(vm.currentDay)")
+                vm.fetchDailyNutrition()
             }
             .fullScreenCover(isPresented: $vm.showAddSheet) {
                 AddFoodCameraView(vm: vm)

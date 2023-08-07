@@ -25,6 +25,15 @@
 		8D4D64952A7D10AC002B6200 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4D64942A7D10AC002B6200 /* ProfileView.swift */; };
 		8D4D64972A7D10C7002B6200 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4D64962A7D10C7002B6200 /* StatisticsView.swift */; };
 		8D4D64992A7D10CF002B6200 /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4D64982A7D10CF002B6200 /* StatisticsViewModel.swift */; };
+		8DBCE8312A7FD91800053CE1 /* NutriCamData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8D4D648D2A7D1053002B6200 /* NutriCamData.xcdatamodeld */; };
+		8DBCE8322A7FD92300053CE1 /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC758922A7FAC90001E98BE /* Nutrition.swift */; };
+		8DBCE8342A7FD95200053CE1 /* WidgetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBCE8332A7FD95200053CE1 /* WidgetService.swift */; };
+		8DBCE8352A7FD95200053CE1 /* WidgetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBCE8332A7FD95200053CE1 /* WidgetService.swift */; };
+		8DBCE8382A7FD95F00053CE1 /* SmallSizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBCE8362A7FD95F00053CE1 /* SmallSizeView.swift */; };
+		8DBCE83B2A7FD96600053CE1 /* MediumSizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBCE8392A7FD96600053CE1 /* MediumSizeView.swift */; };
+		8DBCE83C2A7FDB1300053CE1 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC758762A7E2A5B001E98BE /* CircularProgressView.swift */; };
+		8DBCE83E2A7FDC2800053CE1 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBCE83D2A7FDC2800053CE1 /* Date.swift */; };
+		8DBCE83F2A7FDC2800053CE1 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBCE83D2A7FDC2800053CE1 /* Date.swift */; };
 		8DC758752A7E06BC001E98BE /* AddMealCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC758742A7E06BC001E98BE /* AddMealCardView.swift */; };
 		8DC758772A7E2A5B001E98BE /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC758762A7E2A5B001E98BE /* CircularProgressView.swift */; };
 		8DC758792A7E3F6D001E98BE /* AddFoodCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC758782A7E3F6D001E98BE /* AddFoodCameraView.swift */; };
@@ -88,6 +97,10 @@
 		8D4D64942A7D10AC002B6200 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		8D4D64962A7D10C7002B6200 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		8D4D64982A7D10CF002B6200 /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
+		8DBCE8332A7FD95200053CE1 /* WidgetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetService.swift; sourceTree = "<group>"; };
+		8DBCE8362A7FD95F00053CE1 /* SmallSizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallSizeView.swift; sourceTree = "<group>"; };
+		8DBCE8392A7FD96600053CE1 /* MediumSizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumSizeView.swift; sourceTree = "<group>"; };
+		8DBCE83D2A7FDC2800053CE1 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		8DC758742A7E06BC001E98BE /* AddMealCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMealCardView.swift; sourceTree = "<group>"; };
 		8DC758762A7E2A5B001E98BE /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		8DC758782A7E3F6D001E98BE /* AddFoodCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFoodCameraView.swift; sourceTree = "<group>"; };
@@ -182,6 +195,9 @@
 			children = (
 				8D2814572A75363E0077D7D3 /* NutriCamWidgetBundle.swift */,
 				8D2814592A75363E0077D7D3 /* NutriCamWidget.swift */,
+				8DBCE8332A7FD95200053CE1 /* WidgetService.swift */,
+				8DBCE8362A7FD95F00053CE1 /* SmallSizeView.swift */,
+				8DBCE8392A7FD96600053CE1 /* MediumSizeView.swift */,
 				8D28145B2A75363F0077D7D3 /* Assets.xcassets */,
 				8D28145D2A75363F0077D7D3 /* Info.plist */,
 			);
@@ -242,6 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				8DC758822A7E585B001E98BE /* APIKey.swift */,
+				8DBCE83D2A7FDC2800053CE1 /* Date.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -351,6 +368,7 @@
 				8D4D64932A7D10A5002B6200 /* ProfileViewModel.swift in Sources */,
 				8DC758872A7EB37B001E98BE /* EditProfileView.swift in Sources */,
 				8D4D648C2A7D103C002B6200 /* NutritionViewModel.swift in Sources */,
+				8DBCE8342A7FD95200053CE1 /* WidgetService.swift in Sources */,
 				8DC758892A7EB78A001E98BE /* OnBoardingView.swift in Sources */,
 				4C30EECA2A73625900D91D59 /* ContentView.swift in Sources */,
 				8DC758792A7E3F6D001E98BE /* AddFoodCameraView.swift in Sources */,
@@ -370,6 +388,7 @@
 				8DC7588D2A7EB85D001E98BE /* OnBoardingStartView.swift in Sources */,
 				8DC7587B2A7E3FF9001E98BE /* SelectFoodView.swift in Sources */,
 				8DC758772A7E2A5B001E98BE /* CircularProgressView.swift in Sources */,
+				8DBCE83E2A7FDC2800053CE1 /* Date.swift in Sources */,
 				8DC7588B2A7EB81C001E98BE /* OnBoardingViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,6 +399,13 @@
 			files = (
 				8D28145A2A75363E0077D7D3 /* NutriCamWidget.swift in Sources */,
 				8D2814582A75363E0077D7D3 /* NutriCamWidgetBundle.swift in Sources */,
+				8DBCE83C2A7FDB1300053CE1 /* CircularProgressView.swift in Sources */,
+				8DBCE8352A7FD95200053CE1 /* WidgetService.swift in Sources */,
+				8DBCE8382A7FD95F00053CE1 /* SmallSizeView.swift in Sources */,
+				8DBCE8322A7FD92300053CE1 /* Nutrition.swift in Sources */,
+				8DBCE83B2A7FD96600053CE1 /* MediumSizeView.swift in Sources */,
+				8DBCE83F2A7FDC2800053CE1 /* Date.swift in Sources */,
+				8DBCE8312A7FD91800053CE1 /* NutriCamData.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
