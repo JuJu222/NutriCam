@@ -71,7 +71,13 @@ struct CameraView: View {
                         classification.updateClassifications(for: image)
                     }
                 }, content: {
-                    ImagePicker(sourceType: self.sourceType, image: $image)
+                    ZStack {
+                        Text("aaaa")
+                            .font(.system(size: 60))
+                            .foregroundColor(.white)
+                            .bold()
+                        ImagePicker(sourceType: self.sourceType, image: $image)
+                    }
                 })
             }
         }

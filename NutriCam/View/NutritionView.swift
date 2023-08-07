@@ -143,7 +143,8 @@ struct NutritionView: View {
                 vm.fetchDailyNutrition()
             }
             .fullScreenCover(isPresented: $vm.showAddSheet) {
-                AddFoodCameraView(vm: vm)
+//                AddFoodCameraView(vm: vm)
+                CameraView()
             }
         }
     }
