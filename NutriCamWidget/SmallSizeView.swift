@@ -13,27 +13,23 @@ struct SmallSizeView: View {
     var entry: SimpleEntry
     
     var body: some View {
-        VStack(spacing: 10) {
-            ZStack {
-                CircularProgressView(progress: entry.nutrition.calories / 2000)
+        ZStack {
+            CircularProgressView(progress: entry.nutrition.calories / 2000)
 
-                VStack {
-                    Text("\(entry.nutrition.calories, specifier: "%.0f")")
-                        .font(.title2)
-                        .bold()
-                        .padding(.top, 12)
-                    Text("/ 2000\nkcal")
-                        .font(.caption)
-                        .foregroundColor(.gray)
-                        .multilineTextAlignment(.center)
-                }
+            VStack {
+                Image(systemName: "flame.fill")
+                    .foregroundColor(Color("AccentColor"))
+                    .font(.title2)
+                
+                Text("\(entry.nutrition.calories, specifier: "%.0f")")
+                    .font(.title)
+                    .bold()
+                Text("/ 2000\nkcal")
+                    .font(.footnote)
+                    .multilineTextAlignment(.center)
             }
-            .frame(width: 100, height: 100)
-
-            Text("Calories")
-                .font(.footnote)
-                .bold()
         }
+        .frame(width: 120, height: 120)
     }
 }
 

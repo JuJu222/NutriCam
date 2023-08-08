@@ -55,30 +55,24 @@ struct NutritionView: View {
                     }
                     
                     HStack(spacing: 12) {
-                        VStack(spacing: 12) {
-                            ZStack {
-                                CircularProgressView(progress: vm.dailyNutrition.calories / 2000)
-                                    .frame(width: UIScreen.main.bounds.width / 2.5)
+                        ZStack {
+                            CircularProgressView(progress: vm.dailyNutrition.calories / 2000)
+                                .frame(width: UIScreen.main.bounds.width / 2.5)
+                            
+                            VStack {
+                                Image(systemName: "flame.fill")
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(height: 40)
+                                    .foregroundColor(Color.accentColor)
                                 
-                                VStack {
-                                    Image(systemName: "flame.fill")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(height: 40)
-                                        .foregroundColor(Color.accentColor)
-                                    
-                                    Text("\(vm.dailyNutrition.calories, specifier: "%.0f")")
-                                        .font(.title)
-                                        .bold()
-                                    
-                                    Text("/ 2000 kcal")
-                                        .font(.subheadline)
-                                        .foregroundColor(.secondary)
-                                }
+                                Text("\(vm.dailyNutrition.calories, specifier: "%.0f")")
+                                    .font(.title)
+                                    .bold()
+                                
+                                Text("/ 2000 kcal")
+                                    .font(.subheadline)
                             }
-                            Text("Calories")
-                                .font(.subheadline)
-                                .bold()
                         }
                         
                         Spacer()

@@ -29,7 +29,8 @@ struct AddMealCardView: View {
                         vm.selectedMeal = meal
                         showAddSheet.toggle()
                     } label: {
-                        Label("Add", systemImage: "plus.circle")
+                        Label("Add", systemImage: "camera")
+                            .fontWeight(.semibold)
                     }
                     .buttonStyle(.borderedProminent)
                     .cornerRadius(100)
