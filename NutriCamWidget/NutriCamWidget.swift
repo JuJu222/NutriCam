@@ -10,29 +10,51 @@ import SwiftUI
 
 struct SimpleEntry: TimelineEntry {
     let date: Date
-    let nutritions: Nutrition
+    let nutrition: Nutrition
 }
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), nutritions: Nutrition())
+        SimpleEntry(date: Date(), nutrition: Nutrition())
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        Task {
-            let entry = SimpleEntry(date: Date(), nutritions: WidgetService.shared.nutrition)
+        do {
+            let nutrition = try getData()
+            let entry = SimpleEntry(date: Date(), nutrition: nutrition)
             completion(entry)
+        } catch {
+            print(error)
         }
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        Task {
-            let entry = SimpleEntry(date: Date(), nutritions: WidgetService.shared.nutrition)
+        do {
+            let nutrition = try getData()
+            let entry = SimpleEntry(date: Date(), nutrition: nutrition)
             
-            let timeline = Timeline(entries: [entry], policy: .after(.now.advanced(by: 60 * 60 * 30)))
-            
+            let timeline = Timeline(entries: [entry], policy: .atEnd)
             completion(timeline)
+        } catch {
+            print(error)
         }
+    }
+    
+    private func getData() throws -> Nutrition {
+        let request = FoodNutrition.fetchRequest()
+        request.predicate = NSPredicate(format: "date >= %@", Date().midnight() as CVarArg)
+        let result = try PersistenceController.shared.container.viewContext.fetch(request)
+        
+        var dailyNutrition = Nutrition()
+        
+        result.forEach { food in
+            dailyNutrition.calories += food.calories
+            dailyNutrition.protein += food.protein
+            dailyNutrition.fat += food.fat
+            dailyNutrition.carbs += food.carbs
+        }
+        
+        return dailyNutrition
     }
 }
 
@@ -60,14 +82,15 @@ struct NutriCamWidget: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             NutriCamWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("NutriCam Widget")
+        .description("This widget displays information about your daily nutrition, including calories, protein, fat, and carbs.")
+        .supportedFamilies([.systemSmall, .systemMedium])
     }
 }
 
 struct NutriCamWidget_Previews: PreviewProvider {
     static var previews: some View {
-        NutriCamWidgetEntryView(entry: SimpleEntry(date: Date(), nutritions: Nutrition()))
+        NutriCamWidgetEntryView(entry: SimpleEntry(date: Date(), nutrition: Nutrition()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

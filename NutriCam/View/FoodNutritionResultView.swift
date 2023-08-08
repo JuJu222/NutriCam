@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct FoodNutritionResultView: View {
+    @Environment(\.colorScheme) var colorScheme
     
     @ObservedObject var vm: NutritionViewModel
     let food: Hint
     
+    @State var weightPer: Double = 0
+    
     @State var weight: Double = 0
+    @State var selectedMeasure: String = ""
     
     var body: some View {
         VStack {
@@ -28,58 +32,62 @@ struct FoodNutritionResultView: View {
                 Color.gray
                     .frame(height: 200)
             }
+            .padding(.horizontal)
             
-            Text("\(String(format: "%.0f", weight)) gram per serving")
-                .padding()
+            HStack(spacing: 8) {
+                TextField("Weight", value: $weight, format: .number)
+                    .frame(width: UIScreen.main.bounds.width / 5)
+                    .padding(14)
+                    .background(colorScheme == .dark ? Color(UIColor.systemGray6) : .white)
+                    .cornerRadius(8)
+                
+                Picker("Measure", selection: $selectedMeasure) {
+                    ForEach(food.measures ?? [], id: \.self) { measure in
+                        Text(measure.label ?? "")
+                    }
+                }
+                .padding(8)
+                .background(Color(UIColor.systemBackground))
+                .cornerRadius(8)
+            }
+            .padding()
             
-            VStack (alignment: .leading) {
-                HStack {
-                    Text("Nutrients")
-                        .font(.title3)
-                        .bold()
-                        .padding(.bottom)
+            List {
+                Section(header: Text("Nutrients")) {
+                    HStack {
+                        Text("Calories")
+                        
+                        Spacer()
+                        
+                        Text("\(String(format: "%.0f", food.food?.nutrients?.ENERC_KCAL ?? 0)) kcal")
+                    }
                     
-                    Spacer()
-                }
-                
-                HStack {
-                    Text("Calories")
+                    HStack {
+                        Text("Protein")
+                        
+                        Spacer()
+                        
+                        Text("\(String(format: "%.2f", food.food?.nutrients?.PROCNT ?? 0)) g")
+                    }
                     
-                    Spacer()
+                    HStack {
+                        Text("Fat")
+                        
+                        Spacer()
+                        
+                        Text("\(String(format: "%.2f", food.food?.nutrients?.FAT ?? 0)) g")
+                    }
                     
-                    Text("\(String(format: "%.0f", food.food?.nutrients?.ENERC_KCAL ?? 0)) kcal")
-                }
-                Divider()
-                    .padding(.bottom, 4)
-                
-                HStack {
-                    Text("Protein")
-                    
-                    Spacer()
-                    
-                    Text("\(String(format: "%.2f", food.food?.nutrients?.PROCNT ?? 0)) g")
-                }
-                Divider()
-                    .padding(.bottom, 4)
-                
-                HStack {
-                    Text("Fat")
-                    
-                    Spacer()
-                    
-                    Text("\(String(format: "%.2f", food.food?.nutrients?.FAT ?? 0)) g")
-                }
-                Divider()
-                    .padding(.bottom, 4)
-                
-                HStack {
-                    Text("Carbohydrates")
-                    
-                    Spacer()
-                    
-                    Text("\(String(format: "%.2f", food.food?.nutrients?.CHOCDF ?? 0)) g")
+                    HStack {
+                        Text("Carbohydrates")
+                        
+                        Spacer()
+                        
+                        Text("\(String(format: "%.2f", food.food?.nutrients?.CHOCDF ?? 0)) g")
+                    }
                 }
             }
+            .scrollContentBackground(.hidden)
             
             Spacer()
             
@@ -98,16 +106,14 @@ struct FoodNutritionResultView: View {
                 .padding()
                 .background(Color.accentColor)
                 .cornerRadius(100)
+                .padding()
             }
         }
-        .padding()
         .background(Color("Background"))
         .navigationTitle(food.food?.label ?? "Food Name")
         .onAppear {
             food.measures?.forEach({ measure in
-                if measure.label == "Serving" {
-                    weight = measure.weight ?? 0
-                }
+                weightPer = measure.weight ?? 0
             })
         }
     }

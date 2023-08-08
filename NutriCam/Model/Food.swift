@@ -122,11 +122,11 @@ struct ServingSize: Codable {
 // MARK: - Measure
 struct Measure: Codable, Hashable {
     static func == (lhs: Measure, rhs: Measure) -> Bool {
-        lhs.uri == rhs.uri
+        lhs.label == rhs.label
     }
     
     func hash(into hasher: inout Hasher) {
-        hasher.combine(uri)
+        hasher.combine(label)
     }
     
     var uri: String?

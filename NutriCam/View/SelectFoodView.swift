@@ -41,14 +41,15 @@ struct SelectFoodView: View {
                                     .frame(width: 45)
                             }
                             
-                            VStack (alignment: .leading) {
+                            VStack (alignment: .leading, spacing: 2) {
                                 Text(food.food?.label ?? "Label")
                                     .font(.title3)
                                     .bold()
                                     .foregroundColor(Color(UIColor.label))
                                     .multilineTextAlignment(.leading)
 
-                                Text("\(food.food?.category ?? "")")
+                                Text("\(food.food?.category ?? ""), \(food.food?.nutrients?.ENERC_KCAL ?? 0, specifier: "%.0f") kcal")
+                                    .font(.subheadline)
                                     .foregroundColor(.secondary)
                                     .multilineTextAlignment(.leading)
                             }

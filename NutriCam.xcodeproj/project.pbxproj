@@ -25,10 +25,15 @@
 		8D4D64952A7D10AC002B6200 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4D64942A7D10AC002B6200 /* ProfileView.swift */; };
 		8D4D64972A7D10C7002B6200 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4D64962A7D10C7002B6200 /* StatisticsView.swift */; };
 		8D4D64992A7D10CF002B6200 /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4D64982A7D10CF002B6200 /* StatisticsViewModel.swift */; };
+		8D9320522A8134FA00C4D1B2 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9320512A8134FA00C4D1B2 /* URL.swift */; };
+		8D9320532A81351000C4D1B2 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9320512A8134FA00C4D1B2 /* URL.swift */; };
+		8D9320562A81366A00C4D1B2 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC758842A7E587A001E98BE /* Food.swift */; };
+		8D9320572A81368700C4D1B2 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC758822A7E585B001E98BE /* APIKey.swift */; };
+		8D9320602A81481300C4D1B2 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D93205F2A81481300C4D1B2 /* PersistenceController.swift */; };
+		8D9320612A81481300C4D1B2 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D93205F2A81481300C4D1B2 /* PersistenceController.swift */; };
+		8D9320652A81E0C100C4D1B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C30EECB2A73625B00D91D59 /* Assets.xcassets */; };
 		8DBCE8312A7FD91800053CE1 /* NutriCamData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8D4D648D2A7D1053002B6200 /* NutriCamData.xcdatamodeld */; };
 		8DBCE8322A7FD92300053CE1 /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC758922A7FAC90001E98BE /* Nutrition.swift */; };
-		8DBCE8342A7FD95200053CE1 /* WidgetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBCE8332A7FD95200053CE1 /* WidgetService.swift */; };
-		8DBCE8352A7FD95200053CE1 /* WidgetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBCE8332A7FD95200053CE1 /* WidgetService.swift */; };
 		8DBCE8382A7FD95F00053CE1 /* SmallSizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBCE8362A7FD95F00053CE1 /* SmallSizeView.swift */; };
 		8DBCE83B2A7FD96600053CE1 /* MediumSizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBCE8392A7FD96600053CE1 /* MediumSizeView.swift */; };
 		8DBCE83C2A7FDB1300053CE1 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC758762A7E2A5B001E98BE /* CircularProgressView.swift */; };
@@ -97,7 +102,9 @@
 		8D4D64942A7D10AC002B6200 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		8D4D64962A7D10C7002B6200 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		8D4D64982A7D10CF002B6200 /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
-		8DBCE8332A7FD95200053CE1 /* WidgetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetService.swift; sourceTree = "<group>"; };
+		8D9320512A8134FA00C4D1B2 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		8D9320582A81382200C4D1B2 /* NutriCamWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NutriCamWidgetExtension.entitlements; sourceTree = "<group>"; };
+		8D93205F2A81481300C4D1B2 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		8DBCE8362A7FD95F00053CE1 /* SmallSizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallSizeView.swift; sourceTree = "<group>"; };
 		8DBCE8392A7FD96600053CE1 /* MediumSizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumSizeView.swift; sourceTree = "<group>"; };
 		8DBCE83D2A7FDC2800053CE1 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
@@ -161,11 +168,13 @@
 			isa = PBXGroup;
 			children = (
 				8DC758812A7E5854001E98BE /* Helper */,
+				8D93205E2A81479B00C4D1B2 /* Data */,
 				8D4D64882A7D100E002B6200 /* Model */,
 				8D4D648A2A7D1018002B6200 /* ViewModel */,
 				8D4D64892A7D1012002B6200 /* View */,
 				8D2814662A75368D0077D7D3 /* Info.plist */,
 				8D2814652A7536730077D7D3 /* NutriCam.entitlements */,
+				8D9320582A81382200C4D1B2 /* NutriCamWidgetExtension.entitlements */,
 				4C30EEC72A73625900D91D59 /* NutriCamApp.swift */,
 				4C30EECB2A73625B00D91D59 /* Assets.xcassets */,
 				4C30EECD2A73625B00D91D59 /* Preview Content */,
@@ -195,7 +204,6 @@
 			children = (
 				8D2814572A75363E0077D7D3 /* NutriCamWidgetBundle.swift */,
 				8D2814592A75363E0077D7D3 /* NutriCamWidget.swift */,
-				8DBCE8332A7FD95200053CE1 /* WidgetService.swift */,
 				8DBCE8362A7FD95F00053CE1 /* SmallSizeView.swift */,
 				8DBCE8392A7FD96600053CE1 /* MediumSizeView.swift */,
 				8D28145B2A75363F0077D7D3 /* Assets.xcassets */,
@@ -207,7 +215,6 @@
 		8D4D64882A7D100E002B6200 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				8D4D648D2A7D1053002B6200 /* NutriCamData.xcdatamodeld */,
 				8DC758842A7E587A001E98BE /* Food.swift */,
 				8DC758922A7FAC90001E98BE /* Nutrition.swift */,
 			);
@@ -245,6 +252,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		8D93205E2A81479B00C4D1B2 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8D4D648D2A7D1053002B6200 /* NutriCamData.xcdatamodeld */,
+				8D93205F2A81481300C4D1B2 /* PersistenceController.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		8DC758732A7E06A4001E98BE /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +275,7 @@
 			children = (
 				8DC758822A7E585B001E98BE /* APIKey.swift */,
 				8DBCE83D2A7FDC2800053CE1 /* Date.swift */,
+				8D9320512A8134FA00C4D1B2 /* URL.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -354,6 +371,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D9320652A81E0C100C4D1B2 /* Assets.xcassets in Resources */,
 				8D28145C2A75363F0077D7D3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,10 +386,11 @@
 				8D4D64932A7D10A5002B6200 /* ProfileViewModel.swift in Sources */,
 				8DC758872A7EB37B001E98BE /* EditProfileView.swift in Sources */,
 				8D4D648C2A7D103C002B6200 /* NutritionViewModel.swift in Sources */,
-				8DBCE8342A7FD95200053CE1 /* WidgetService.swift in Sources */,
 				8DC758892A7EB78A001E98BE /* OnBoardingView.swift in Sources */,
+				8D9320522A8134FA00C4D1B2 /* URL.swift in Sources */,
 				4C30EECA2A73625900D91D59 /* ContentView.swift in Sources */,
 				8DC758792A7E3F6D001E98BE /* AddFoodCameraView.swift in Sources */,
+				8D9320602A81481300C4D1B2 /* PersistenceController.swift in Sources */,
 				8DC7588F2A7EB875001E98BE /* OnBoardingProfileView.swift in Sources */,
 				8DC758832A7E585B001E98BE /* APIKey.swift in Sources */,
 				8DC758752A7E06BC001E98BE /* AddMealCardView.swift in Sources */,
@@ -400,12 +419,15 @@
 				8D28145A2A75363E0077D7D3 /* NutriCamWidget.swift in Sources */,
 				8D2814582A75363E0077D7D3 /* NutriCamWidgetBundle.swift in Sources */,
 				8DBCE83C2A7FDB1300053CE1 /* CircularProgressView.swift in Sources */,
-				8DBCE8352A7FD95200053CE1 /* WidgetService.swift in Sources */,
+				8D9320532A81351000C4D1B2 /* URL.swift in Sources */,
 				8DBCE8382A7FD95F00053CE1 /* SmallSizeView.swift in Sources */,
 				8DBCE8322A7FD92300053CE1 /* Nutrition.swift in Sources */,
+				8D9320572A81368700C4D1B2 /* APIKey.swift in Sources */,
 				8DBCE83B2A7FD96600053CE1 /* MediumSizeView.swift in Sources */,
+				8D9320562A81366A00C4D1B2 /* Food.swift in Sources */,
 				8DBCE83F2A7FDC2800053CE1 /* Date.swift in Sources */,
 				8DBCE8312A7FD91800053CE1 /* NutriCamData.xcdatamodeld in Sources */,
+				8D9320612A81481300C4D1B2 /* PersistenceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,6 +631,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = NutriCamWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 83FZ3J9AN9;
@@ -636,6 +659,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = NutriCamWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 83FZ3J9AN9;

@@ -9,21 +9,23 @@ import SwiftUI
 import WidgetKit
 
 struct SmallSizeView: View {
-    
+
     var entry: SimpleEntry
     
     var body: some View {
         VStack(spacing: 10) {
             ZStack {
-                CircularProgressView(progress: entry.nutritions.calories / 2000)
+                CircularProgressView(progress: entry.nutrition.calories / 2000)
 
                 VStack {
-                    Text("\(entry.nutritions.calories, specifier: "%.0f")")
+                    Text("\(entry.nutrition.calories, specifier: "%.0f")")
                         .font(.title2)
                         .bold()
-                    Text("/ 2000")
+                        .padding(.top, 12)
+                    Text("/ 2000\nkcal")
                         .font(.caption)
                         .foregroundColor(.gray)
+                        .multilineTextAlignment(.center)
                 }
             }
             .frame(width: 100, height: 100)
@@ -31,9 +33,6 @@ struct SmallSizeView: View {
             Text("Calories")
                 .font(.footnote)
                 .bold()
-        }
-        .onAppear {
-            WidgetService.shared.fetchFoodNutritionRequest()
         }
     }
 }

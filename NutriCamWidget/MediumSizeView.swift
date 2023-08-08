@@ -14,21 +14,23 @@ struct MediumSizeView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            HStack {
-                VStack(spacing: 10) {
+            HStack(spacing: 10) {
+                VStack {
                     ZStack {
-                        CircularProgressView(progress: entry.nutritions.calories / 2000)
+                        CircularProgressView(progress: entry.nutrition.calories / 2000)
                         
                         VStack {
-                            Text("\(entry.nutritions.calories, specifier: "%.0f")")
+                            Text("\(entry.nutrition.calories, specifier: "%.0f")")
                                 .font(.title2)
                                 .bold()
-                            Text("/ 2000")
+                                .padding(.top, 12)
+                            Text("/ 2000\nkcal")
                                 .font(.caption)
                                 .foregroundColor(.gray)
+                                .multilineTextAlignment(.center)
                         }
+                        .frame(width: 100, height: 100)
                     }
-                    .frame(width: 100, height: 100)
                     
                     Text("Calories")
                         .font(.footnote)
@@ -37,36 +39,41 @@ struct MediumSizeView: View {
                 .frame(width: geometry.size.width * 0.45)
                 
                 VStack(spacing: 16) {
-                    ProgressView(value: entry.nutritions.protein, total: 70) {
+                    ProgressView(value: entry.nutrition.protein, total: 70) {
                         HStack {
                             Text("Protein")
                                 .font(.footnote)
                                 .bold()
                             Spacer()
-                            Text("\(entry.nutritions.protein, specifier: "%.1f") / 60 g")
+                            Text("\(entry.nutrition.protein, specifier: "%.1f") / 60 g")
                                 .font(.footnote)
                         }
                     }
-                    ProgressView(value: entry.nutritions.fat, total: 70) {
+                    .tint(Color("AccentColor"))
+                    
+                    ProgressView(value: entry.nutrition.fat, total: 70) {
                         HStack {
                             Text("Fat")
                                 .font(.footnote)
                                 .bold()
                             Spacer()
-                            Text("\(entry.nutritions.fat, specifier: "%.1f") / 30 g")
+                            Text("\(entry.nutrition.fat, specifier: "%.1f") / 30 g")
                                 .font(.footnote)
                         }
                     }
-                    ProgressView(value: entry.nutritions.carbs, total: 70) {
+                    .tint(Color("AccentColor"))
+                    
+                    ProgressView(value: entry.nutrition.carbs, total: 70) {
                         HStack {
                             Text("Carbs")
                                 .font(.footnote)
                                 .bold()
                             Spacer()
-                            Text("\(entry.nutritions.carbs, specifier: "%.1f") / 70 g")
+                            Text("\(entry.nutrition.carbs, specifier: "%.1f") / 70 g")
                                 .font(.footnote)
                         }
                     }
+                    .tint(Color("AccentColor"))
                 }
                 .frame(width: geometry.size.width * 0.45)
             }

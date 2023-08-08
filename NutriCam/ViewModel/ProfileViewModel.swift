@@ -7,25 +7,13 @@
 
 import Foundation
 import CoreData
+import WidgetKit
 
 class ProfileViewModel: ObservableObject {
     
     @Published var profile: [Profile] = []
     
-    let container: NSPersistentCloudKitContainer
-    
     init() {
-        container = NSPersistentCloudKitContainer(name: "Profile")
-        
-        container.loadPersistentStores { _, error in
-            if let error = error as NSError? {
-                print(error.localizedDescription)
-            }
-        }
-        
-        container.viewContext.automaticallyMergesChangesFromParent = true
-        container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-        
         fetchProfileRequest()
     }
 
@@ -33,7 +21,7 @@ class ProfileViewModel: ObservableObject {
         let request = NSFetchRequest<Profile>(entityName: "Profile")
         
         do {
-            profile = try container.viewContext.fetch(request)
+            profile = try PersistenceController.shared.container.viewContext.fetch(request)
             print("Fetch Success")
         } catch let error {
             print("Fetch Error: \(error)")
@@ -42,8 +30,9 @@ class ProfileViewModel: ObservableObject {
     
     func save() {
         do {
-            try container.viewContext.save()
+            try PersistenceController.shared.container.viewContext.save()
             fetchProfileRequest()
+            WidgetCenter.shared.reloadAllTimelines()
             print("Data Saved")
         } catch {
             print("Could not save the data")
@@ -51,7 +40,7 @@ class ProfileViewModel: ObservableObject {
     }
     
     func addProfile(minCalories: Double, minCarbs: Double, minFat: Double, minProtein: Double, weight: Double, height: Double, dateOfBirth: Date) {
-        let profile = Profile(context: container.viewContext)
+        let profile = Profile(context: PersistenceController.shared.container.viewContext)
         profile.minCalories = minCalories
         profile.minCarbs = minCarbs
         profile.minFat = minFat

@@ -7,25 +7,13 @@
 
 import Foundation
 import CoreData
+import WidgetKit
 
 class StatisticsViewModel: ObservableObject {
     @Published var foods: [FoodNutrition] = []
     
-    let container: NSPersistentCloudKitContainer
-    
     init() {
-        container = NSPersistentCloudKitContainer(name: "NutriCamData")
-        
-        container.loadPersistentStores { _, error in
-            if let error = error as NSError? {
-                print(error.localizedDescription)
-            }
-        }
-        
-        container.viewContext.automaticallyMergesChangesFromParent = true
-        container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
-        
-//        fetchFoodNutritionRequest()
+
     }
 
     func fetchFoodNutritionRequest() {
@@ -34,7 +22,7 @@ class StatisticsViewModel: ObservableObject {
         request.sortDescriptors = [sort]
         
         do {
-            foods = try container.viewContext.fetch(request)
+            foods = try PersistenceController.shared.container.viewContext.fetch(request)
             print("Fetch Success")
         } catch let error {
             print("Fetch Error: \(error)")
@@ -51,8 +39,9 @@ class StatisticsViewModel: ObservableObject {
     
     func save() {
         do {
-            try container.viewContext.save()
+            try PersistenceController.shared.container.viewContext.save()
             fetchFoodNutritionRequest()
+            WidgetCenter.shared.reloadAllTimelines()
             print("Data Saved")
         } catch {
             print("Could not save the data")
@@ -60,7 +49,7 @@ class StatisticsViewModel: ObservableObject {
     }
     
     func addFood(calories: Double, carbs: Double, fat: Double, protein: Double, name: String, meal: String, date: Date) {
-        let food = FoodNutrition(context: container.viewContext)
+        let food = FoodNutrition(context: PersistenceController.shared.container.viewContext)
         food.id = UUID()
         food.calories = calories
         food.carbs = carbs
@@ -76,7 +65,7 @@ class StatisticsViewModel: ObservableObject {
     // Dummy Function
     func deleteAll() {
         foods.forEach { food in
-            container.viewContext.delete(food)
+            PersistenceController.shared.container.viewContext.delete(food)
         }
         
         save()
