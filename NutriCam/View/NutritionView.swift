@@ -45,9 +45,9 @@ struct NutritionView: View {
                                 .onTapGesture {
                                     withAnimation {
                                         vm.currentDay = day
-                                        vm.fetchDailyNutrition()
                                     }
-                                    print("Current date \(vm.currentDay)")
+//                                    print("Current date: \(vm.currentDay)")
+//                                    print("Day: \(day)")
                                 }
                             }
                         }
@@ -109,10 +109,8 @@ struct NutritionView: View {
                                 }
                             }
                         }
+                        .padding(.bottom, 12)
                     }
-//                    .padding()
-//                    .background(.white)
-//                    .cornerRadius(16)
                     .padding([.horizontal, .bottom])
                     
                     ForEach(meals, id: \.self) { meal in
@@ -125,16 +123,32 @@ struct NutritionView: View {
             .background(Color("Background"))
             .navigationTitle("My Nutrition")
             .toolbar {
+//                ToolbarItem(placement: .navigationBarTrailing) {
+//                    DatePicker("", selection: $vm.currentDay, displayedComponents: .date)
+//                }
+                
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Text(vm.extractDate(date: vm.currentDay, format: "dd MMM yyyy"))
+                }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    DatePicker("", selection: $vm.currentDay, displayedComponents: .date)
+                    Image(systemName: "calendar")
+                      .font(.headline)
+                      .foregroundColor(.accentColor)
+                      .overlay{
+                         DatePicker(
+                             "",
+                             selection: $vm.currentDay,
+                             displayedComponents: .date
+                         )
+                          .blendMode(.destinationOver)
+                      }
                 }
             }
             .onChange(of: vm.currentDay) { _ in
                 vm.fetchCurrentWeek()
-            }
-            .onAppear {
-                print("Current date \(vm.currentDay)")
-                vm.fetchDailyNutrition()
+                withAnimation {
+                    vm.fetchDailyNutrition()
+                }
             }
             .fullScreenCover(isPresented: $vm.showAddSheet) {
                 AddFoodCameraView(vm: vm)
@@ -146,6 +160,5 @@ struct NutritionView: View {
 struct NutritionView_Previews: PreviewProvider {
     static var previews: some View {
         NutritionView()
-//            .preferredColorScheme(.dark)
     }
 }

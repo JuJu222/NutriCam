@@ -75,6 +75,7 @@ struct MediumSizeView: View {
                     .tint(Color("AccentColor"))
                 }
                 .frame(width: geometry.size.width * 0.45)
+                .padding(.bottom, 2)
             }
             .padding(.vertical)
             .padding(.horizontal, 4)

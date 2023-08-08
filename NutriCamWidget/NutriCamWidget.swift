@@ -42,7 +42,8 @@ struct Provider: TimelineProvider {
     
     private func getData() throws -> Nutrition {
         let request = FoodNutrition.fetchRequest()
-        request.predicate = NSPredicate(format: "date >= %@", Date().midnight() as CVarArg)
+        request.predicate = NSPredicate(format: "date >= %@ && date <= %@", Date().midnight() as CVarArg, Calendar.current.startOfDay(for: Date().midnight() + 86400) as CVarArg)
+        
         let result = try PersistenceController.shared.container.viewContext.fetch(request)
         
         var dailyNutrition = Nutrition()

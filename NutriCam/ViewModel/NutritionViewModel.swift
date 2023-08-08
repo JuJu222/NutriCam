@@ -38,6 +38,8 @@ class NutritionViewModel: ObservableObject {
         fetchCurrentWeek()
         
         fetchDailyNutrition()
+        
+        currentDay = Calendar.current.date(byAdding: .hour, value: 7, to: currentDay) ?? Date()
     }
 
     func fetchFoodNutritionRequest() {
@@ -47,7 +49,6 @@ class NutritionViewModel: ObservableObject {
         
         do {
             foods = try PersistenceController.shared.container.viewContext.fetch(request)
-            print("Daily Foods: \(foods)")
         } catch let error {
             print("Fetch Error: \(error)")
         }
@@ -112,7 +113,14 @@ class NutritionViewModel: ObservableObject {
     }
     
     func isToday(date: Date) -> Bool {
-        let calendar = Calendar.current
+        let calendar = Calendar(identifier: .gregorian)
+        
+//        if calendar.isDate(currentDay, inSameDayAs: date) {
+//            print(currentDay)
+//            print(date)
+//            print(calendar.isDate(currentDay, equalTo: date, toGranularity: .day))
+//            print()
+//        }
 
         return calendar.isDate(currentDay, inSameDayAs: date)
     }
@@ -142,12 +150,11 @@ class NutritionViewModel: ObservableObject {
     
     func fetchDailyNutrition() {
         let request = NSFetchRequest<FoodNutrition>(entityName: "FoodNutrition")
-        request.predicate = NSPredicate(format: "date >= %@", currentDay as CVarArg)
+        request.predicate = NSPredicate(format: "date >= %@ && date <= %@", currentDay as CVarArg, Calendar.current.startOfDay(for: currentDay + 86400) as CVarArg)
         
         do {
             dailyFoods = try PersistenceController.shared.container.viewContext.fetch(request)
-            print("Daily Nutritions: \(dailyFoods)")
-            
+            print(dailyFoods.first?.date ?? Date())
             countNutrition()
         } catch let error {
             print("Fetch Error: \(error)")

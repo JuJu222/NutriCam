@@ -31,6 +31,9 @@
 		8D9320572A81368700C4D1B2 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC758822A7E585B001E98BE /* APIKey.swift */; };
 		8D9320602A81481300C4D1B2 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D93205F2A81481300C4D1B2 /* PersistenceController.swift */; };
 		8D9320612A81481300C4D1B2 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D93205F2A81481300C4D1B2 /* PersistenceController.swift */; };
+		8D9320672A821B7100C4D1B2 /* OnBoardingFirstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9320662A821B7100C4D1B2 /* OnBoardingFirstView.swift */; };
+		8D9320692A821B7C00C4D1B2 /* OnBoardingSecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D9320682A821B7C00C4D1B2 /* OnBoardingSecondView.swift */; };
+		8D93206B2A821B8600C4D1B2 /* OnBoardingThirdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D93206A2A821B8600C4D1B2 /* OnBoardingThirdView.swift */; };
 		8DBCE8312A7FD91800053CE1 /* NutriCamData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8D4D648D2A7D1053002B6200 /* NutriCamData.xcdatamodeld */; };
 		8DBCE8322A7FD92300053CE1 /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC758922A7FAC90001E98BE /* Nutrition.swift */; };
 		8DBCE8382A7FD95F00053CE1 /* SmallSizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBCE8362A7FD95F00053CE1 /* SmallSizeView.swift */; };
@@ -48,7 +51,6 @@
 		8DC758872A7EB37B001E98BE /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC758862A7EB37B001E98BE /* EditProfileView.swift */; };
 		8DC758892A7EB78A001E98BE /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC758882A7EB78A001E98BE /* OnBoardingView.swift */; };
 		8DC7588B2A7EB81C001E98BE /* OnBoardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7588A2A7EB81C001E98BE /* OnBoardingViewModel.swift */; };
-		8DC7588D2A7EB85D001E98BE /* OnBoardingStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7588C2A7EB85D001E98BE /* OnBoardingStartView.swift */; };
 		8DC7588F2A7EB875001E98BE /* OnBoardingProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7588E2A7EB875001E98BE /* OnBoardingProfileView.swift */; };
 		8DC758912A7EB87F001E98BE /* OnBoardingNutritionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC758902A7EB87F001E98BE /* OnBoardingNutritionView.swift */; };
 		8DC758932A7FAC90001E98BE /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC758922A7FAC90001E98BE /* Nutrition.swift */; };
@@ -104,6 +106,9 @@
 		8D9320512A8134FA00C4D1B2 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		8D9320582A81382200C4D1B2 /* NutriCamWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NutriCamWidgetExtension.entitlements; sourceTree = "<group>"; };
 		8D93205F2A81481300C4D1B2 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		8D9320662A821B7100C4D1B2 /* OnBoardingFirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingFirstView.swift; sourceTree = "<group>"; };
+		8D9320682A821B7C00C4D1B2 /* OnBoardingSecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingSecondView.swift; sourceTree = "<group>"; };
+		8D93206A2A821B8600C4D1B2 /* OnBoardingThirdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingThirdView.swift; sourceTree = "<group>"; };
 		8DBCE8362A7FD95F00053CE1 /* SmallSizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallSizeView.swift; sourceTree = "<group>"; };
 		8DBCE8392A7FD96600053CE1 /* MediumSizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumSizeView.swift; sourceTree = "<group>"; };
 		8DBCE83D2A7FDC2800053CE1 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
@@ -117,7 +122,6 @@
 		8DC758862A7EB37B001E98BE /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		8DC758882A7EB78A001E98BE /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		8DC7588A2A7EB81C001E98BE /* OnBoardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewModel.swift; sourceTree = "<group>"; };
-		8DC7588C2A7EB85D001E98BE /* OnBoardingStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingStartView.swift; sourceTree = "<group>"; };
 		8DC7588E2A7EB875001E98BE /* OnBoardingProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingProfileView.swift; sourceTree = "<group>"; };
 		8DC758902A7EB87F001E98BE /* OnBoardingNutritionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingNutritionView.swift; sourceTree = "<group>"; };
 		8DC758922A7FAC90001E98BE /* Nutrition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nutrition.swift; sourceTree = "<group>"; };
@@ -233,7 +237,9 @@
 				8DC7587C2A7E4008001E98BE /* FoodNutritionResultView.swift */,
 				8DC758862A7EB37B001E98BE /* EditProfileView.swift */,
 				8DC758882A7EB78A001E98BE /* OnBoardingView.swift */,
-				8DC7588C2A7EB85D001E98BE /* OnBoardingStartView.swift */,
+				8D9320662A821B7100C4D1B2 /* OnBoardingFirstView.swift */,
+				8D9320682A821B7C00C4D1B2 /* OnBoardingSecondView.swift */,
+				8D93206A2A821B8600C4D1B2 /* OnBoardingThirdView.swift */,
 				8DC7588E2A7EB875001E98BE /* OnBoardingProfileView.swift */,
 				8DC758902A7EB87F001E98BE /* OnBoardingNutritionView.swift */,
 			);
@@ -383,6 +389,7 @@
 			files = (
 				8D4D64932A7D10A5002B6200 /* ProfileViewModel.swift in Sources */,
 				8DC758872A7EB37B001E98BE /* EditProfileView.swift in Sources */,
+				8D9320672A821B7100C4D1B2 /* OnBoardingFirstView.swift in Sources */,
 				8D4D648C2A7D103C002B6200 /* NutritionViewModel.swift in Sources */,
 				8DC758892A7EB78A001E98BE /* OnBoardingView.swift in Sources */,
 				8D9320522A8134FA00C4D1B2 /* URL.swift in Sources */,
@@ -393,6 +400,7 @@
 				8DC758832A7E585B001E98BE /* APIKey.swift in Sources */,
 				8DC758752A7E06BC001E98BE /* AddMealCardView.swift in Sources */,
 				8D4D648F2A7D1053002B6200 /* NutriCamData.xcdatamodeld in Sources */,
+				8D9320692A821B7C00C4D1B2 /* OnBoardingSecondView.swift in Sources */,
 				4C30EEC82A73625900D91D59 /* NutriCamApp.swift in Sources */,
 				8D4D64972A7D10C7002B6200 /* StatisticsView.swift in Sources */,
 				8DC758912A7EB87F001E98BE /* OnBoardingNutritionView.swift in Sources */,
@@ -402,9 +410,9 @@
 				8DC7587D2A7E4008001E98BE /* FoodNutritionResultView.swift in Sources */,
 				8D4D64992A7D10CF002B6200 /* StatisticsViewModel.swift in Sources */,
 				8DC758852A7E587A001E98BE /* Food.swift in Sources */,
-				8DC7588D2A7EB85D001E98BE /* OnBoardingStartView.swift in Sources */,
 				8DC7587B2A7E3FF9001E98BE /* SelectFoodView.swift in Sources */,
 				8DC758772A7E2A5B001E98BE /* CircularProgressView.swift in Sources */,
+				8D93206B2A821B8600C4D1B2 /* OnBoardingThirdView.swift in Sources */,
 				8DBCE83E2A7FDC2800053CE1 /* Date.swift in Sources */,
 				8DC7588B2A7EB81C001E98BE /* OnBoardingViewModel.swift in Sources */,
 			);

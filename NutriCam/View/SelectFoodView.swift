@@ -48,10 +48,17 @@ struct SelectFoodView: View {
                                     .foregroundColor(Color(UIColor.label))
                                     .multilineTextAlignment(.leading)
 
-                                Text("\(food.food?.category ?? ""), \(food.food?.nutrients?.ENERC_KCAL ?? 0, specifier: "%.0f") kcal")
-                                    .font(.subheadline)
-                                    .foregroundColor(.secondary)
-                                    .multilineTextAlignment(.leading)
+                                if let brand = food.food?.brand {
+                                    Text("\(food.food?.category ?? ""), \(brand), \(food.food?.nutrients?.ENERC_KCAL ?? 0, specifier: "%.0f") kcal")
+                                        .font(.subheadline)
+                                        .foregroundColor(.secondary)
+                                        .multilineTextAlignment(.leading)
+                                } else {
+                                    Text("\(food.food?.category ?? ""), \(food.food?.nutrients?.ENERC_KCAL ?? 0, specifier: "%.0f") kcal")
+                                        .font(.subheadline)
+                                        .foregroundColor(.secondary)
+                                        .multilineTextAlignment(.leading)
+                                }
                             }
 
                             Spacer()
