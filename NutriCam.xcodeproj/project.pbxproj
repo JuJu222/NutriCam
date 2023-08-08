@@ -31,7 +31,6 @@
 		8D9320572A81368700C4D1B2 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC758822A7E585B001E98BE /* APIKey.swift */; };
 		8D9320602A81481300C4D1B2 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D93205F2A81481300C4D1B2 /* PersistenceController.swift */; };
 		8D9320612A81481300C4D1B2 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D93205F2A81481300C4D1B2 /* PersistenceController.swift */; };
-		8D9320652A81E0C100C4D1B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C30EECB2A73625B00D91D59 /* Assets.xcassets */; };
 		8DBCE8312A7FD91800053CE1 /* NutriCamData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8D4D648D2A7D1053002B6200 /* NutriCamData.xcdatamodeld */; };
 		8DBCE8322A7FD92300053CE1 /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC758922A7FAC90001E98BE /* Nutrition.swift */; };
 		8DBCE8382A7FD95F00053CE1 /* SmallSizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBCE8362A7FD95F00053CE1 /* SmallSizeView.swift */; };
@@ -371,7 +370,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D9320652A81E0C100C4D1B2 /* Assets.xcassets in Resources */,
 				8D28145C2A75363F0077D7D3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
