@@ -46,7 +46,7 @@ struct AddMealCardView: View {
                             .foregroundColor(.secondary)
                         Text(meal == "Breakfast" ? "\(vm.breakfastNutrition.calories, specifier: "%.0f") kcal" : meal == "Lunch" ? "\(vm.lunchNutrition.calories, specifier: "%.0f") kcal" : meal == "Dinner" ? "\(vm.dinnerNutrition.calories, specifier: "%.0f") kcal" : "\(vm.snackNutrition.calories, specifier: "%.0f") kcal")
                     }
-                    .frame(width: UIScreen.main.bounds.width / 4.7)
+                    .frame(width: UIScreen.main.bounds.width / 4.5)
                     
                     VStack {
                         Text("Protein")
@@ -54,7 +54,7 @@ struct AddMealCardView: View {
                             .foregroundColor(.secondary)
                         Text(meal == "Breakfast" ? "\(vm.breakfastNutrition.protein, specifier: "%.1f") g" : meal == "Lunch" ? "\(vm.lunchNutrition.protein, specifier: "%.1f") g" : meal == "Dinner" ? "\(vm.dinnerNutrition.protein, specifier: "%.1f") g" : "\(vm.snackNutrition.protein, specifier: "%.1f") g")
                     }
-                    .frame(width: UIScreen.main.bounds.width / 5.5)
+                    .frame(width: UIScreen.main.bounds.width / 5.7)
                     
                     VStack {
                         Text("Fat")
@@ -62,7 +62,7 @@ struct AddMealCardView: View {
                             .foregroundColor(.secondary)
                         Text(meal == "Breakfast" ? "\(vm.breakfastNutrition.fat, specifier: "%.1f") g" : meal == "Lunch" ? "\(vm.lunchNutrition.fat, specifier: "%.1f") g" : meal == "Dinner" ? "\(vm.dinnerNutrition.fat, specifier: "%.1f") g" : "\(vm.snackNutrition.fat, specifier: "%.1f") g")
                     }
-                    .frame(width: UIScreen.main.bounds.width / 5.5)
+                    .frame(width: UIScreen.main.bounds.width / 5.7)
                     
                     VStack {
                         Text("Carbs")
@@ -70,7 +70,35 @@ struct AddMealCardView: View {
                             .foregroundColor(.secondary)
                         Text(meal == "Breakfast" ? "\(vm.breakfastNutrition.carbs, specifier: "%.1f") g" : meal == "Lunch" ? "\(vm.lunchNutrition.carbs, specifier: "%.1f") g" : meal == "Dinner" ? "\(vm.dinnerNutrition.carbs, specifier: "%.1f") g" : "\(vm.snackNutrition.carbs, specifier: "%.1f") g")
                     }
-                    .frame(width: UIScreen.main.bounds.width / 5.5)
+                    .frame(width: UIScreen.main.bounds.width / 5.7)
+                }
+                .padding(.horizontal)
+                
+                Divider()
+                
+                ForEach(meal == "Breakfast" ? vm.breakfastFoods : meal == "Lunch" ? vm.lunchFoods : meal == "Dinner" ? vm.dinnerFoods : vm.snackFoods, id: \.self) { food in
+                    if vm.isToday(date: food.date ?? Date())  {
+                        HStack(alignment: .center, spacing: 2) {
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text("\(food.name ?? "") - \(food.weight, specifier: "%.1f") \(food.measure ?? "Serving")")
+                                    .font(.headline)
+                                Text("Calories: \(food.calories, specifier: "%.0f") kcal, Protein: \(food.protein, specifier: "%.1f") g, Fat: \(food.fat, specifier: "%.1f") g, Carbs: \(food.carbs, specifier: "%.1f") g")
+                                    .foregroundColor(.secondary)
+                                    .font(.caption)
+                            }
+                            
+                            Spacer()
+                            
+                            Button {
+                                vm.deleteFood(food: food)
+                            } label: {
+                                Image(systemName: "x.circle")
+                                    .foregroundColor(.accentColor)
+                                    .font(.headline)
+                            }
+                        }
+                        .padding(.horizontal, 4)
+                    }
                 }
                 .padding([.horizontal, .bottom])
             }

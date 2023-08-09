@@ -46,8 +46,6 @@ struct NutritionView: View {
                                     withAnimation {
                                         vm.currentDay = day
                                     }
-//                                    print("Current date: \(vm.currentDay)")
-//                                    print("Day: \(day)")
                                 }
                             }
                         }
@@ -132,8 +130,9 @@ struct NutritionView: View {
                       .foregroundColor(.accentColor)
                       .overlay{
                          DatePicker(
-                             "",
+                             "Select Date",
                              selection: $vm.currentDay,
+                             in: ...Date(),
                              displayedComponents: .date
                          )
                           .blendMode(.destinationOver)

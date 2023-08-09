@@ -251,7 +251,6 @@
 				8D9320682A821B7C00C4D1B2 /* OnBoardingSecondView.swift */,
 				8D93206A2A821B8600C4D1B2 /* OnBoardingThirdView.swift */,
 				8DC7588E2A7EB875001E98BE /* OnBoardingProfileView.swift */,
-				8DC758902A7EB87F001E98BE /* OnBoardingNutritionView.swift */,
 				4C0120B92A8098280044E1CA /* CustomCameraView.swift */,
 			);
 			path = View;
@@ -591,7 +590,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NutriCam/Preview Content\"";
-				DEVELOPMENT_TEAM = 594Q84397D;
+				DEVELOPMENT_TEAM = 83FZ3J9AN9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NutriCam/Info.plist;
@@ -606,7 +605,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.adaa.NutriCam;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ada.NutriCam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -627,7 +626,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NutriCam/Preview Content\"";
-				DEVELOPMENT_TEAM = 594Q84397D;
+				DEVELOPMENT_TEAM = 83FZ3J9AN9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NutriCam/Info.plist;
@@ -642,7 +641,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.adaa.NutriCam;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ada.NutriCam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -662,7 +661,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 594Q84397D;
+				DEVELOPMENT_TEAM = 83FZ3J9AN9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NutriCamWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = NutriCamWidget;
@@ -673,7 +672,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.adaa.NutriCam.NutriCamWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ada.NutriCam.NutriCamWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -692,7 +691,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 594Q84397D;
+				DEVELOPMENT_TEAM = 83FZ3J9AN9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NutriCamWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = NutriCamWidget;
@@ -703,7 +702,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.adaa.NutriCam.NutriCamWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ada.NutriCam.NutriCamWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;

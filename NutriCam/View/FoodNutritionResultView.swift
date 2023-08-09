@@ -92,38 +92,6 @@ struct FoodNutritionResultView: View {
                         
                         Text("\(String(format: "%.1f", nutritionPerGram.carbs * weightPerMeasure * weight)) g")
                     }
-                    
-//                    HStack {
-//                        Text("Calories")
-//
-//                        Spacer()
-//
-//                        Text("\(String(format: "%.0f", food.food?.nutrients?.ENERC_KCAL ?? 0)) kcal")
-//                    }
-//
-//                    HStack {
-//                        Text("Protein")
-//
-//                        Spacer()
-//
-//                        Text("\(String(format: "%.1f", food.food?.nutrients?.PROCNT ?? 0)) g")
-//                    }
-//
-//                    HStack {
-//                        Text("Fat")
-//
-//                        Spacer()
-//
-//                        Text("\(String(format: "%.1f", food.food?.nutrients?.FAT ?? 0)) g")
-//                    }
-//
-//                    HStack {
-//                        Text("Carbohydrates")
-//
-//                        Spacer()
-//
-//                        Text("\(String(format: "%.1f", food.food?.nutrients?.CHOCDF ?? 0)) g")
-//                    }
                 }
             }
             .scrollContentBackground(.hidden)
@@ -138,7 +106,9 @@ struct FoodNutritionResultView: View {
                     protein: nutritionPerGram.protein * weightPerMeasure * weight,
                     name: food.food?.label ?? "Food Name",
                     meal: vm.selectedMeal,
-                    date: Date()
+                    date: vm.currentDay,
+                    weight: weight,
+                    measure: selectedMeasure
                 )
                 
                 vm.fetchDailyNutrition()
@@ -177,27 +147,8 @@ struct FoodNutritionResultView: View {
             nutritionPerGram = vm.countNutritionPerGram(calories: food.food?.nutrients?.ENERC_KCAL ?? 0, protein: food.food?.nutrients?.PROCNT ?? 0, fat: food.food?.nutrients?.FAT ?? 0, carbs: food.food?.nutrients?.CHOCDF ?? 0, weight: measures.first?.weight ?? 100)
             
             weightPerMeasure = measures.first?.weight ?? 100
-            
-//            food.measures?.forEach({ measure in
-//                if let label = measure.label {
-//                    labels.append(label)
-//                }
-//            })
-//
-//            if !labels.contains("Serving") {
-//                labels.insert("Serving", at: 0)
-//            }
-            
-//            nutritionPerGram = vm.countNutritionPerGram(calories: food.food?.nutrients?.ENERC_KCAL ?? 0, protein: food.food?.nutrients?.PROCNT ?? 0, fat: food.food?.nutrients?.FAT ?? 0, carbs: food.food?.nutrients?.CHOCDF ?? 0, weight: food.measures?.first?.weight ?? 100)
-//
-//            weightPerMeasure = food.measures?.first?.weight ?? 100
         }
         .onChange(of: selectedMeasure) { newValue in
-//            food.measures?.forEach({ measure in
-//                if measure.label == selectedMeasure {
-//                    weightPerMeasure = measure.weight ?? 100
-//                }
-//            })
             measures.forEach({ measure in
                 if measure.label == selectedMeasure {
                     weightPerMeasure = measure.weight ?? 100

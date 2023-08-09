@@ -53,7 +53,7 @@ struct StatisticsView: View {
                     VStack {
                         HStack {
                             Button("Add Examples") {
-                                vm.addFood(calories: 400, carbs: 20, fat: 10, protein: 5, name: "Rendang", meal: "Breakfast", date: Date())
+                                vm.addFood(calories: 400, carbs: 20, fat: 10, protein: 5, name: "Rendang", meal: "Snacks", date: Date(), weight: 1, measure: "Serving")
                                 print("Tes add \(vm.foods)")
                             }
                             

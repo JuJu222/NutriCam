@@ -67,7 +67,7 @@ class NutritionViewModel: ObservableObject {
         }
     }
     
-    func addFood(calories: Double, carbs: Double, fat: Double, protein: Double, name: String, meal: String, date: Date) {
+    func addFood(calories: Double, carbs: Double, fat: Double, protein: Double, name: String, meal: String, date: Date, weight: Double, measure: String) {
         let food = FoodNutrition(context: PersistenceController.shared.container.viewContext)
         food.id = UUID()
         food.calories = calories
@@ -77,6 +77,8 @@ class NutritionViewModel: ObservableObject {
         food.name = name
         food.meal = meal
         food.date = date
+        food.weight = weight
+        food.measure = measure
         
         save()
     }
@@ -85,6 +87,7 @@ class NutritionViewModel: ObservableObject {
         PersistenceController.shared.container.viewContext.delete(food)
         
         save()
+        fetchDailyNutrition()
     }
     
     func fetchCurrentWeek() {
