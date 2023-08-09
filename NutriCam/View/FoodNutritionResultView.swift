@@ -13,10 +13,15 @@ struct FoodNutritionResultView: View {
     @ObservedObject var vm: NutritionViewModel
     let food: Hint
     
-    @State var weightPer: Double = 0
+    @State var measures: [Measure] = []
     
-    @State var weight: Double = 0
-    @State var selectedMeasure: String = ""
+    @State var weightPerMeasure: Double = 0
+    @State var nutritionPerGram: Nutrition = Nutrition()
+    
+    @State var weight: Double = 1
+    @State var selectedMeasure: String = "Serving"
+    
+    @State var labels: [String] = []
     
     var body: some View {
         VStack {
@@ -27,10 +32,10 @@ struct FoodNutritionResultView: View {
                     .frame(height: 200)
                     .clipped()
                     .cornerRadius(16)
-
             } placeholder: {
                 Color.gray
                     .frame(height: 200)
+                    .cornerRadius(16)
             }
             .padding(.horizontal)
             
@@ -42,8 +47,8 @@ struct FoodNutritionResultView: View {
                     .cornerRadius(8)
                 
                 Picker("Measure", selection: $selectedMeasure) {
-                    ForEach(food.measures ?? [], id: \.self) { measure in
-                        Text(measure.label ?? "")
+                    ForEach(labels, id: \.self) { label in
+                        Text(label)
                     }
                 }
                 .padding(8)
@@ -52,6 +57,8 @@ struct FoodNutritionResultView: View {
             }
             .padding()
             
+            Text("\(weightPerMeasure, specifier: "%.1f") grams per \(selectedMeasure)")
+            
             List {
                 Section(header: Text("Nutrients")) {
                     HStack {
@@ -59,7 +66,7 @@ struct FoodNutritionResultView: View {
                         
                         Spacer()
                         
-                        Text("\(String(format: "%.0f", food.food?.nutrients?.ENERC_KCAL ?? 0)) kcal")
+                        Text("\(String(format: "%.0f", nutritionPerGram.calories * weightPerMeasure * weight)) kcal")
                     }
                     
                     HStack {
@@ -67,7 +74,7 @@ struct FoodNutritionResultView: View {
                         
                         Spacer()
                         
-                        Text("\(String(format: "%.2f", food.food?.nutrients?.PROCNT ?? 0)) g")
+                        Text("\(String(format: "%.1f", nutritionPerGram.protein * weightPerMeasure * weight)) g")
                     }
                     
                     HStack {
@@ -75,7 +82,7 @@ struct FoodNutritionResultView: View {
                         
                         Spacer()
                         
-                        Text("\(String(format: "%.2f", food.food?.nutrients?.FAT ?? 0)) g")
+                        Text("\(String(format: "%.1f", nutritionPerGram.fat * weightPerMeasure * weight)) g")
                     }
                     
                     HStack {
@@ -83,8 +90,40 @@ struct FoodNutritionResultView: View {
                         
                         Spacer()
                         
-                        Text("\(String(format: "%.2f", food.food?.nutrients?.CHOCDF ?? 0)) g")
+                        Text("\(String(format: "%.1f", nutritionPerGram.carbs * weightPerMeasure * weight)) g")
                     }
+                    
+//                    HStack {
+//                        Text("Calories")
+//
+//                        Spacer()
+//
+//                        Text("\(String(format: "%.0f", food.food?.nutrients?.ENERC_KCAL ?? 0)) kcal")
+//                    }
+//
+//                    HStack {
+//                        Text("Protein")
+//
+//                        Spacer()
+//
+//                        Text("\(String(format: "%.1f", food.food?.nutrients?.PROCNT ?? 0)) g")
+//                    }
+//
+//                    HStack {
+//                        Text("Fat")
+//
+//                        Spacer()
+//
+//                        Text("\(String(format: "%.1f", food.food?.nutrients?.FAT ?? 0)) g")
+//                    }
+//
+//                    HStack {
+//                        Text("Carbohydrates")
+//
+//                        Spacer()
+//
+//                        Text("\(String(format: "%.1f", food.food?.nutrients?.CHOCDF ?? 0)) g")
+//                    }
                 }
             }
             .scrollContentBackground(.hidden)
@@ -92,11 +131,17 @@ struct FoodNutritionResultView: View {
             Spacer()
             
             Button {
-                vm.addFood(calories: food.food?.nutrients?.ENERC_KCAL ?? 0, carbs: food.food?.nutrients?.CHOCDF ?? 0, fat: food.food?.nutrients?.FAT ?? 0, protein: food.food?.nutrients?.PROCNT ?? 0, name: food.food?.label ?? "Food Name", meal: vm.selectedMeal, date: Date())
+                vm.addFood(
+                    calories: nutritionPerGram.calories * weightPerMeasure * weight,
+                    carbs: nutritionPerGram.carbs * weightPerMeasure * weight,
+                    fat: nutritionPerGram.fat * weightPerMeasure * weight,
+                    protein: nutritionPerGram.protein * weightPerMeasure * weight,
+                    name: food.food?.label ?? "Food Name",
+                    meal: vm.selectedMeal,
+                    date: Date()
+                )
                 
-                withAnimation {
-                    vm.fetchDailyNutrition()
-                }
+                vm.fetchDailyNutrition()
                 
                 vm.showAddSheet.toggle()
             } label: {
@@ -116,8 +161,47 @@ struct FoodNutritionResultView: View {
         .background(Color("Background"))
         .navigationTitle(food.food?.label ?? "Food Name")
         .onAppear {
-            food.measures?.forEach({ measure in
-                weightPer = measure.weight ?? 0
+            measures = food.measures ?? []
+            
+            measures.forEach { measure in
+                if let label = measure.label {
+                    labels.append(label)
+                }
+            }
+            
+            if !labels.contains("Serving") {
+                measures.insert(Measure(label: "Serving", weight: 100), at: 0)
+                labels.insert("Serving", at: 0)
+            }
+            
+            nutritionPerGram = vm.countNutritionPerGram(calories: food.food?.nutrients?.ENERC_KCAL ?? 0, protein: food.food?.nutrients?.PROCNT ?? 0, fat: food.food?.nutrients?.FAT ?? 0, carbs: food.food?.nutrients?.CHOCDF ?? 0, weight: measures.first?.weight ?? 100)
+            
+            weightPerMeasure = measures.first?.weight ?? 100
+            
+//            food.measures?.forEach({ measure in
+//                if let label = measure.label {
+//                    labels.append(label)
+//                }
+//            })
+//
+//            if !labels.contains("Serving") {
+//                labels.insert("Serving", at: 0)
+//            }
+            
+//            nutritionPerGram = vm.countNutritionPerGram(calories: food.food?.nutrients?.ENERC_KCAL ?? 0, protein: food.food?.nutrients?.PROCNT ?? 0, fat: food.food?.nutrients?.FAT ?? 0, carbs: food.food?.nutrients?.CHOCDF ?? 0, weight: food.measures?.first?.weight ?? 100)
+//
+//            weightPerMeasure = food.measures?.first?.weight ?? 100
+        }
+        .onChange(of: selectedMeasure) { newValue in
+//            food.measures?.forEach({ measure in
+//                if measure.label == selectedMeasure {
+//                    weightPerMeasure = measure.weight ?? 100
+//                }
+//            })
+            measures.forEach({ measure in
+                if measure.label == selectedMeasure {
+                    weightPerMeasure = measure.weight ?? 100
+                }
             })
         }
     }
