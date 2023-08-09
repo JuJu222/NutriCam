@@ -121,7 +121,8 @@ class NutritionViewModel: ObservableObject {
     }
     
     func fetchEdamamFoods() {
-        guard let url = URL(string: "https://api.edamam.com/api/food-database/v2/parser?app_id=\(appId)&app_key=\(appKey)&ingr=\(foodName)&nutrition-type=cooking") else {
+        let query = foodName.replacingOccurrences(of: " ", with: "%20")
+        guard let url = URL(string: "https://api.edamam.com/api/food-database/v2/parser?app_id=\(appId)&app_key=\(appKey)&ingr=\(query)&nutrition-type=cooking") else {
             return
         }
         
