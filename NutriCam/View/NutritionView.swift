@@ -123,10 +123,6 @@ struct NutritionView: View {
             .background(Color("Background"))
             .navigationTitle("My Nutrition")
             .toolbar {
-//                ToolbarItem(placement: .navigationBarTrailing) {
-//                    DatePicker("", selection: $vm.currentDay, displayedComponents: .date)
-//                }
-                
                 ToolbarItem(placement: .navigationBarLeading) {
                     Text(vm.extractDate(date: vm.currentDay, format: "dd MMM yyyy"))
                 }

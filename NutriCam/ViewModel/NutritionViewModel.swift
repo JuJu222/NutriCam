@@ -40,6 +40,8 @@ class NutritionViewModel: ObservableObject {
         fetchDailyNutrition()
         
         currentDay = Calendar.current.date(byAdding: .hour, value: 7, to: currentDay) ?? Date()
+        
+        WidgetCenter.shared.reloadAllTimelines()
     }
 
     func fetchFoodNutritionRequest() {
@@ -113,14 +115,7 @@ class NutritionViewModel: ObservableObject {
     }
     
     func isToday(date: Date) -> Bool {
-        let calendar = Calendar(identifier: .gregorian)
-        
-//        if calendar.isDate(currentDay, inSameDayAs: date) {
-//            print(currentDay)
-//            print(date)
-//            print(calendar.isDate(currentDay, equalTo: date, toGranularity: .day))
-//            print()
-//        }
+        let calendar = Calendar.current
 
         return calendar.isDate(currentDay, inSameDayAs: date)
     }
@@ -206,5 +201,16 @@ class NutritionViewModel: ObservableObject {
                 snackNutrition.carbs += food.carbs
             }
         }
+    }
+    
+    func countNutritionPerGram(calories: Double, protein: Double, fat: Double, carbs: Double, weight: Double) -> Nutrition {
+        var weightPerGram = Nutrition()
+        
+        weightPerGram.calories = calories / weight
+        weightPerGram.protein = protein / weight
+        weightPerGram.fat = fat / weight
+        weightPerGram.carbs = carbs / weight
+
+        return weightPerGram
     }
 }

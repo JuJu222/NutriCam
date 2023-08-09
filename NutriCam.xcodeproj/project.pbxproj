@@ -57,7 +57,6 @@
 		8DC758892A7EB78A001E98BE /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC758882A7EB78A001E98BE /* OnBoardingView.swift */; };
 		8DC7588B2A7EB81C001E98BE /* OnBoardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7588A2A7EB81C001E98BE /* OnBoardingViewModel.swift */; };
 		8DC7588F2A7EB875001E98BE /* OnBoardingProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7588E2A7EB875001E98BE /* OnBoardingProfileView.swift */; };
-		8DC758912A7EB87F001E98BE /* OnBoardingNutritionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC758902A7EB87F001E98BE /* OnBoardingNutritionView.swift */; };
 		8DC758932A7FAC90001E98BE /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC758922A7FAC90001E98BE /* Nutrition.swift */; };
 /* End PBXBuildFile section */
 
@@ -133,7 +132,6 @@
 		8DC758882A7EB78A001E98BE /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		8DC7588A2A7EB81C001E98BE /* OnBoardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewModel.swift; sourceTree = "<group>"; };
 		8DC7588E2A7EB875001E98BE /* OnBoardingProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingProfileView.swift; sourceTree = "<group>"; };
-		8DC758902A7EB87F001E98BE /* OnBoardingNutritionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingNutritionView.swift; sourceTree = "<group>"; };
 		8DC758922A7FAC90001E98BE /* Nutrition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nutrition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -425,7 +423,6 @@
 				8D9320692A821B7C00C4D1B2 /* OnBoardingSecondView.swift in Sources */,
 				4C30EEC82A73625900D91D59 /* NutriCamApp.swift in Sources */,
 				8D4D64972A7D10C7002B6200 /* StatisticsView.swift in Sources */,
-				8DC758912A7EB87F001E98BE /* OnBoardingNutritionView.swift in Sources */,
 				8DC758932A7FAC90001E98BE /* Nutrition.swift in Sources */,
 				8D4D64952A7D10AC002B6200 /* ProfileView.swift in Sources */,
 				8D4D64912A7D106C002B6200 /* NutritionView.swift in Sources */,
@@ -662,6 +659,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = NutriCamWidgetExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 594Q84397D;
@@ -677,6 +675,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.adaa.NutriCam.NutriCamWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -690,6 +689,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = NutriCamWidgetExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 594Q84397D;
@@ -705,6 +705,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.adaa.NutriCam.NutriCamWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
