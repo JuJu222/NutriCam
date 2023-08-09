@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C002F152A77571600DB9844 /* ImageClassification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C002F142A77571600DB9844 /* ImageClassification.swift */; };
+		4C002F182A77575400DB9844 /* FoodClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4C002F172A77575400DB9844 /* FoodClassifier.mlmodel */; };
+		4C002F1A2A7757E500DB9844 /* CGImagePropertyOrientation+UIImageOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C002F192A7757E500DB9844 /* CGImagePropertyOrientation+UIImageOrientation.swift */; };
+		4C0120BA2A8098280044E1CA /* CustomCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0120B92A8098280044E1CA /* CustomCameraView.swift */; };
 		4C30EEC82A73625900D91D59 /* NutriCamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C30EEC72A73625900D91D59 /* NutriCamApp.swift */; };
 		4C30EECA2A73625900D91D59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C30EEC92A73625900D91D59 /* ContentView.swift */; };
 		4C30EECC2A73625B00D91D59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C30EECB2A73625B00D91D59 /* Assets.xcassets */; };
 		4C30EECF2A73625B00D91D59 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C30EECE2A73625B00D91D59 /* Preview Assets.xcassets */; };
+		4C765CF82A7CAC28003E9748 /* best.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 4C765CF72A7CAC28003E9748 /* best.mlpackage */; };
 		8D2676CA2A73650400F4E6BC /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 8D2676C92A73650400F4E6BC /* .gitignore */; };
 		8D2814532A75363E0077D7D3 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D2814522A75363E0077D7D3 /* WidgetKit.framework */; };
 		8D2814552A75363E0077D7D3 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D2814542A75363E0077D7D3 /* SwiftUI.framework */; };
@@ -81,11 +86,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4C002F142A77571600DB9844 /* ImageClassification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClassification.swift; sourceTree = "<group>"; };
+		4C002F172A77575400DB9844 /* FoodClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FoodClassifier.mlmodel; sourceTree = "<group>"; };
+		4C002F192A7757E500DB9844 /* CGImagePropertyOrientation+UIImageOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImagePropertyOrientation+UIImageOrientation.swift"; sourceTree = "<group>"; };
+		4C0120B92A8098280044E1CA /* CustomCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCameraView.swift; sourceTree = "<group>"; };
 		4C30EEC42A73625900D91D59 /* NutriCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C30EEC72A73625900D91D59 /* NutriCamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutriCamApp.swift; sourceTree = "<group>"; };
 		4C30EEC92A73625900D91D59 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4C30EECB2A73625B00D91D59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C30EECE2A73625B00D91D59 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4C765CF72A7CAC28003E9748 /* best.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; name = best.mlpackage; path = Model/best.mlpackage; sourceTree = "<group>"; };
 		8D2676C92A73650400F4E6BC /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		8D2814502A75363E0077D7D3 /* NutriCamWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NutriCamWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D2814522A75363E0077D7D3 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -170,6 +180,8 @@
 		4C30EEC62A73625900D91D59 /* NutriCam */ = {
 			isa = PBXGroup;
 			children = (
+				4C765CF72A7CAC28003E9748 /* best.mlpackage */,
+				4C002F172A77575400DB9844 /* FoodClassifier.mlmodel */,
 				8DC758812A7E5854001E98BE /* Helper */,
 				8D93205E2A81479B00C4D1B2 /* Data */,
 				8D4D64882A7D100E002B6200 /* Model */,
@@ -242,6 +254,7 @@
 				8D93206A2A821B8600C4D1B2 /* OnBoardingThirdView.swift */,
 				8DC7588E2A7EB875001E98BE /* OnBoardingProfileView.swift */,
 				8DC758902A7EB87F001E98BE /* OnBoardingNutritionView.swift */,
+				4C0120B92A8098280044E1CA /* CustomCameraView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -278,6 +291,8 @@
 		8DC758812A7E5854001E98BE /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				4C002F142A77571600DB9844 /* ImageClassification.swift */,
+				4C002F192A7757E500DB9844 /* CGImagePropertyOrientation+UIImageOrientation.swift */,
 				8DC758822A7E585B001E98BE /* APIKey.swift */,
 				8DBCE83D2A7FDC2800053CE1 /* Date.swift */,
 				8D9320512A8134FA00C4D1B2 /* URL.swift */,
@@ -387,6 +402,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C30EECA2A73625900D91D59 /* ContentView.swift in Sources */,
+				4C002F182A77575400DB9844 /* FoodClassifier.mlmodel in Sources */,
+				4C765CF82A7CAC28003E9748 /* best.mlpackage in Sources */,
+				4C30EEC82A73625900D91D59 /* NutriCamApp.swift in Sources */,
+				4C002F1A2A7757E500DB9844 /* CGImagePropertyOrientation+UIImageOrientation.swift in Sources */,
+				4C002F152A77571600DB9844 /* ImageClassification.swift in Sources */,
+				4C0120BA2A8098280044E1CA /* CustomCameraView.swift in Sources */,
 				8D4D64932A7D10A5002B6200 /* ProfileViewModel.swift in Sources */,
 				8DC758872A7EB37B001E98BE /* EditProfileView.swift in Sources */,
 				8D9320672A821B7100C4D1B2 /* OnBoardingFirstView.swift in Sources */,
@@ -572,10 +594,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NutriCam/Preview Content\"";
-				DEVELOPMENT_TEAM = 83FZ3J9AN9;
+				DEVELOPMENT_TEAM = 594Q84397D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NutriCam/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Takes pictures to demonstrate image recognition.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -586,7 +609,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ada.NutriCam;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adaa.NutriCam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -607,10 +630,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NutriCam/Preview Content\"";
-				DEVELOPMENT_TEAM = 83FZ3J9AN9;
+				DEVELOPMENT_TEAM = 594Q84397D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NutriCam/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Takes pictures to demonstrate image recognition.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -621,7 +645,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ada.NutriCam;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adaa.NutriCam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -640,7 +664,7 @@
 				CODE_SIGN_ENTITLEMENTS = NutriCamWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 83FZ3J9AN9;
+				DEVELOPMENT_TEAM = 594Q84397D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NutriCamWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = NutriCamWidget;
@@ -651,7 +675,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ada.NutriCam.NutriCamWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adaa.NutriCam.NutriCamWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -668,7 +692,7 @@
 				CODE_SIGN_ENTITLEMENTS = NutriCamWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 83FZ3J9AN9;
+				DEVELOPMENT_TEAM = 594Q84397D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NutriCamWidget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = NutriCamWidget;
@@ -679,7 +703,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ada.NutriCam.NutriCamWidget;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adaa.NutriCam.NutriCamWidget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
