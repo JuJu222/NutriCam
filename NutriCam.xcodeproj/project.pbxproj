@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4C002F112A77554200DB9844 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C002F102A77554200DB9844 /* CameraView.swift */; };
 		4C002F152A77571600DB9844 /* ImageClassification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C002F142A77571600DB9844 /* ImageClassification.swift */; };
 		4C002F182A77575400DB9844 /* FoodClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4C002F172A77575400DB9844 /* FoodClassifier.mlmodel */; };
 		4C002F1A2A7757E500DB9844 /* CGImagePropertyOrientation+UIImageOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C002F192A7757E500DB9844 /* CGImagePropertyOrientation+UIImageOrientation.swift */; };
+		4C0120BA2A8098280044E1CA /* CustomCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0120B92A8098280044E1CA /* CustomCameraView.swift */; };
 		4C30EEC82A73625900D91D59 /* NutriCamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C30EEC72A73625900D91D59 /* NutriCamApp.swift */; };
 		4C30EECA2A73625900D91D59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C30EEC92A73625900D91D59 /* ContentView.swift */; };
 		4C30EECC2A73625B00D91D59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C30EECB2A73625B00D91D59 /* Assets.xcassets */; };
@@ -80,10 +80,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4C002F102A77554200DB9844 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		4C002F142A77571600DB9844 /* ImageClassification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClassification.swift; sourceTree = "<group>"; };
 		4C002F172A77575400DB9844 /* FoodClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FoodClassifier.mlmodel; sourceTree = "<group>"; };
 		4C002F192A7757E500DB9844 /* CGImagePropertyOrientation+UIImageOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImagePropertyOrientation+UIImageOrientation.swift"; sourceTree = "<group>"; };
+		4C0120B92A8098280044E1CA /* CustomCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCameraView.swift; sourceTree = "<group>"; };
 		4C30EEC42A73625900D91D59 /* NutriCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C30EEC72A73625900D91D59 /* NutriCamApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutriCamApp.swift; sourceTree = "<group>"; };
 		4C30EEC92A73625900D91D59 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -231,7 +231,6 @@
 			children = (
 				8DC758732A7E06A4001E98BE /* Components */,
 				4C30EEC92A73625900D91D59 /* ContentView.swift */,
-				4C002F102A77554200DB9844 /* CameraView.swift */,
 				8D4D64902A7D106C002B6200 /* NutritionView.swift */,
 				8D4D64962A7D10C7002B6200 /* StatisticsView.swift */,
 				8D4D64942A7D10AC002B6200 /* ProfileView.swift */,
@@ -243,6 +242,7 @@
 				8DC7588C2A7EB85D001E98BE /* OnBoardingStartView.swift */,
 				8DC7588E2A7EB875001E98BE /* OnBoardingProfileView.swift */,
 				8DC758902A7EB87F001E98BE /* OnBoardingNutritionView.swift */,
+				4C0120B92A8098280044E1CA /* CustomCameraView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -380,13 +380,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C002F112A77554200DB9844 /* CameraView.swift in Sources */,
 				4C30EECA2A73625900D91D59 /* ContentView.swift in Sources */,
 				4C002F182A77575400DB9844 /* FoodClassifier.mlmodel in Sources */,
 				4C765CF82A7CAC28003E9748 /* best.mlpackage in Sources */,
 				4C30EEC82A73625900D91D59 /* NutriCamApp.swift in Sources */,
 				4C002F1A2A7757E500DB9844 /* CGImagePropertyOrientation+UIImageOrientation.swift in Sources */,
 				4C002F152A77571600DB9844 /* ImageClassification.swift in Sources */,
+				4C0120BA2A8098280044E1CA /* CustomCameraView.swift in Sources */,
 				8D4D64932A7D10A5002B6200 /* ProfileViewModel.swift in Sources */,
 				8DC758872A7EB37B001E98BE /* EditProfileView.swift in Sources */,
 				8D4D648C2A7D103C002B6200 /* NutritionViewModel.swift in Sources */,

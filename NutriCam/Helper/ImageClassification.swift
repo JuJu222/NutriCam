@@ -16,6 +16,8 @@ import Vision
 // MARK: - Image Classification
 class ImageClassification: ObservableObject {
     @Published var classificationLabel: String = "Add a photo."
+    @Published var doneClassifying: Bool = false
+    @Published var searchQuery: String = ""
     
     /// - Tag: MLModelSetup
     lazy var classificationRequest: VNCoreMLRequest = {
@@ -81,6 +83,8 @@ class ImageClassification: ObservableObject {
                    return String(format: "  (%.2f) %@", classification.confidence, classification.identifier)
                 }
                 self.classificationLabel = "Classification:\n" + descriptions.joined(separator: "\n")
+                self.searchQuery = topClassifications[0].identifier.replacingOccurrences(of: "_", with: " ")
+                self.doneClassifying = true
             }
         }
     }
