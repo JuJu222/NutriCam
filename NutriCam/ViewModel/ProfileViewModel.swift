@@ -39,7 +39,7 @@ class ProfileViewModel: ObservableObject {
         }
     }
     
-    func addProfile(minCalories: Double, minCarbs: Double, minFat: Double, minProtein: Double, weight: Double, height: Double, dateOfBirth: Date) {
+    func addProfile(minCalories: Double, minCarbs: Double, minFat: Double, minProtein: Double, weight: Double, height: Double, dateOfBirth: Date, gender: String, recommendCalories: Double, recommendProtein: Double, recommendFat: Double, recommendCarbs: Double) {
         let profile = Profile(context: PersistenceController.shared.container.viewContext)
         profile.minCalories = minCalories
         profile.minCarbs = minCarbs
@@ -48,11 +48,16 @@ class ProfileViewModel: ObservableObject {
         profile.weight = weight
         profile.height = height
         profile.dateOfBirth = dateOfBirth
+        profile.gender = gender
+        profile.recommendCalories = recommendCalories
+        profile.recommendProtein = recommendProtein
+        profile.recommendFat = recommendFat
+        profile.recommendCarbs = recommendCarbs
         
         save()
     }
     
-    func editProfile(profile: Profile, minCalories: Double, minCarbs: Double, minFat: Double, minProtein: Double, weight: Double, height: Double, dateOfBirth: Date) {
+    func editProfile(profile: Profile, minCalories: Double, minCarbs: Double, minFat: Double, minProtein: Double, weight: Double, height: Double, dateOfBirth: Date, gender: String, recommendCalories: Double, recommendProtein: Double, recommendFat: Double, recommendCarbs: Double) {
         profile.minCalories = minCalories
         profile.minCarbs = minCarbs
         profile.minFat = minFat
@@ -60,7 +65,36 @@ class ProfileViewModel: ObservableObject {
         profile.weight = weight
         profile.height = height
         profile.dateOfBirth = dateOfBirth
+        profile.gender = gender
+        profile.recommendCalories = recommendCalories
+        profile.recommendProtein = recommendProtein
+        profile.recommendFat = recommendFat
+        profile.recommendCarbs = recommendCarbs
         
         save()
+    }
+    
+    func countRecommendNutrition(gender: String, age: Double, weight: Double, height: Double) -> Nutrition {
+        var calories = 0.0
+        
+        if gender == "Male" {
+            calories = (88.4 + 13.4 * weight) + (4.8 * height) - (5.68 * age)
+        } else {
+            calories = (447.6 + 9.25 * weight) + (3.1 * height) - (4.33 * age)
+        }
+        
+        let protein = (calories * 0.15) / 4.0
+        let fat = (calories * 0.2) / 4.0
+        let carbs = (calories * 0.65) / 4.0
+        
+        return Nutrition(calories: calories, protein: protein, fat: fat, carbs: carbs)
+    }
+    
+    func extractDate(date: Date, format: String) -> String {
+        let formatter = DateFormatter()
+        
+        formatter.dateFormat = format
+        
+        return formatter.string(from: date)
     }
 }

@@ -120,9 +120,9 @@ struct FoodNutritionResultView: View {
                     Text("Add to My Nutrition")
                         .foregroundColor(.white)
                         .font(.headline)
+                        .padding(.vertical, 12)
                     Spacer()
                 }
-                .padding()
                 .background(Color.accentColor)
                 .cornerRadius(100)
                 .padding()

@@ -54,7 +54,7 @@ struct NutritionView: View {
                     
                     HStack(spacing: 12) {
                         ZStack {
-                            CircularProgressView(progress: vm.dailyNutrition.calories / 2000)
+                            CircularProgressView(progress: vm.dailyNutrition.calories / (vm.profile.first?.minCalories ?? 0))
                                 .frame(width: UIScreen.main.bounds.width / 2.5)
                             
                             VStack {
@@ -68,7 +68,7 @@ struct NutritionView: View {
                                     .font(.title)
                                     .bold()
                                 
-                                Text("/ 2000 kcal")
+                                Text("/ \(vm.profile.first?.minCalories ?? 0, specifier: "%.0f") kcal")
                                     .font(.subheadline)
                             }
                         }
@@ -76,33 +76,33 @@ struct NutritionView: View {
                         Spacer()
                         
                         VStack(spacing: 24) {
-                            ProgressView(value: vm.dailyNutrition.protein, total: 60) {
+                            ProgressView(value: vm.dailyNutrition.protein, total: vm.profile.first?.minProtein ?? 0) {
                                 HStack {
                                     Text("Protein")
                                         .font(.subheadline)
                                         .bold()
                                     Spacer()
-                                    Text("\(vm.dailyNutrition.protein, specifier: "%.1f") / 60 g")
+                                    Text("\(vm.dailyNutrition.protein, specifier: "%.1f") / \(vm.profile.first?.minProtein ?? 0, specifier: "%.1f") g")
                                         .font(.subheadline)
                                 }
                             }
-                            ProgressView(value: vm.dailyNutrition.fat, total: 30) {
+                            ProgressView(value: vm.dailyNutrition.fat, total: vm.profile.first?.minFat ?? 0) {
                                 HStack {
                                     Text("Fat")
                                         .font(.subheadline)
                                         .bold()
                                     Spacer()
-                                    Text("\(vm.dailyNutrition.fat, specifier: "%.1f") / 30 g")
+                                    Text("\(vm.dailyNutrition.fat, specifier: "%.1f") / \(vm.profile.first?.minFat ?? 0, specifier: "%.1f") g")
                                         .font(.subheadline)
                                 }
                             }
-                            ProgressView(value: vm.dailyNutrition.carbs, total: 70) {
+                            ProgressView(value: vm.dailyNutrition.carbs, total: vm.profile.first?.minCarbs ?? 0) {
                                 HStack {
                                     Text("Carbs")
                                         .font(.subheadline)
                                         .bold()
                                     Spacer()
-                                    Text("\(vm.dailyNutrition.carbs, specifier: "%.1f") / 70 g")
+                                    Text("\(vm.dailyNutrition.carbs, specifier: "%.1f") / \(vm.profile.first?.minCarbs ?? 0, specifier: "%.1f") g")
                                         .font(.subheadline)
                                 }
                             }
@@ -147,6 +147,9 @@ struct NutritionView: View {
             }
             .fullScreenCover(isPresented: $vm.showAddSheet) {
                 AddFoodCameraView(vm: vm)
+            }
+            .onAppear {
+                vm.fetchProfileRequest()
             }
         }
     }

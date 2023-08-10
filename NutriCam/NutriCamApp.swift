@@ -11,11 +11,16 @@ import SwiftUI
 struct NutriCamApp: App {
     
     let persistenceController = PersistenceController.shared
+    @AppStorage("currentPage") var currentPage = 1
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            if currentPage > 4 {
+                ContentView()
+                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            } else {
+                OnBoardingView()
+            }
         }
     }
 }

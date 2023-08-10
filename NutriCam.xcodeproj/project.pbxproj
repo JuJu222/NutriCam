@@ -55,7 +55,6 @@
 		8DC758852A7E587A001E98BE /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC758842A7E587A001E98BE /* Food.swift */; };
 		8DC758872A7EB37B001E98BE /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC758862A7EB37B001E98BE /* EditProfileView.swift */; };
 		8DC758892A7EB78A001E98BE /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC758882A7EB78A001E98BE /* OnBoardingView.swift */; };
-		8DC7588B2A7EB81C001E98BE /* OnBoardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7588A2A7EB81C001E98BE /* OnBoardingViewModel.swift */; };
 		8DC7588F2A7EB875001E98BE /* OnBoardingProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7588E2A7EB875001E98BE /* OnBoardingProfileView.swift */; };
 		8DC758932A7FAC90001E98BE /* Nutrition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC758922A7FAC90001E98BE /* Nutrition.swift */; };
 /* End PBXBuildFile section */
@@ -130,7 +129,6 @@
 		8DC758842A7E587A001E98BE /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		8DC758862A7EB37B001E98BE /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		8DC758882A7EB78A001E98BE /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
-		8DC7588A2A7EB81C001E98BE /* OnBoardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewModel.swift; sourceTree = "<group>"; };
 		8DC7588E2A7EB875001E98BE /* OnBoardingProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingProfileView.swift; sourceTree = "<group>"; };
 		8DC758922A7FAC90001E98BE /* Nutrition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nutrition.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -262,7 +260,6 @@
 				8D4D648B2A7D103C002B6200 /* NutritionViewModel.swift */,
 				8D4D64982A7D10CF002B6200 /* StatisticsViewModel.swift */,
 				8D4D64922A7D10A5002B6200 /* ProfileViewModel.swift */,
-				8DC7588A2A7EB81C001E98BE /* OnBoardingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -432,7 +429,6 @@
 				8DC758772A7E2A5B001E98BE /* CircularProgressView.swift in Sources */,
 				8D93206B2A821B8600C4D1B2 /* OnBoardingThirdView.swift in Sources */,
 				8DBCE83E2A7FDC2800053CE1 /* Date.swift in Sources */,
-				8DC7588B2A7EB81C001E98BE /* OnBoardingViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -32,6 +32,8 @@ class NutritionViewModel: ObservableObject {
     @Published var dinnerNutrition: Nutrition = Nutrition()
     @Published var snackNutrition: Nutrition = Nutrition()
     
+    @Published var profile: [Profile] = []
+    
     init() {
         fetchFoodNutritionRequest()
         
@@ -40,6 +42,8 @@ class NutritionViewModel: ObservableObject {
         fetchDailyNutrition()
         
         currentDay = Calendar.current.date(byAdding: .hour, value: 7, to: currentDay) ?? Date()
+        
+        fetchProfileRequest()
         
         WidgetCenter.shared.reloadAllTimelines()
     }
@@ -51,6 +55,17 @@ class NutritionViewModel: ObservableObject {
         
         do {
             foods = try PersistenceController.shared.container.viewContext.fetch(request)
+        } catch let error {
+            print("Fetch Error: \(error)")
+        }
+    }
+    
+    func fetchProfileRequest() {
+        let request = NSFetchRequest<Profile>(entityName: "Profile")
+        
+        do {
+            profile = try PersistenceController.shared.container.viewContext.fetch(request)
+            print("Fetch Success")
         } catch let error {
             print("Fetch Error: \(error)")
         }
