@@ -80,9 +80,9 @@ struct AddMealCardView: View {
                     if vm.isToday(date: food.date ?? Date())  {
                         HStack(alignment: .center, spacing: 2) {
                             VStack(alignment: .leading, spacing: 4) {
-                                Text("\(food.name ?? "") - \(food.weight, specifier: "%.1f") \(food.measure ?? "Serving")")
+                                Text("\(food.name ?? "")")
                                     .font(.headline)
-                                Text("Calories: \(food.calories, specifier: "%.0f") kcal, Protein: \(food.protein, specifier: "%.1f") g, Fat: \(food.fat, specifier: "%.1f") g, Carbs: \(food.carbs, specifier: "%.1f") g")
+                                Text("\(food.weight, specifier: "%.1f") \(food.measure ?? "Serving") - Calories: \(food.calories, specifier: "%.0f") kcal, Protein: \(food.protein, specifier: "%.1f") g, Fat: \(food.fat, specifier: "%.1f") g, Carbs: \(food.carbs, specifier: "%.1f") g")
                                     .foregroundColor(.secondary)
                                     .font(.caption)
                             }

@@ -33,7 +33,7 @@ struct Provider: TimelineProvider {
             let nutrition = try getData()
             let entry = SimpleEntry(date: Date(), nutrition: nutrition)
             
-            let timeline = Timeline(entries: [entry], policy: .atEnd)
+            let timeline = Timeline(entries: [entry], policy: .after(.now.advanced(by: 60 * 60)))
             completion(timeline)
         } catch {
             print(error)
