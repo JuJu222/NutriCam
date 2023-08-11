@@ -34,6 +34,9 @@ class NutritionViewModel: ObservableObject {
     
     @Published var profile: [Profile] = []
     
+    @Published var showDeleteAlert = false
+    @Published var selectedDeleteFood = FoodNutrition()
+    
     init() {
         fetchFoodNutritionRequest()
         

@@ -90,7 +90,9 @@ struct AddMealCardView: View {
                             Spacer()
                             
                             Button {
-                                vm.deleteFood(food: food)
+//                                vm.deleteFood(food: food)
+                                vm.selectedDeleteFood = food
+                                vm.showDeleteAlert = true
                             } label: {
                                 Image(systemName: "x.circle")
                                     .foregroundColor(.accentColor)

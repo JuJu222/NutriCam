@@ -14,6 +14,10 @@ struct NutritionView: View {
     
     var meals = ["Breakfast", "Lunch", "Dinner", "Snacks"]
     
+    init() {
+        UIView.appearance(whenContainedInInstancesOf: [UIAlertController.self]).tintColor = UIColor(Color("AccentColor"))
+    }
+    
     var body: some View {
         NavigationStack {
             ScrollView {
@@ -151,6 +155,21 @@ struct NutritionView: View {
             .onAppear {
                 vm.fetchProfileRequest()
             }
+            .alert(isPresented: $vm.showDeleteAlert) {
+                Alert(title: Text("Delete food?"), message: Text("This action will reset your daily nutrition data."), primaryButton: .destructive(Text("Delete")) {
+                    vm.deleteFood(food: vm.selectedDeleteFood)
+                },
+                secondaryButton: .cancel(Text("Cancel")))
+            }
+//            .alert("Delete food?", isPresented: $vm.showDeleteAlert, actions: {
+//                  Button("Cancel", role: .cancel, action: {})
+//
+//                  Button("Delete", role: .destructive, action: {
+//                      vm.deleteFood(food: vm.selectedDeleteFood)
+//                  })
+//                }, message: {
+//                  Text("This action will reset your daily nutrition data.")
+//            })
         }
     }
 }
