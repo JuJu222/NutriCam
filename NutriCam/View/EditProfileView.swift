@@ -18,15 +18,6 @@ struct EditProfileView: View {
     
     @State var recommendNutrition: Nutrition = Nutrition()
     
-    @State var weight = ""
-    @State var height = ""
-    @State var gender = ""
-    @State var dateOfBirth = Date()
-    @State var calories = 0.0
-    @State var protein = 0.0
-    @State var fat = 0.0
-    @State var carbs = 0.0
-    
     var body: some View {
         NavigationStack {
             VStack {
@@ -35,7 +26,7 @@ struct EditProfileView: View {
                         HStack {
                             Text("Weight (kg)")
                             Spacer()
-                            TextField("50", text: $weight)
+                            TextField("50", text: $vm.weight)
                                 .multilineTextAlignment(.trailing)
                                 .keyboardType(.numberPad)
 //                                .onReceive(Just(weight)) { newValue in
@@ -48,7 +39,7 @@ struct EditProfileView: View {
                         HStack {
                             Text("Height (cm)")
                             Spacer()
-                            TextField("160", text: $height)
+                            TextField("160", text: $vm.height)
                                 .multilineTextAlignment(.trailing)
                                 .keyboardType(.numberPad)
 //                                .onReceive(Just(weight)) { newValue in
@@ -58,12 +49,12 @@ struct EditProfileView: View {
 //                                    }
 //                                }
                         }
-                        Picker("Gender", selection: $gender) {
+                        Picker("Gender", selection: $vm.gender) {
                             ForEach(genderOptions, id: \.self) { option in
                                 Text(option)
                             }
                         }
-                        DatePicker("Date of Birth", selection: $dateOfBirth, displayedComponents: .date)
+                        DatePicker("Date of Birth", selection: $vm.dateOfBirth, displayedComponents: .date)
                     } header: {
                         Text("Personal Data")
                     }
@@ -73,39 +64,39 @@ struct EditProfileView: View {
                             HStack {
                                 Text("Calories")
                                 Spacer()
-                                Text("\(calories, specifier: "%.0f")")
+                                Text("\(vm.calories, specifier: "%.0f")")
                             }
-                            Slider(value: $calories, in: 0...5000)
+                            Slider(value: $vm.calories, in: 0...5000)
                         }
                         VStack {
                             HStack {
                                 Text("Protein")
                                 Spacer()
-                                Text("\(protein, specifier: "%.1f")")
+                                Text("\(vm.protein, specifier: "%.1f")")
                             }
-                            Slider(value: $protein, in: 0...500)
+                            Slider(value: $vm.protein, in: 0...500)
                         }
                         VStack {
                             HStack {
                                 Text("Fat")
                                 Spacer()
-                                Text("\(fat, specifier: "%.1f")")
+                                Text("\(vm.fat, specifier: "%.1f")")
                             }
-                            Slider(value: $fat, in: 0...500)
+                            Slider(value: $vm.fat, in: 0...500)
                         }
                         VStack {
                             HStack {
                                 Text("Carbs")
                                 Spacer()
-                                Text("\(carbs, specifier: "%.1f")")
+                                Text("\(vm.carbs, specifier: "%.1f")")
                             }
-                            Slider(value: $carbs, in: 0...1000)
+                            Slider(value: $vm.carbs, in: 0...1000)
                         }
                         Button {
-                            calories = vm.profile.first?.recommendCalories ?? 0
-                            protein = vm.profile.first?.recommendProtein ?? 0
-                            fat = vm.profile.first?.recommendFat ?? 0
-                            carbs = vm.profile.first?.recommendCarbs ?? 0
+                            vm.calories = vm.profile.first?.recommendCalories ?? 0
+                            vm.protein = vm.profile.first?.recommendProtein ?? 0
+                            vm.fat = vm.profile.first?.recommendFat ?? 0
+                            vm.carbs = vm.profile.first?.recommendCarbs ?? 0
                         } label: {
                             HStack {
                                 Spacer()
@@ -123,7 +114,7 @@ struct EditProfileView: View {
                 .padding(.top, 1)
                 
                 Button {
-                    vm.editProfile(profile: vm.profile.first ?? Profile(), minCalories: calories, minCarbs: carbs, minFat: fat, minProtein: protein, weight: Double(weight) ?? 50, height: Double(height) ?? 160, dateOfBirth: dateOfBirth, gender: gender, recommendCalories: recommendNutrition.calories, recommendProtein: recommendNutrition.protein, recommendFat: recommendNutrition.fat, recommendCarbs: recommendNutrition.carbs)
+                    vm.editProfile(profile: vm.profile.first ?? Profile(), minCalories: vm.calories, minCarbs: vm.carbs, minFat: vm.fat, minProtein: vm.protein, weight: Double(vm.weight) ?? 50, height: Double(vm.height) ?? 160, dateOfBirth: vm.dateOfBirth, gender: vm.gender, recommendCalories: recommendNutrition.calories, recommendProtein: recommendNutrition.protein, recommendFat: recommendNutrition.fat, recommendCarbs: recommendNutrition.carbs)
                     
                     dismiss()
                 } label: {
@@ -152,54 +143,49 @@ struct EditProfileView: View {
                 }
             }
             .onAppear {
-                weight = String(Int(vm.profile.first?.weight ?? 0))
-                height = String(Int(vm.profile.first?.height ?? 0))
-                gender = vm.profile.first?.gender ?? ""
-                dateOfBirth = vm.profile.first?.dateOfBirth ?? Date()
-                calories = vm.profile.first?.minCalories ?? 0
-                protein = vm.profile.first?.minProtein ?? 0
-                fat = vm.profile.first?.minFat ?? 0
-                carbs = vm.profile.first?.minCarbs ?? 0
+                let age = Calendar.current.dateComponents([.year], from: vm.dateOfBirth, to: Date()).year
+                
+                recommendNutrition = vm.countRecommendNutrition(gender: vm.gender, age: Double(age ?? 1), weight: Double(vm.weight) ?? 50, height: Double(vm.height) ?? 160)
             }
-            .onChange(of: weight, perform: { newValue in
-                let age = Calendar.current.dateComponents([.year], from: dateOfBirth, to: Date()).year
-                
-                recommendNutrition = vm.countRecommendNutrition(gender: gender, age: Double(age ?? 1), weight: Double(weight) ?? 50, height: Double(height) ?? 160)
-                
-                calories = recommendNutrition.calories
-                protein = recommendNutrition.protein
-                fat = recommendNutrition.fat
-                carbs = recommendNutrition.carbs
+            .onChange(of: vm.weight, perform: { newValue in
+                let age = Calendar.current.dateComponents([.year], from: vm.dateOfBirth, to: Date()).year
+
+                recommendNutrition = vm.countRecommendNutrition(gender: vm.gender, age: Double(age ?? 1), weight: Double(vm.weight) ?? 50, height: Double(vm.height) ?? 160)
+
+                vm.calories = recommendNutrition.calories
+                vm.protein = recommendNutrition.protein
+                vm.fat = recommendNutrition.fat
+                vm.carbs = recommendNutrition.carbs
             })
-            .onChange(of: height, perform: { newValue in
-                let age = Calendar.current.dateComponents([.year], from: dateOfBirth, to: Date()).year
-                
-                recommendNutrition = vm.countRecommendNutrition(gender: gender, age: Double(age ?? 1), weight: Double(weight) ?? 50, height: Double(height) ?? 160)
-                
-                calories = recommendNutrition.calories
-                protein = recommendNutrition.protein
-                fat = recommendNutrition.fat
-                carbs = recommendNutrition.carbs
+            .onChange(of: vm.height, perform: { newValue in
+                let age = Calendar.current.dateComponents([.year], from: vm.dateOfBirth, to: Date()).year
+
+                recommendNutrition = vm.countRecommendNutrition(gender: vm.gender, age: Double(age ?? 1), weight: Double(vm.weight) ?? 50, height: Double(vm.height) ?? 160)
+
+                vm.calories = recommendNutrition.calories
+                vm.protein = recommendNutrition.protein
+                vm.fat = recommendNutrition.fat
+                vm.carbs = recommendNutrition.carbs
             })
-            .onChange(of: gender, perform: { newValue in
-                let age = Calendar.current.dateComponents([.year], from: dateOfBirth, to: Date()).year
-                
-                recommendNutrition = vm.countRecommendNutrition(gender: gender, age: Double(age ?? 1), weight: Double(weight) ?? 50, height: Double(height) ?? 160)
-                
-                calories = recommendNutrition.calories
-                protein = recommendNutrition.protein
-                fat = recommendNutrition.fat
-                carbs = recommendNutrition.carbs
+            .onChange(of: vm.gender, perform: { newValue in
+                let age = Calendar.current.dateComponents([.year], from: vm.dateOfBirth, to: Date()).year
+
+                recommendNutrition = vm.countRecommendNutrition(gender: vm.gender, age: Double(age ?? 1), weight: Double(vm.weight) ?? 50, height: Double(vm.height) ?? 160)
+
+                vm.calories = recommendNutrition.calories
+                vm.protein = recommendNutrition.protein
+                vm.fat = recommendNutrition.fat
+                vm.carbs = recommendNutrition.carbs
             })
-            .onChange(of: dateOfBirth, perform: { newValue in
-                let age = Calendar.current.dateComponents([.year], from: dateOfBirth, to: Date()).year
-                
-                recommendNutrition = vm.countRecommendNutrition(gender: gender, age: Double(age ?? 1), weight: Double(weight) ?? 50, height: Double(height) ?? 160)
-                
-                calories = recommendNutrition.calories
-                protein = recommendNutrition.protein
-                fat = recommendNutrition.fat
-                carbs = recommendNutrition.carbs
+            .onChange(of: vm.dateOfBirth, perform: { newValue in
+                let age = Calendar.current.dateComponents([.year], from: vm.dateOfBirth, to: Date()).year
+
+                recommendNutrition = vm.countRecommendNutrition(gender: vm.gender, age: Double(age ?? 1), weight: Double(vm.weight) ?? 50, height: Double(vm.height) ?? 160)
+
+                vm.calories = recommendNutrition.calories
+                vm.protein = recommendNutrition.protein
+                vm.fat = recommendNutrition.fat
+                vm.carbs = recommendNutrition.carbs
             })
             .background(Color(UIColor.systemGray6))
         }
@@ -209,6 +195,5 @@ struct EditProfileView: View {
 struct EditProfileView_Previews: PreviewProvider {
     static var previews: some View {
         EditProfileView(vm: ProfileViewModel())
-//            .preferredColorScheme(.dark)
     }
 }

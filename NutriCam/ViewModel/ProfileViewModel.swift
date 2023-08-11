@@ -13,6 +13,15 @@ class ProfileViewModel: ObservableObject {
     
     @Published var profile: [Profile] = []
     
+    @Published var weight = ""
+    @Published var height = ""
+    @Published var gender = ""
+    @Published var dateOfBirth = Date()
+    @Published var calories = 0.0
+    @Published var protein = 0.0
+    @Published var fat = 0.0
+    @Published var carbs = 0.0
+    
     init() {
         fetchProfileRequest()
     }

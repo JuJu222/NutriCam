@@ -49,6 +49,16 @@ struct ProfileView: View {
                 EditProfileView(vm: vm)
             }
         }
+        .onChange(of: showEditProfileSheet, perform: { newValue in
+            vm.weight = String(Int(vm.profile.first?.weight ?? 0))
+            vm.height = String(Int(vm.profile.first?.height ?? 0))
+            vm.gender = vm.profile.first?.gender ?? ""
+            vm.dateOfBirth = vm.profile.first?.dateOfBirth ?? Date()
+            vm.calories = vm.profile.first?.minCalories ?? 0
+            vm.protein = vm.profile.first?.minProtein ?? 0
+            vm.fat = vm.profile.first?.minFat ?? 0
+            vm.carbs = vm.profile.first?.minCarbs ?? 0
+        })
     }
 }
 
