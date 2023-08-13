@@ -42,48 +42,48 @@ struct StatisticsView: View {
                                 .padding(.vertical, 12)
                             Spacer()
                         }
-                        Chart(vm.foods) {
-                            BarMark(x: .value("Date", vm.extractDate(date: $0.date ?? Date(), format: "dd MM yyyy")), y: .value("Calories (Kcal)", $0.calories)
+                        Chart(vm.chartDatas) {
+                            BarMark(x: .value("Date", vm.extractDate(date: $0.date, format: "dd MMM")), y: .value("Calories (Kcal)", $0.nutritions.calories)
                             )
-                            .cornerRadius(4)
+                            .cornerRadius(2)
                         }
-                        .frame(height: 200)
+                        .frame(height: 240)
                     } else if tab == 1 {
                         HStack {
                             Text("Avg. Protein: **\(avgNutrition.protein, specifier: "%.1f") g**")
                                 .padding(.vertical, 12)
                             Spacer()
                         }
-                        Chart(vm.foods) {
-                            BarMark(x: .value("Date", vm.extractDate(date: $0.date ?? Date(), format: "dd MM yyyy")), y: .value("Protein (g)", $0.protein)
+                        Chart(vm.chartDatas) {
+                            BarMark(x: .value("Date", vm.extractDate(date: $0.date, format: "dd MMM")), y: .value("Protein (g)", $0.nutritions.protein)
                             )
-                            .cornerRadius(4)
+                            .cornerRadius(2)
                         }
-                        .frame(height: 200)
+                        .frame(height: 240)
                     } else if tab == 2 {
                         HStack {
                             Text("Avg. Fat: **\(avgNutrition.fat, specifier: "%.1f") g**")
                                 .padding(.vertical, 12)
                             Spacer()
                         }
-                        Chart(vm.foods) {
-                            BarMark(x: .value("Date", vm.extractDate(date: $0.date ?? Date(), format: "dd MM yyyy")), y: .value("Fat (g)", $0.fat)
+                        Chart(vm.chartDatas) {
+                            BarMark(x: .value("Date", vm.extractDate(date: $0.date, format: "dd MMM")), y: .value("Fat (g)", $0.nutritions.fat)
                             )
-                            .cornerRadius(4)
+                            .cornerRadius(2)
                         }
-                        .frame(height: 200)
+                        .frame(height: 240)
                     } else {
                         HStack {
                             Text("Avg. Carbs: **\(avgNutrition.carbs, specifier: "%.1f") g**")
                                 .padding(.vertical, 12)
                             Spacer()
                         }
-                        Chart(vm.foods) {
-                            BarMark(x: .value("Date", vm.extractDate(date: $0.date ?? Date(), format: "dd MM yyyy")), y: .value("Carbs (g)", $0.carbs)
+                        Chart(vm.chartDatas) {
+                            BarMark(x: .value("Date", vm.extractDate(date: $0.date , format: "dd MMM")), y: .value("Carbs (g)", $0.nutritions.carbs)
                             )
-                            .cornerRadius(4)
+                            .cornerRadius(2)
                         }
-                        .frame(height: 200)
+                        .frame(height: 240)
                     }
     
                     VStack (alignment: .leading, spacing: 8) {
@@ -128,14 +128,19 @@ struct StatisticsView: View {
             .onAppear {
                 vm.fetchWeeklyNutritionDataRequest()
                 avgNutrition = vm.countAverageNutrition()
+                vm.makeChartData()
             }
             .onChange(of: vm.startDate) { newValue in
                 vm.countSevenDays(type: "Start")
                 vm.fetchWeeklyNutritionDataRequest()
+                avgNutrition = vm.countAverageNutrition()
+                vm.makeChartData()
             }
             .onChange(of: vm.endDate) { newValue in
                 vm.countSevenDays(type: "End")
                 vm.fetchWeeklyNutritionDataRequest()
+                avgNutrition = vm.countAverageNutrition()
+                vm.makeChartData()
             }
         }
     }

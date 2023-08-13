@@ -11,6 +11,8 @@ import CoreData
 class StatisticsViewModel: ObservableObject {
     @Published var foods: [FoodNutrition] = []
     
+    @Published var chartDatas: [ChartData] = []
+    
     @Published var startDate = Date().midnight()
     @Published var endDate = Date().midnight()
     
@@ -22,9 +24,9 @@ class StatisticsViewModel: ObservableObject {
     func fetchWeeklyNutritionDataRequest() {
         let request = NSFetchRequest<FoodNutrition>(entityName: "FoodNutrition")
         
-        request.predicate = NSPredicate(format: "date >= %@ && date <= %@", startDate as CVarArg, Calendar.current.startOfDay(for: endDate) as CVarArg)
+        request.predicate = NSPredicate(format: "date >= %@ && date <= %@", startDate as CVarArg, Calendar.current.startOfDay(for: endDate + 86400) as CVarArg)
         
-        let sort = NSSortDescriptor(key: "date", ascending: false)
+        let sort = NSSortDescriptor(key: "date", ascending: true)
         request.sortDescriptors = [sort]
         
         do {
@@ -45,7 +47,6 @@ class StatisticsViewModel: ObservableObject {
     
     func countSevenDays(type: String) {
         if type == "Start" {
-//            endDate = Calendar.current.date(byAdding: .hour, value: 7, to: endDate) ?? Date()
             let tempDate = Calendar.current.date(byAdding: .day, value: 6, to: startDate) ?? Date()
             if tempDate > Date() {
                 startDate = Date()
@@ -55,7 +56,6 @@ class StatisticsViewModel: ObservableObject {
             endDate = startDate
             endDate = Calendar.current.date(byAdding: .day, value: 6, to: endDate) ?? Date()
         } else {
-//            startDate = Calendar.current.date(byAdding: .hour, value: 7, to: startDate) ?? Date()
             startDate = endDate
             startDate = Calendar.current.date(byAdding: .day, value: -6, to: startDate) ?? Date()
         }
@@ -77,6 +77,33 @@ class StatisticsViewModel: ObservableObject {
         avgNutrition.carbs = avgNutrition.carbs / 7
         
         return avgNutrition
+    }
+    
+    func makeChartData() {
+        chartDatas = []
+        var tempDate = startDate
+        
+        while tempDate <= endDate {
+            var nutrition = Nutrition()
+            foods.forEach { food in
+                if isSameDate(tempDate: tempDate, foodDate: food.date ?? Date()) {
+                    nutrition.calories += food.calories
+                    nutrition.protein += food.protein
+                    nutrition.fat += food.fat
+                    nutrition.carbs += food.carbs
+                }
+            }
+            chartDatas.append(ChartData(date: tempDate, nutritions: nutrition))
+            tempDate = Calendar.current.date(byAdding: .day, value: 1, to: tempDate) ?? Date()
+        }
+        print(chartDatas.last?.date)
+        print(chartDatas.last?.nutritions)
+    }
+    
+    func isSameDate(tempDate: Date, foodDate: Date) -> Bool {
+        let calendar = Calendar.current
+
+        return calendar.isDate(tempDate, inSameDayAs: foodDate)
     }
     
     // Dummy Function
