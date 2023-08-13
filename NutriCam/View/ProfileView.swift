@@ -28,13 +28,6 @@ struct ProfileView: View {
                     Text("Min Fat: \(vm.profile.first?.minFat ?? 0, specifier: "%.1f")")
                     Text("Min Carbs: \(vm.profile.first?.minCarbs ?? 0, specifier: "%.1f")")
                 }
-                
-                VStack {
-                    Text("Recommended Calories: \(vm.profile.first?.recommendCalories ?? 0, specifier: "%.0f")")
-                    Text("Recommended Protein: \(vm.profile.first?.recommendProtein ?? 0, specifier: "%.1f")")
-                    Text("Recommended Fat: \(vm.profile.first?.recommendFat ?? 0, specifier: "%.1f")")
-                    Text("Recommended Carbs: \(vm.profile.first?.recommendCarbs ?? 0, specifier: "%.1f")")
-                }
             }
             .background(Color("Background"))
             .navigationTitle("Profile")

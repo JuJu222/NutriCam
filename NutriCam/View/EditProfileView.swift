@@ -64,7 +64,7 @@ struct EditProfileView: View {
                             HStack {
                                 Text("Calories")
                                 Spacer()
-                                Text("\(vm.calories, specifier: "%.0f")")
+                                Text("\(vm.calories, specifier: "%.0f") Kcal")
                             }
                             Slider(value: $vm.calories, in: 0...5000)
                         }
@@ -72,25 +72,25 @@ struct EditProfileView: View {
                             HStack {
                                 Text("Protein")
                                 Spacer()
-                                Text("\(vm.protein, specifier: "%.1f")")
+                                Text("\(vm.protein, specifier: "%.1f") g")
                             }
-                            Slider(value: $vm.protein, in: 0...500)
+                            Slider(value: $vm.protein, in: 0...300)
                         }
                         VStack {
                             HStack {
                                 Text("Fat")
                                 Spacer()
-                                Text("\(vm.fat, specifier: "%.1f")")
+                                Text("\(vm.fat, specifier: "%.1f") g")
                             }
-                            Slider(value: $vm.fat, in: 0...500)
+                            Slider(value: $vm.fat, in: 0...300)
                         }
                         VStack {
                             HStack {
                                 Text("Carbs")
                                 Spacer()
-                                Text("\(vm.carbs, specifier: "%.1f")")
+                                Text("\(vm.carbs, specifier: "%.1f") g")
                             }
-                            Slider(value: $vm.carbs, in: 0...1000)
+                            Slider(value: $vm.carbs, in: 0...800)
                         }
                         Button {
                             vm.calories = vm.profile.first?.recommendCalories ?? 0
