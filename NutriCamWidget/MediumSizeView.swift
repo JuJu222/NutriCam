@@ -14,7 +14,7 @@ struct MediumSizeView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            HStack(spacing: 12) {
+            HStack(spacing: 16) {
                 VStack {
                     ZStack {
                         CircularProgressView(progress: entry.nutrition.calories / entry.profile.minCalories)

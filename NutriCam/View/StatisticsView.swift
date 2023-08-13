@@ -39,7 +39,7 @@ struct StatisticsView: View {
                     if tab == 0 {
                         HStack {
                             Text("Avg. Calories: **\(avgNutrition.calories, specifier: "%.0f") Kcal**")
-                                .padding(.vertical, 12)
+                                .padding(.vertical, 8)
                             Spacer()
                         }
                         Chart(vm.chartDatas) {
@@ -51,7 +51,7 @@ struct StatisticsView: View {
                     } else if tab == 1 {
                         HStack {
                             Text("Avg. Protein: **\(avgNutrition.protein, specifier: "%.1f") g**")
-                                .padding(.vertical, 12)
+                                .padding(.vertical, 8)
                             Spacer()
                         }
                         Chart(vm.chartDatas) {
@@ -63,7 +63,7 @@ struct StatisticsView: View {
                     } else if tab == 2 {
                         HStack {
                             Text("Avg. Fat: **\(avgNutrition.fat, specifier: "%.1f") g**")
-                                .padding(.vertical, 12)
+                                .padding(.vertical, 8)
                             Spacer()
                         }
                         Chart(vm.chartDatas) {
@@ -75,7 +75,7 @@ struct StatisticsView: View {
                     } else {
                         HStack {
                             Text("Avg. Carbs: **\(avgNutrition.carbs, specifier: "%.1f") g**")
-                                .padding(.vertical, 12)
+                                .padding(.vertical, 8)
                             Spacer()
                         }
                         Chart(vm.chartDatas) {

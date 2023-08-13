@@ -14,8 +14,12 @@ struct ConsumedFoodView: View {
     var body: some View {
         ScrollView {
             VStack (spacing: 8) {
-                ForEach(vm.foods) { food in
-                    ConsumedFoodCardView(food: food)
+                if !vm.foods.isEmpty {
+                    ForEach(vm.foods) { food in
+                        ConsumedFoodCardView(food: food)
+                    }
+                } else {
+                    Text("No Data")
                 }
             }
             .padding()

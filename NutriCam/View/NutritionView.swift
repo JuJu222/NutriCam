@@ -57,7 +57,7 @@ struct NutritionView: View {
                         .frame(width: UIScreen.main.bounds.width)
                     }
                     
-                    HStack(spacing: 12) {
+                    HStack(spacing: 8) {
                         ZStack {
                             CircularProgressView(progress: vm.dailyNutrition.calories / (vm.profile.first?.minCalories ?? 0))
                                 .frame(width: UIScreen.main.bounds.width / 2.5)
