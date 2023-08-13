@@ -13,7 +13,7 @@ struct ConsumedFoodView: View {
     
     var body: some View {
         ScrollView {
-            VStack {
+            VStack (spacing: 8) {
                 ForEach(vm.foods) { food in
                     ConsumedFoodCardView(food: food)
                 }

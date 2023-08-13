@@ -37,14 +37,6 @@ class StatisticsViewModel: ObservableObject {
         }
     }
     
-    func extractDate(date: Date, format: String) -> String {
-        let formatter = DateFormatter()
-        
-        formatter.dateFormat = format
-        
-        return formatter.string(from: date)
-    }
-    
     func countSevenDays(type: String) {
         if type == "Start" {
             let tempDate = Calendar.current.date(byAdding: .day, value: 6, to: startDate) ?? Date()
@@ -96,48 +88,19 @@ class StatisticsViewModel: ObservableObject {
             chartDatas.append(ChartData(date: tempDate, nutritions: nutrition))
             tempDate = Calendar.current.date(byAdding: .day, value: 1, to: tempDate) ?? Date()
         }
-        print(chartDatas.last?.date)
-        print(chartDatas.last?.nutritions)
+    }
+    
+    func extractDate(date: Date, format: String) -> String {
+        let formatter = DateFormatter()
+        
+        formatter.dateFormat = format
+        
+        return formatter.string(from: date)
     }
     
     func isSameDate(tempDate: Date, foodDate: Date) -> Bool {
         let calendar = Calendar.current
 
         return calendar.isDate(tempDate, inSameDayAs: foodDate)
-    }
-    
-    // Dummy Function
-    func save() {
-        do {
-            try PersistenceController.shared.container.viewContext.save()
-            fetchWeeklyNutritionDataRequest()
-            print("Data Saved")
-        } catch {
-            print("Could not save the data")
-        }
-    }
-
-    func addFood(calories: Double, carbs: Double, fat: Double, protein: Double, name: String, meal: String, date: Date, weight: Double, measure: String) {
-        let food = FoodNutrition(context: PersistenceController.shared.container.viewContext)
-        food.id = UUID()
-        food.calories = calories
-        food.carbs = carbs
-        food.fat = fat
-        food.protein = protein
-        food.name = name
-        food.meal = meal
-        food.date = date
-        food.weight = weight
-        food.measure = measure
-        
-        save()
-    }
-
-    func deleteAll() {
-        foods.forEach { food in
-            PersistenceController.shared.container.viewContext.delete(food)
-        }
-        
-        save()
     }
 }
