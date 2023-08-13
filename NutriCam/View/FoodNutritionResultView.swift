@@ -45,6 +45,7 @@ struct FoodNutritionResultView: View {
                     .padding(14)
                     .background(colorScheme == .dark ? Color(UIColor.systemGray6) : .white)
                     .cornerRadius(8)
+                    .keyboardType(.numberPad)
                 
                 Picker("Measure", selection: $selectedMeasure) {
                     ForEach(labels, id: \.self) { label in
@@ -52,7 +53,7 @@ struct FoodNutritionResultView: View {
                     }
                 }
                 .padding(8)
-                .background(Color(UIColor.systemBackground))
+                .background(colorScheme == .dark ? Color(UIColor.systemGray6) : .white)
                 .cornerRadius(8)
             }
             .padding()

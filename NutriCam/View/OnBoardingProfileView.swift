@@ -12,21 +12,26 @@ struct OnBoardingProfileView: View {
     @AppStorage("currentPage") var currentPage = 4
     @Environment(\.colorScheme) var colorScheme
     
+    @Binding var enableButton: Bool
+    
     @StateObject var vm: ProfileViewModel
     
     let genderOptions = ["Male", "Female"]
     
     @State var weight = ""
     @State var height = ""
-    @State var gender = ""
+    @State var gender = "Male"
     @State var dateOfBirth = Date()
     
     var body: some View {
         VStack {
-            Text("Please fill in the data below so we can determine your minimum daily nutrition")
-                .foregroundColor(.secondary)
-                .font(.subheadline)
-                .padding([.horizontal, .top])
+            HStack {
+                Text("Please fill in the data below so we can determine your minimum daily nutrition")
+                    .foregroundColor(.secondary)
+                    .font(.subheadline)
+                    .padding([.horizontal, .top])
+                Spacer()
+            }
             
             List {
                 Section {
@@ -49,10 +54,10 @@ struct OnBoardingProfileView: View {
                         TextField("160", text: $height)
                             .multilineTextAlignment(.trailing)
                             .keyboardType(.numberPad)
-                            .onReceive(Just(weight)) { newValue in
+                            .onReceive(Just(height)) { newValue in
                                 let filtered = newValue.filter { "0123456789".contains($0) }
                                 if filtered != newValue {
-                                    self.weight = filtered
+                                    self.height = filtered
                                 }
                             }
                     }
@@ -66,6 +71,16 @@ struct OnBoardingProfileView: View {
             }
         }
         .background(colorScheme == .dark ? .black : Color(UIColor.systemGray6))
+        .onChange(of: weight, perform: { newValue in
+            if !weight.isEmpty && !height.isEmpty {
+                enableButton = true
+            }
+        })
+        .onChange(of: height, perform: { newValue in
+            if !weight.isEmpty && !height.isEmpty {
+                enableButton = true
+            }
+        })
         .onDisappear {
             let age = Calendar.current.dateComponents([.year], from: dateOfBirth, to: Date()).year
 
@@ -78,6 +93,6 @@ struct OnBoardingProfileView: View {
 
 struct OnBoardingProfileView_Previews: PreviewProvider {
     static var previews: some View {
-        OnBoardingProfileView(vm: ProfileViewModel())
+        OnBoardingProfileView(enableButton: .constant(false), vm: ProfileViewModel())
     }
 }

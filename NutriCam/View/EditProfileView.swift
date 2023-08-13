@@ -29,12 +29,12 @@ struct EditProfileView: View {
                             TextField("50", text: $vm.weight)
                                 .multilineTextAlignment(.trailing)
                                 .keyboardType(.numberPad)
-//                                .onReceive(Just(weight)) { newValue in
-//                                    let filtered = newValue.filter { "0123456789".contains($0) }
-//                                    if filtered != newValue {
-//                                        self.weight = filtered
-//                                    }
-//                                }
+                                .onReceive(Just(vm.weight)) { newValue in
+                                    let filtered = newValue.filter { "0123456789".contains($0) }
+                                    if filtered != newValue {
+                                        self.vm.weight = filtered
+                                    }
+                                }
                         }
                         HStack {
                             Text("Height (cm)")
@@ -42,12 +42,12 @@ struct EditProfileView: View {
                             TextField("160", text: $vm.height)
                                 .multilineTextAlignment(.trailing)
                                 .keyboardType(.numberPad)
-//                                .onReceive(Just(weight)) { newValue in
-//                                    let filtered = newValue.filter { "0123456789".contains($0) }
-//                                    if filtered != newValue {
-//                                        self.weight = filtered
-//                                    }
-//                                }
+                                .onReceive(Just(vm.height)) { newValue in
+                                    let filtered = newValue.filter { "0123456789".contains($0) }
+                                    if filtered != newValue {
+                                        self.vm.height = filtered
+                                    }
+                                }
                         }
                         Picker("Gender", selection: $vm.gender) {
                             ForEach(genderOptions, id: \.self) { option in
@@ -130,6 +130,7 @@ struct EditProfileView: View {
                     .clipShape(Capsule())
                 }
                 .padding(.horizontal)
+                .disabled(vm.calories == 0 || vm.carbs == 0 || vm.fat == 0 || vm.protein == 0 || vm.weight.isEmpty || vm.height.isEmpty || vm.gender.isEmpty)
             }
             .navigationTitle("Edit Profile")
             .navigationBarTitleDisplayMode(.inline)

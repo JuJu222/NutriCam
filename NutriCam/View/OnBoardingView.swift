@@ -11,6 +11,7 @@ struct OnBoardingView: View {
     @AppStorage("currentPage") var currentPage = 1
 
     @StateObject var vm: ProfileViewModel = ProfileViewModel()
+    @State var enableButton: Bool = false
     
     var body: some View {
         NavigationStack {
@@ -22,7 +23,7 @@ struct OnBoardingView: View {
                 } else if currentPage == 3 {
                     OnBoardingThirdView()
                 } else if currentPage == 4 {
-                    OnBoardingProfileView(vm: vm)
+                    OnBoardingProfileView(enableButton: $enableButton, vm: vm)
                 }
                 
                 Button {
@@ -40,6 +41,7 @@ struct OnBoardingView: View {
                     .clipShape(Capsule())
                 }
                 .padding(.horizontal)
+                .disabled(currentPage == 4 && !enableButton)
             }
             .toolbar {
                 if currentPage > 1 {
