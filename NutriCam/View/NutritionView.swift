@@ -54,6 +54,7 @@ struct NutritionView: View {
                             }
                         }
                         .padding()
+                        .frame(width: UIScreen.main.bounds.width)
                     }
                     
                     HStack(spacing: 12) {

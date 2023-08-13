@@ -24,7 +24,7 @@ struct StatisticsView: View {
                         
                         Spacer()
                         
-                        DatePicker(" End", selection: $vm.endDate, in: ...Date.now, displayedComponents: .date)
+                        DatePicker("End", selection: $vm.endDate, in: ...Date.now, displayedComponents: .date)
                     }
                     .padding(.vertical, 8)
                     
