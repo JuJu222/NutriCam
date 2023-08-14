@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct OnBoardingView: View {
+    @Environment(\.colorScheme) var colorScheme
+    
     @AppStorage("currentPage") var currentPage = 1
 
     @StateObject var vm: ProfileViewModel = ProfileViewModel()
@@ -20,10 +22,29 @@ struct OnBoardingView: View {
                     OnBoardingFirstView()
                 } else if currentPage == 2 {
                     OnBoardingSecondView()
+                        .transition(.slide)
                 } else if currentPage == 3 {
                     OnBoardingThirdView()
                 } else if currentPage == 4 {
                     OnBoardingProfileView(enableButton: $enableButton, vm: vm)
+                }
+                
+                if currentPage < 4 {
+                    HStack (spacing: 8) {
+                        Circle()
+                            .frame(width: 8)
+                            .foregroundColor(currentPage == 1 ? .accentColor : .gray)
+                        Circle()
+                            .frame(width: 8)
+                            .foregroundColor(currentPage == 2 ? .accentColor : .gray)
+                        Circle()
+                            .frame(width: 8)
+                            .foregroundColor(currentPage == 3 ? .accentColor : .gray)
+                    }
+                    .padding(8)
+                    .background(colorScheme == .dark ? Color(UIColor.systemGray6) : .white)
+                    .cornerRadius(100)
+                    .padding(.bottom, 64)
                 }
                 
                 Button {

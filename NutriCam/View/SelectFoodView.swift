@@ -38,7 +38,6 @@ struct SelectFoodView: View {
                                     .scaledToFit()
                                     .frame(width: 45)
                                     .cornerRadius(8)
-                                    
                             } placeholder: {
                                 Image(systemName: "takeoutbag.and.cup.and.straw.fill")
                                     .resizable()

@@ -19,7 +19,19 @@ struct ConsumedFoodView: View {
                         ConsumedFoodCardView(food: food)
                     }
                 } else {
-                    Text("No Data")
+                    VStack (spacing: 8) {
+                        Spacer()
+                        Text("No Data")
+                            .font(.title2)
+                            .bold()
+                        Text("You haven't added daily nutrition data for this week.")
+                            .font(.subheadline)
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(.secondary)
+                            .padding(.horizontal, 32)
+                        Spacer()
+                    }
+                    .frame(height: 500)
                 }
             }
             .padding()
