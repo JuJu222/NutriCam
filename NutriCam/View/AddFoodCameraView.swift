@@ -130,7 +130,7 @@ struct AddFoodCameraView: View {
                     .onChange(of: classification.doneClassifying) { newValue in
                         if classification.doneClassifying {
                             vm.foodName = classification.searchQuery
-                            vm.fetchEdamamFoods()
+//                            vm.fetchEdamamFoods()
                         }
                     }
                 }

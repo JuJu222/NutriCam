@@ -108,8 +108,10 @@ struct StatisticsView: View {
                             
                             NavigationLink(destination: ConsumedFoodView(vm: vm)) {
                                 HStack {
+                                    Spacer()
                                     Text("See All Consumed Foods")
                                     Image(systemName: "chevron.right")
+                                    Spacer()
                                 }
                                 .font(.subheadline)
                                 .fontWeight(.semibold)

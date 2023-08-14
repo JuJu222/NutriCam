@@ -64,7 +64,7 @@ struct Hint: Codable, Hashable {
 // MARK: - HintFood
 struct HintFood: Codable, Hashable {
     static func == (lhs: HintFood, rhs: HintFood) -> Bool {
-        lhs.foodId == rhs.foodId
+        lhs.foodId == rhs.foodId && lhs.label == rhs.label
     }
     
     func hash(into hasher: inout Hasher) {
