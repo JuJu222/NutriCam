@@ -62,6 +62,11 @@ struct SelectFoodView: View {
                             }
 
                             Spacer()
+                            
+                            Image(systemName: "chevron.right")
+                                .foregroundColor(.accentColor)
+                                .font(.title3)
+                                .fontWeight(.semibold)
                         }
                         .padding()
                         .background(colorScheme == .dark ? Color(UIColor.systemGray6) : .white)

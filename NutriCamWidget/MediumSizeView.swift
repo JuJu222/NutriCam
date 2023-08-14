@@ -14,10 +14,10 @@ struct MediumSizeView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            HStack(spacing: 10) {
+            HStack(spacing: 16) {
                 VStack {
                     ZStack {
-                        CircularProgressView(progress: entry.nutrition.calories / 2000)
+                        CircularProgressView(progress: entry.nutrition.calories / entry.profile.minCalories)
 
                         VStack {
                             Image(systemName: "flame.fill")
@@ -27,58 +27,54 @@ struct MediumSizeView: View {
                             Text("\(entry.nutrition.calories, specifier: "%.0f")")
                                 .font(.title)
                                 .bold()
-                            Text("/ 2000\nkcal")
+                            Text("/ \(entry.profile.minCalories, specifier: "%.0f")\nkcal")
                                 .font(.footnote)
                                 .multilineTextAlignment(.center)
                         }
                     }
-                    .frame(width: 120, height: 120)
-                    .padding(.top, 3)
+                    .padding(2)
                 }
-                .frame(width: geometry.size.width * 0.45)
                 
                 VStack(spacing: 16) {
-                    ProgressView(value: entry.nutrition.protein, total: 70) {
+                    ProgressView(value: entry.nutrition.protein, total: entry.profile.minProtein) {
                         HStack {
                             Text("Protein")
                                 .font(.footnote)
                                 .bold()
                             Spacer()
-                            Text("\(entry.nutrition.protein, specifier: "%.1f") / 60 g")
+                            Text("\(entry.nutrition.protein, specifier: "%.1f") / \(entry.profile.minProtein, specifier: "%.1f") g")
                                 .font(.footnote)
                         }
                     }
                     .tint(Color("AccentColor"))
                     
-                    ProgressView(value: entry.nutrition.fat, total: 30) {
+                    ProgressView(value: entry.nutrition.fat, total: entry.profile.minFat) {
                         HStack {
                             Text("Fat")
                                 .font(.footnote)
                                 .bold()
                             Spacer()
-                            Text("\(entry.nutrition.fat, specifier: "%.1f") / 30 g")
+                            Text("\(entry.nutrition.fat, specifier: "%.1f") / \(entry.profile.minFat, specifier: "%.1f") g")
                                 .font(.footnote)
                         }
                     }
                     .tint(Color("AccentColor"))
                     
-                    ProgressView(value: entry.nutrition.carbs, total: 70) {
+                    ProgressView(value: entry.nutrition.carbs, total: entry.profile.minCarbs) {
                         HStack {
                             Text("Carbs")
                                 .font(.footnote)
                                 .bold()
                             Spacer()
-                            Text("\(entry.nutrition.carbs, specifier: "%.1f") / 70 g")
+                            Text("\(entry.nutrition.carbs, specifier: "%.1f") / \(entry.profile.minCarbs, specifier: "%.1f") g")
                                 .font(.footnote)
                         }
                     }
                     .tint(Color("AccentColor"))
                 }
-                .frame(width: geometry.size.width * 0.45)
                 .padding(.bottom, 2)
             }
-            .padding(.vertical)
-            .padding(.horizontal, 4)
+            .padding()
         }
     }
 }

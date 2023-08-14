@@ -14,7 +14,7 @@ struct SmallSizeView: View {
     
     var body: some View {
         ZStack {
-            CircularProgressView(progress: entry.nutrition.calories / 2000)
+            CircularProgressView(progress: entry.nutrition.calories / entry.profile.minCalories)
 
             VStack {
                 Image(systemName: "flame.fill")
@@ -24,12 +24,13 @@ struct SmallSizeView: View {
                 Text("\(entry.nutrition.calories, specifier: "%.0f")")
                     .font(.title)
                     .bold()
-                Text("/ 2000\nkcal")
+                Text("/ \(entry.profile.minCalories, specifier: "%.0f")\nkcal")
                     .font(.footnote)
                     .multilineTextAlignment(.center)
             }
         }
-        .frame(width: 120, height: 120)
+        .padding()
+//        .frame(width: 120, height: 120)
     }
 }
 

@@ -16,6 +16,9 @@
 		4C30EECC2A73625B00D91D59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C30EECB2A73625B00D91D59 /* Assets.xcassets */; };
 		4C30EECF2A73625B00D91D59 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C30EECE2A73625B00D91D59 /* Preview Assets.xcassets */; };
 		4C765CF82A7CAC28003E9748 /* best.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 4C765CF72A7CAC28003E9748 /* best.mlpackage */; };
+		8D0D79AD2A8609C800AF36DB /* ConsumedFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D79AC2A8609C800AF36DB /* ConsumedFoodView.swift */; };
+		8D0D79AF2A86124400AF36DB /* ConsumedFoodCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D79AE2A86124400AF36DB /* ConsumedFoodCardView.swift */; };
+		8D1BFE4E2A88A64000033159 /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1BFE4D2A88A64000033159 /* ChartData.swift */; };
 		8D2676CA2A73650400F4E6BC /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 8D2676C92A73650400F4E6BC /* .gitignore */; };
 		8D2814532A75363E0077D7D3 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D2814522A75363E0077D7D3 /* WidgetKit.framework */; };
 		8D2814552A75363E0077D7D3 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D2814542A75363E0077D7D3 /* SwiftUI.framework */; };
@@ -94,6 +97,9 @@
 		4C30EECB2A73625B00D91D59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C30EECE2A73625B00D91D59 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4C765CF72A7CAC28003E9748 /* best.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; name = best.mlpackage; path = Model/best.mlpackage; sourceTree = "<group>"; };
+		8D0D79AC2A8609C800AF36DB /* ConsumedFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumedFoodView.swift; sourceTree = "<group>"; };
+		8D0D79AE2A86124400AF36DB /* ConsumedFoodCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumedFoodCardView.swift; sourceTree = "<group>"; };
+		8D1BFE4D2A88A64000033159 /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
 		8D2676C92A73650400F4E6BC /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		8D2814502A75363E0077D7D3 /* NutriCamWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NutriCamWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D2814522A75363E0077D7D3 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
@@ -228,6 +234,7 @@
 			children = (
 				8DC758842A7E587A001E98BE /* Food.swift */,
 				8DC758922A7FAC90001E98BE /* Nutrition.swift */,
+				8D1BFE4D2A88A64000033159 /* ChartData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -243,6 +250,7 @@
 				8DC758782A7E3F6D001E98BE /* AddFoodCameraView.swift */,
 				8DC7587A2A7E3FF9001E98BE /* SelectFoodView.swift */,
 				8DC7587C2A7E4008001E98BE /* FoodNutritionResultView.swift */,
+				8D0D79AC2A8609C800AF36DB /* ConsumedFoodView.swift */,
 				8DC758862A7EB37B001E98BE /* EditProfileView.swift */,
 				8DC758882A7EB78A001E98BE /* OnBoardingView.swift */,
 				8D9320662A821B7100C4D1B2 /* OnBoardingFirstView.swift */,
@@ -278,6 +286,7 @@
 			children = (
 				8DC758742A7E06BC001E98BE /* AddMealCardView.swift */,
 				8DC758762A7E2A5B001E98BE /* CircularProgressView.swift */,
+				8D0D79AE2A86124400AF36DB /* ConsumedFoodCardView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -398,11 +407,13 @@
 			files = (
 				4C30EECA2A73625900D91D59 /* ContentView.swift in Sources */,
 				4C002F182A77575400DB9844 /* FoodClassifier.mlmodel in Sources */,
+				8D0D79AD2A8609C800AF36DB /* ConsumedFoodView.swift in Sources */,
 				4C765CF82A7CAC28003E9748 /* best.mlpackage in Sources */,
 				4C30EEC82A73625900D91D59 /* NutriCamApp.swift in Sources */,
 				4C002F1A2A7757E500DB9844 /* CGImagePropertyOrientation+UIImageOrientation.swift in Sources */,
 				4C002F152A77571600DB9844 /* ImageClassification.swift in Sources */,
 				4C0120BA2A8098280044E1CA /* CustomCameraView.swift in Sources */,
+				8D0D79AF2A86124400AF36DB /* ConsumedFoodCardView.swift in Sources */,
 				8D4D64932A7D10A5002B6200 /* ProfileViewModel.swift in Sources */,
 				8DC758872A7EB37B001E98BE /* EditProfileView.swift in Sources */,
 				8D9320672A821B7100C4D1B2 /* OnBoardingFirstView.swift in Sources */,
@@ -416,6 +427,7 @@
 				8DC758832A7E585B001E98BE /* APIKey.swift in Sources */,
 				8DC758752A7E06BC001E98BE /* AddMealCardView.swift in Sources */,
 				8D4D648F2A7D1053002B6200 /* NutriCamData.xcdatamodeld in Sources */,
+				8D1BFE4E2A88A64000033159 /* ChartData.swift in Sources */,
 				8D9320692A821B7C00C4D1B2 /* OnBoardingSecondView.swift in Sources */,
 				4C30EEC82A73625900D91D59 /* NutriCamApp.swift in Sources */,
 				8D4D64972A7D10C7002B6200 /* StatisticsView.swift in Sources */,

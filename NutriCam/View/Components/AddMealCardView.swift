@@ -80,17 +80,31 @@ struct AddMealCardView: View {
                     if vm.isToday(date: food.date ?? Date())  {
                         HStack(alignment: .center, spacing: 2) {
                             VStack(alignment: .leading, spacing: 4) {
-                                Text("\(food.name ?? "")")
-                                    .font(.headline)
-                                Text("\(food.weight, specifier: "%.1f") \(food.measure ?? "Serving") - Calories: \(food.calories, specifier: "%.0f") kcal, Protein: \(food.protein, specifier: "%.1f") g, Fat: \(food.fat, specifier: "%.1f") g, Carbs: \(food.carbs, specifier: "%.1f") g")
-                                    .foregroundColor(.secondary)
-                                    .font(.caption)
+                                Text("**\(food.name ?? "")** - \(food.weight, specifier: "%.1f") \(food.measure ?? "Serving")")
+                                    .font(.body)
+                                    .fixedSize(horizontal: false, vertical: true)
+                                HStack (spacing: 16) {
+                                    VStack (alignment: .leading) {
+                                        Text("Calories: \(food.calories, specifier: "%.0f") kcal")
+                                        Text("Protein: \(food.protein, specifier: "%.1f") g")
+                                    }
+                                    
+                                    Divider()
+                                        .frame(height: 20)
+                                        .background(.secondary)
+                                    
+                                    VStack (alignment: .leading) {
+                                        Text("Fat: \(food.fat, specifier: "%.1f") g")
+                                        Text("Carbs: \(food.carbs, specifier: "%.1f") g")
+                                    }
+                                }
+                                .foregroundColor(.secondary)
+                                .font(.footnote)
                             }
                             
                             Spacer()
                             
                             Button {
-//                                vm.deleteFood(food: food)
                                 vm.selectedDeleteFood = food
                                 vm.showDeleteAlert = true
                             } label: {

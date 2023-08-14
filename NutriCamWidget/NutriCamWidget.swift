@@ -11,17 +11,19 @@ import SwiftUI
 struct SimpleEntry: TimelineEntry {
     let date: Date
     let nutrition: Nutrition
+    let profile: Profile
 }
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), nutrition: Nutrition())
+        SimpleEntry(date: Date(), nutrition: Nutrition(), profile: Profile())
     }
 
     func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
         do {
-            let nutrition = try getData()
-            let entry = SimpleEntry(date: Date(), nutrition: nutrition)
+            let nutrition = try getNutritionData()
+            let profile = try getProfileData()
+            let entry = SimpleEntry(date: Date(), nutrition: nutrition, profile: profile)
             completion(entry)
         } catch {
             print(error)
@@ -30,8 +32,9 @@ struct Provider: TimelineProvider {
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         do {
-            let nutrition = try getData()
-            let entry = SimpleEntry(date: Date(), nutrition: nutrition)
+            let nutrition = try getNutritionData()
+            let profile = try getProfileData()
+            let entry = SimpleEntry(date: Date(), nutrition: nutrition, profile: profile)
             
             let timeline = Timeline(entries: [entry], policy: .after(.now.advanced(by: 60 * 60)))
             completion(timeline)
@@ -40,7 +43,7 @@ struct Provider: TimelineProvider {
         }
     }
     
-    private func getData() throws -> Nutrition {
+    private func getNutritionData() throws -> Nutrition {
         let request = FoodNutrition.fetchRequest()
         request.predicate = NSPredicate(format: "date >= %@ && date <= %@", Date().midnight() as CVarArg, Calendar.current.startOfDay(for: Date().midnight() + 86400) as CVarArg)
         
@@ -56,6 +59,15 @@ struct Provider: TimelineProvider {
         }
         
         return dailyNutrition
+    }
+    
+    private func getProfileData() throws -> Profile {
+        let request = Profile.fetchRequest()
+        let result = try PersistenceController.shared.container.viewContext.fetch(request)
+        
+        let profile = result.first
+        
+        return profile ?? Profile()
     }
 }
 
@@ -91,7 +103,7 @@ struct NutriCamWidget: Widget {
 
 struct NutriCamWidget_Previews: PreviewProvider {
     static var previews: some View {
-        NutriCamWidgetEntryView(entry: SimpleEntry(date: Date(), nutrition: Nutrition()))
+        NutriCamWidgetEntryView(entry: SimpleEntry(date: Date(), nutrition: Nutrition(), profile: Profile()))
             .previewContext(WidgetPreviewContext(family: .systemSmall))
     }
 }

@@ -54,9 +54,10 @@ struct NutritionView: View {
                             }
                         }
                         .padding()
+                        .frame(width: UIScreen.main.bounds.width)
                     }
                     
-                    HStack(spacing: 12) {
+                    HStack(spacing: 8) {
                         ZStack {
                             CircularProgressView(progress: vm.dailyNutrition.calories / (vm.profile.first?.minCalories ?? 0))
                                 .frame(width: UIScreen.main.bounds.width / 2.5)
@@ -80,7 +81,7 @@ struct NutritionView: View {
                         Spacer()
                         
                         VStack(spacing: 24) {
-                            ProgressView(value: vm.dailyNutrition.protein, total: vm.profile.first?.minProtein ?? 0) {
+                            ProgressView(value: vm.dailyNutrition.protein <= vm.profile.first?.minProtein ?? 300 ? vm.dailyNutrition.protein : vm.profile.first?.minProtein ?? 0, total: vm.profile.first?.minProtein ?? 0) {
                                 HStack {
                                     Text("Protein")
                                         .font(.subheadline)
@@ -90,7 +91,7 @@ struct NutritionView: View {
                                         .font(.subheadline)
                                 }
                             }
-                            ProgressView(value: vm.dailyNutrition.fat, total: vm.profile.first?.minFat ?? 0) {
+                            ProgressView(value: vm.dailyNutrition.fat <= vm.profile.first?.minFat ?? 300 ? vm.dailyNutrition.fat : vm.profile.first?.minFat ?? 0, total: vm.profile.first?.minFat ?? 0) {
                                 HStack {
                                     Text("Fat")
                                         .font(.subheadline)
@@ -100,7 +101,7 @@ struct NutritionView: View {
                                         .font(.subheadline)
                                 }
                             }
-                            ProgressView(value: vm.dailyNutrition.carbs, total: vm.profile.first?.minCarbs ?? 0) {
+                            ProgressView(value: vm.dailyNutrition.carbs <= vm.profile.first?.minCarbs ?? 300 ? vm.dailyNutrition.carbs : vm.profile.first?.minCarbs ?? 0, total: vm.profile.first?.minCarbs ?? 0) {
                                 HStack {
                                     Text("Carbs")
                                         .font(.subheadline)
@@ -161,15 +162,6 @@ struct NutritionView: View {
                 },
                 secondaryButton: .cancel(Text("Cancel")))
             }
-//            .alert("Delete food?", isPresented: $vm.showDeleteAlert, actions: {
-//                  Button("Cancel", role: .cancel, action: {})
-//
-//                  Button("Delete", role: .destructive, action: {
-//                      vm.deleteFood(food: vm.selectedDeleteFood)
-//                  })
-//                }, message: {
-//                  Text("This action will reset your daily nutrition data.")
-//            })
         }
     }
 }

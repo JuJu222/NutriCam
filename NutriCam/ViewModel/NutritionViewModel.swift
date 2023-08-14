@@ -112,13 +112,13 @@ class NutritionViewModel: ObservableObject {
         self.currentWeek = []
         
         let calendar = Calendar.current
-        
+
         let week = calendar.dateInterval(of: .weekOfMonth, for: self.currentDay)
-        
+
         guard let firstWeekDay = week?.start else {
             return
         }
-        
+
         (0...6).forEach { day in
             if var weekday = calendar.date(byAdding: .day, value: day, to: firstWeekDay) {
                 weekday = calendar.date(byAdding: .hour, value: 7, to: weekday) ?? Date()
