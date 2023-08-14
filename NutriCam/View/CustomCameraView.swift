@@ -218,14 +218,12 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     }
     
     func retake() {
+        withAnimation{
+            self.isTaken.toggle()
+        }
+        
         DispatchQueue.global().async {
             self.session.startRunning()
-            
-            DispatchQueue.main.async {
-                withAnimation{
-                    self.isTaken.toggle()
-                }
-            }
         }
     }
     
