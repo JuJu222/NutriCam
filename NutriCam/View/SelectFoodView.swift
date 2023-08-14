@@ -12,12 +12,17 @@ struct SelectFoodView: View {
     
     @ObservedObject var vm: NutritionViewModel
     @State private var searchText = ""
+    var newSearch: Bool
     
     var searchResults: [Hint] {
-        if searchText.isEmpty {
-            return vm.hintFoods
+        if newSearch {
+            return vm.searchFoods
         } else {
-            return vm.hintFoods.filter { $0.food?.label?.contains(searchText) ?? false }
+            if searchText.isEmpty {
+                return vm.hintFoods
+            } else {
+                return vm.hintFoods.filter { $0.food?.label?.contains(searchText) ?? false }
+            }
         }
     }
     
@@ -74,15 +79,23 @@ struct SelectFoodView: View {
         }
         .background(Color("Background"))
         .onAppear {
-            vm.fetchEdamamFoods()
+            if newSearch {
+                if vm.searchFoods.count == 0 {
+                    vm.fetchEdamamFoods(newSearch: true)
+                }
+            }
         }
         .navigationTitle("Select Food")
-        .searchable(text: $searchText, prompt: "Look for your \(vm.foodName)")
+        .searchable(text: $searchText, prompt: newSearch ? "Look for your food" : "Look for your \(vm.foodName)")
+        .onSubmit(of: .search) {
+            vm.searchFoodName = searchText
+            vm.fetchEdamamFoods(newSearch: true)
+          }
     }
 }
 
 struct SelectFoodView_Previews: PreviewProvider {
     static var previews: some View {
-        SelectFoodView(vm: NutritionViewModel())
+        SelectFoodView(vm: NutritionViewModel(), newSearch: false)
     }
 }

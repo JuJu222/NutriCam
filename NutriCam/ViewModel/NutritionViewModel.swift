@@ -24,7 +24,9 @@ class NutritionViewModel: ObservableObject {
     @Published var currentDay: Date = Date().midnight()
     
     @Published var foodName: String = ""
+    @Published var searchFoodName: String = ""
     @Published var hintFoods: [Hint] = []
+    @Published var searchFoods: [Hint] = []
     
     @Published var dailyNutrition: Nutrition = Nutrition()
     @Published var breakfastNutrition: Nutrition = Nutrition()
@@ -123,8 +125,8 @@ class NutritionViewModel: ObservableObject {
         return calendar.isDate(currentDay, inSameDayAs: date)
     }
     
-    func fetchEdamamFoods() {
-        let query = foodName.replacingOccurrences(of: " ", with: "%20")
+    func fetchEdamamFoods(newSearch: Bool) {
+        let query = newSearch ? searchFoodName.replacingOccurrences(of: " ", with: "%20") : foodName.replacingOccurrences(of: " ", with: "%20")
         guard let url = URL(string: "https://api.edamam.com/api/food-database/v2/parser?app_id=\(appId)&app_key=\(appKey)&ingr=\(query)&nutrition-type=cooking") else {
             return
         }
@@ -137,7 +139,11 @@ class NutritionViewModel: ObservableObject {
             do {
                 let food = try JSONDecoder().decode(Food.self, from: data)
                 DispatchQueue.main.async {
-                    self?.hintFoods = food.hints ?? []
+                    if newSearch == true {
+                        self?.searchFoods = food.hints ?? []
+                    } else {
+                        self?.hintFoods = food.hints ?? []
+                    }
                 }
             } catch {
                 print(error.localizedDescription)
