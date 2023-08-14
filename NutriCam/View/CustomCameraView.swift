@@ -12,17 +12,34 @@ struct CustomCameraView: View {
     @EnvironmentObject var camera: CameraModel
     @Environment(\.dismiss) var dismiss
     @Binding var showCamera: Bool
+    @State var showShutter = false
     
     var body: some View {
         ZStack {
             CameraPreview(camera: camera)
                 .ignoresSafeArea(.all, edges: .all)
+                .overlay {
+                    if showShutter {
+                        Color.black
+                        .onAppear {
+                            withAnimation(.easeOut(duration: 0.3)) {
+                                showShutter = false
+                            }
+                        }
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    }
+                }
             if camera.isTaken {
-                Color.clear.overlay(
+                Color.black.overlay(
                     Image(uiImage: camera.image!)
                         .resizable()
-                        .scaledToFill()
+                        .scaledToFit()
                         .ignoresSafeArea(.all, edges: .all)
+//                        .overlay {
+//                            Rectangle()
+//                                .stroke(Color.yellow, style: StrokeStyle(lineWidth: 5.0,lineCap: .round, lineJoin: .bevel, dash: [60]))
+//                                .frame(width: UIScreen.main.bounds.width / 1.2, height: UIScreen.main.bounds.height / 2)
+//                        }
                 )
             }
             VStack {
@@ -35,14 +52,8 @@ struct CustomCameraView: View {
                                 Image(systemName: "chevron.backward")
                                 Text("Back")
                             }
-                            .foregroundColor(.black)
-                            .fontWeight(.semibold)
-                            .padding(.vertical, 10)
-                            .padding(.horizontal, 20)
-                            .background(Color.white)
-                            .clipShape(Capsule())
                         }
-                        .padding(.leading, 10)
+                        .padding()
                         Spacer()
                         Button {
                             camera.retake()
@@ -51,14 +62,8 @@ struct CustomCameraView: View {
                                 Text("Retake")
                                 Image(systemName: "arrow.triangle.2.circlepath.camera")
                             }
-                            .foregroundColor(.black)
-                            .fontWeight(.semibold)
-                            .padding(.vertical, 10)
-                            .padding(.horizontal, 20)
-                            .background(Color.white)
-                            .clipShape(Capsule())
                         }
-                        .padding(.trailing, 10)
+                        .padding()
                     }
                 } else {
                     HStack {
@@ -69,14 +74,8 @@ struct CustomCameraView: View {
                                 Image(systemName: "chevron.backward")
                                 Text("Back")
                             }
-                            .foregroundColor(.black)
-                            .fontWeight(.semibold)
-                            .padding(.vertical, 10)
-                            .padding(.horizontal, 20)
-                            .background(Color.white)
-                            .clipShape(Capsule())
                         }
-                        .padding(.leading, 10)
+                        .padding()
                         Spacer()
                     }
                 }
@@ -84,15 +83,16 @@ struct CustomCameraView: View {
                 HStack {
                     if camera.isTaken {
                         Button {
+//                            camera.image = camera.cropToPreviewLayer(originalImage: camera.image!)
                             showCamera.toggle()
                         } label: {
                             Text("Continue")
                                 .frame(maxWidth: Double.infinity)
-                                .foregroundColor(.black)
+                                .foregroundColor(.white)
                                 .fontWeight(.semibold)
-                                .padding(.vertical, 10)
+                                .padding(.vertical, 14)
                                 .padding(.horizontal, 20)
-                                .background(Color.white)
+                                .background(.primary)
                                 .clipShape(Capsule())
                         }
                         .padding(.leading)
@@ -100,16 +100,30 @@ struct CustomCameraView: View {
                         Spacer()
 
                     } else {
-                        Button {
-                            camera.capture()
-                        } label: {
-                            ZStack {
-                                Circle()
-                                    .fill(Color.white)
-                                    .frame(width: 65, height: 65)
-                                Circle()
-                                    .stroke(Color.white, lineWidth: 2)
-                                    .frame(width: 75, height: 75)
+                        VStack(spacing: 20) {
+                            HStack {
+                                Text("Please make sure that the image of the food is clear and unobstructed")
+                                    .font(.system(size: 15))
+                                    .multilineTextAlignment(.center)
+                            }
+                            .foregroundColor(.white)
+                            .fontWeight(.semibold)
+                            .padding(.vertical, 10)
+                            .padding(.horizontal, 20)
+                            .background(Color(UIColor.systemGray6))
+                            .clipShape(Capsule())
+                            Button {
+                                camera.capture()
+                                showShutter = true
+                            } label: {
+                                ZStack {
+                                    Circle()
+                                        .fill(Color.white)
+                                        .frame(width: 65, height: 65)
+                                    Circle()
+                                        .stroke(.primary, lineWidth: 2)
+                                        .frame(width: 75, height: 75)
+                                }
                             }
                         }
                     }
@@ -195,23 +209,21 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
     func capture() {
         DispatchQueue.global().async {
             self.output.capturePhoto(with: AVCapturePhotoSettings(), delegate: self)
-//            DispatchQueue.main.async {
-//                Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { (timer) in
-//                    self.session.stopRunning()
-//                }
-//            }
+            //            DispatchQueue.main.async {
+            //                Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { (timer) in
+            //                    self.session.stopRunning()
+            //                }
+            //            }
         }
     }
     
     func retake() {
+        withAnimation{
+            self.isTaken.toggle()
+        }
+        
         DispatchQueue.global().async {
             self.session.startRunning()
-            
-            DispatchQueue.main.async {
-                withAnimation{
-                    self.isTaken.toggle()
-                }
-            }
         }
     }
     
@@ -222,7 +234,25 @@ class CameraModel: NSObject, ObservableObject, AVCapturePhotoCaptureDelegate {
         
         guard let imageData = photo.fileDataRepresentation() else { return }
         
-        self.image = UIImage(data: imageData)
+        self.image = cropToPreviewLayer(originalImage: UIImage(data: imageData)!)
+    }
+    
+    func cropToPreviewLayer(originalImage: UIImage) -> UIImage {
+        let outputRect = preview.metadataOutputRectConverted(fromLayerRect: preview.bounds)
+        var cgImage = originalImage.cgImage!
+        let width = CGFloat(cgImage.width)
+        let height = CGFloat(cgImage.height)
+        
+        // Calculate the cropping rectangle based on the size and position of the preview layer
+        let cropRect = CGRect(x: outputRect.origin.x * width,
+                              y: outputRect.origin.y * height,
+                              width: outputRect.size.width * width,
+                              height: outputRect.size.height * height)
+        
+        cgImage = cgImage.cropping(to: cropRect)!
+        let croppedUIImage = UIImage(cgImage: cgImage, scale: 1.0, orientation: originalImage.imageOrientation)
+        
+        return croppedUIImage
     }
 }
 
@@ -233,7 +263,8 @@ struct CameraPreview: UIViewRepresentable {
         let view = UIView(frame: UIScreen.main.bounds)
         
         camera.preview = AVCaptureVideoPreviewLayer(session: camera.session)
-        camera.preview.frame = view.frame
+        let yOffset = (UIScreen.main.bounds.height - UIScreen.main.bounds.height / 2) / 2
+        camera.preview.frame = CGRect(x: 0, y: yOffset, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2)
         
         camera.preview.videoGravity = .resizeAspectFill
         view.layer.addSublayer(camera.preview)
