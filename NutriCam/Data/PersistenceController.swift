@@ -16,7 +16,7 @@ struct PersistenceController {
     init() {
         container = NSPersistentCloudKitContainer(name: "NutriCamData")
         
-        let url = URL.storeURL(for: "group.NutriCam", databaseName: "NutriCamData")
+        let url = URL.storeURL(for: "group.NutriCammm", databaseName: "NutriCamData")
         let storeDescription = NSPersistentStoreDescription(url: url)
         container.persistentStoreDescriptions = [storeDescription]
         
