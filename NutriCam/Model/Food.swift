@@ -78,6 +78,7 @@ struct HintFood: Codable, Hashable {
     var image: String?
     var foodContentsLabel, brand: String?
     var servingSizes: [ServingSize]?
+    var servingsPerContainer: Double?
 }
 
 //enum Category: String {
@@ -138,7 +139,7 @@ struct Measure: Codable, Hashable {
 // MARK: - Qualified
 struct Qualified: Codable {
     var qualifiers: [Qualifier]?
-    var weight: Int?
+    var weight: Double?
 }
 
 // MARK: - Qualifier
