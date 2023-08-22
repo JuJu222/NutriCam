@@ -8,14 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		4C002F152A77571600DB9844 /* ImageClassification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C002F142A77571600DB9844 /* ImageClassification.swift */; };
-		4C002F182A77575400DB9844 /* FoodClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4C002F172A77575400DB9844 /* FoodClassifier.mlmodel */; };
 		4C002F1A2A7757E500DB9844 /* CGImagePropertyOrientation+UIImageOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C002F192A7757E500DB9844 /* CGImagePropertyOrientation+UIImageOrientation.swift */; };
 		4C0120BA2A8098280044E1CA /* CustomCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0120B92A8098280044E1CA /* CustomCameraView.swift */; };
 		4C30EEC82A73625900D91D59 /* NutriCamApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C30EEC72A73625900D91D59 /* NutriCamApp.swift */; };
 		4C30EECA2A73625900D91D59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C30EEC92A73625900D91D59 /* ContentView.swift */; };
 		4C30EECC2A73625B00D91D59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C30EECB2A73625B00D91D59 /* Assets.xcassets */; };
 		4C30EECF2A73625B00D91D59 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C30EECE2A73625B00D91D59 /* Preview Assets.xcassets */; };
-		4C765CF82A7CAC28003E9748 /* best.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 4C765CF72A7CAC28003E9748 /* best.mlpackage */; };
+		4C3B7EC52A9440E000B06C77 /* FoodClassifierModel.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B7EC42A9440E000B06C77 /* FoodClassifierModel.mlpackage */; };
 		8D0D79AD2A8609C800AF36DB /* ConsumedFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D79AC2A8609C800AF36DB /* ConsumedFoodView.swift */; };
 		8D0D79AF2A86124400AF36DB /* ConsumedFoodCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D79AE2A86124400AF36DB /* ConsumedFoodCardView.swift */; };
 		8D1BFE4E2A88A64000033159 /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1BFE4D2A88A64000033159 /* ChartData.swift */; };
@@ -88,7 +87,6 @@
 
 /* Begin PBXFileReference section */
 		4C002F142A77571600DB9844 /* ImageClassification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageClassification.swift; sourceTree = "<group>"; };
-		4C002F172A77575400DB9844 /* FoodClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FoodClassifier.mlmodel; sourceTree = "<group>"; };
 		4C002F192A7757E500DB9844 /* CGImagePropertyOrientation+UIImageOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImagePropertyOrientation+UIImageOrientation.swift"; sourceTree = "<group>"; };
 		4C0120B92A8098280044E1CA /* CustomCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCameraView.swift; sourceTree = "<group>"; };
 		4C30EEC42A73625900D91D59 /* NutriCam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriCam.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,7 +94,7 @@
 		4C30EEC92A73625900D91D59 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4C30EECB2A73625B00D91D59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C30EECE2A73625B00D91D59 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		4C765CF72A7CAC28003E9748 /* best.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; name = best.mlpackage; path = Model/best.mlpackage; sourceTree = "<group>"; };
+		4C3B7EC42A9440E000B06C77 /* FoodClassifierModel.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; name = FoodClassifierModel.mlpackage; path = ../../../DataspellProjects/YOLOv8FoodClassifier/runs/classify/best/weights/FoodClassifierModel.mlpackage; sourceTree = "<group>"; };
 		8D0D79AC2A8609C800AF36DB /* ConsumedFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumedFoodView.swift; sourceTree = "<group>"; };
 		8D0D79AE2A86124400AF36DB /* ConsumedFoodCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumedFoodCardView.swift; sourceTree = "<group>"; };
 		8D1BFE4D2A88A64000033159 /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
@@ -182,8 +180,7 @@
 		4C30EEC62A73625900D91D59 /* NutriCam */ = {
 			isa = PBXGroup;
 			children = (
-				4C765CF72A7CAC28003E9748 /* best.mlpackage */,
-				4C002F172A77575400DB9844 /* FoodClassifier.mlmodel */,
+				4C3B7EC42A9440E000B06C77 /* FoodClassifierModel.mlpackage */,
 				8DC758812A7E5854001E98BE /* Helper */,
 				8D93205E2A81479B00C4D1B2 /* Data */,
 				8D4D64882A7D100E002B6200 /* Model */,
@@ -406,9 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C30EECA2A73625900D91D59 /* ContentView.swift in Sources */,
-				4C002F182A77575400DB9844 /* FoodClassifier.mlmodel in Sources */,
 				8D0D79AD2A8609C800AF36DB /* ConsumedFoodView.swift in Sources */,
-				4C765CF82A7CAC28003E9748 /* best.mlpackage in Sources */,
 				4C30EEC82A73625900D91D59 /* NutriCamApp.swift in Sources */,
 				4C002F1A2A7757E500DB9844 /* CGImagePropertyOrientation+UIImageOrientation.swift in Sources */,
 				4C002F152A77571600DB9844 /* ImageClassification.swift in Sources */,
@@ -424,6 +419,7 @@
 				8DC758792A7E3F6D001E98BE /* AddFoodCameraView.swift in Sources */,
 				8D9320602A81481300C4D1B2 /* PersistenceController.swift in Sources */,
 				8DC7588F2A7EB875001E98BE /* OnBoardingProfileView.swift in Sources */,
+				4C3B7EC52A9440E000B06C77 /* FoodClassifierModel.mlpackage in Sources */,
 				8DC758832A7E585B001E98BE /* APIKey.swift in Sources */,
 				8DC758752A7E06BC001E98BE /* AddMealCardView.swift in Sources */,
 				8D4D648F2A7D1053002B6200 /* NutriCamData.xcdatamodeld in Sources */,

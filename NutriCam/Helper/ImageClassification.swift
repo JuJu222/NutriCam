@@ -27,8 +27,8 @@ class ImageClassification: ObservableObject {
              To use a different Core ML classifier model, add it to the project
              and replace `MobileNet` with that model's generated Swift class.
              */
-            let modelURL = Bundle.main.url(forResource: "best", withExtension: "mlmodelc")!
-            let model = try VNCoreMLModel(for: best(contentsOf: modelURL).model)
+            let modelURL = Bundle.main.url(forResource: "FoodClassifierModel", withExtension: "mlmodelc")!
+            let model = try VNCoreMLModel(for: FoodClassifierModel(contentsOf: modelURL).model)
             
             let request = VNCoreMLRequest(model: model, completionHandler: { [weak self] request, error in
                 self?.processClassifications(for: request, error: error)
@@ -77,13 +77,14 @@ class ImageClassification: ObservableObject {
                 self.classificationLabel = "Nothing recognized."
             } else {
                 // Display top classifications ranked by confidence in the UI.
-                let topClassifications = classifications.prefix(2)
+                let topClassifications = classifications.prefix(5)
                 let descriptions = topClassifications.map { classification in
                     // Formats the classification for display; e.g. "(0.37) cliff, drop, drop-off".
                    return String(format: "  (%.2f) %@", classification.confidence, classification.identifier)
                 }
                 self.classificationLabel = "Classification:\n" + descriptions.joined(separator: "\n")
                 self.searchQuery = topClassifications[0].identifier.replacingOccurrences(of: "_", with: " ")
+                print(self.classificationLabel)
                 self.doneClassifying = true
             }
         }
