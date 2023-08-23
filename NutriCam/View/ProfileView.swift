@@ -126,7 +126,7 @@ struct ProfileView: View {
                                 .frame(height: 24)
                             Text("Min. Protein")
                             Spacer()
-                            Text("\(vm.profile.first?.minProtein ?? 0, specifier: "%.0f") g")
+                            Text("\(vm.profile.first?.minProtein ?? 0, specifier: "%.1f") g")
                         }
                         HStack {
                             Image(colorScheme == .light ? "fat" : "fatWhite")
@@ -135,7 +135,7 @@ struct ProfileView: View {
                                 .frame(height: 24)
                             Text("Min. Fat")
                             Spacer()
-                            Text("\(vm.profile.first?.minFat ?? 0, specifier: "%.0f") g")
+                            Text("\(vm.profile.first?.minFat ?? 0, specifier: "%.1f") g")
                         }
                         HStack {
                             Image(colorScheme == .light ? "carbs" : "carbsWhite")
@@ -144,7 +144,7 @@ struct ProfileView: View {
                                 .frame(height: 24)
                             Text("Min. Carbs")
                             Spacer()
-                            Text("\(vm.profile.first?.minCarbs ?? 0, specifier: "%.0f") g")
+                            Text("\(vm.profile.first?.minCarbs ?? 0, specifier: "%.1f") g")
                         }
                     }
                 }
