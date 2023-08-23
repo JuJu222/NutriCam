@@ -98,7 +98,7 @@ struct ProfileView: View {
                                 Text("\(vm.extractDate(date: vm.profile.first?.dateOfBirth ?? Date(), format: "dd/MM/yy"))")
                                     .font(.headline)
                             }
-                            .padding(.vertical, 1)
+                            .padding(.vertical, 1.5)
                             Spacer()
                         }
                         .padding()
