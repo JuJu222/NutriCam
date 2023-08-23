@@ -32,7 +32,7 @@ struct ContentView: View {
     }
     
     func scheduleNotifications() {
-        if UserDefaults.standard.bool(forKey: "notificationsScheduled") {
+        if UserDefaults.standard.bool(forKey: "notificationsScheduledKey") {
             print("Notifications already scheduled")
             return
         }
