@@ -157,7 +157,7 @@ struct NutritionView: View {
                 vm.fetchProfileRequest()
             }
             .alert(isPresented: $vm.showDeleteAlert) {
-                Alert(title: Text("Delete food?"), message: Text("This action will reset your daily nutrition data."), primaryButton: .destructive(Text("Delete")) {
+                Alert(title: Text("Delete food?"), message: Text("This will affect your total daily nutrition"), primaryButton: .destructive(Text("Delete")) {
                     vm.deleteFood(food: vm.selectedDeleteFood)
                 },
                 secondaryButton: .cancel(Text("Cancel")))
