@@ -161,6 +161,18 @@ class NutritionViewModel: ObservableObject {
                         self?.searchFoods = food.hints ?? []
                     } else {
                         self?.hintFoods = food.hints ?? []
+                        
+                        for (index, hint) in self!.hintFoods.enumerated() {
+                            let label = hint.food?.label
+                            if label?.lowercased() == self?.foodName.lowercased() {
+                                let temp = self?.hintFoods[0]
+                                
+                                self?.hintFoods[0] = hint
+                                self?.hintFoods[index] = temp!
+                                
+                                break
+                            }
+                        }
                     }
                 }
             } catch {
