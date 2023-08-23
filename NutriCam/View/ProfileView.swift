@@ -37,7 +37,7 @@ struct ProfileView: View {
                                 Text("Height")
                                     .font(.subheadline)
                                 Text("\(vm.profile.first?.height ?? 0, specifier: "%.0f") cm")
-                                    .font(.title2)
+                                    .font(.title3)
                                     .fontWeight(.semibold)
                             }
                             Spacer()
@@ -57,7 +57,7 @@ struct ProfileView: View {
                                 Text("Weight")
                                     .font(.subheadline)
                                 Text("\(vm.profile.first?.weight ?? 0, specifier: "%.0f") kg")
-                                    .font(.title2)
+                                    .font(.title3)
                                     .fontWeight(.semibold)
                             }
                             Spacer()
@@ -77,7 +77,7 @@ struct ProfileView: View {
                                 Text("Sex")
                                     .font(.subheadline)
                                 Text("\(vm.profile.first?.gender ?? "")")
-                                    .font(.title2)
+                                    .font(.title3)
                                     .fontWeight(.semibold)
                             }
                             Spacer()
@@ -96,8 +96,7 @@ struct ProfileView: View {
                                 Text("Birth Date")
                                     .font(.subheadline)
                                 Text("\(vm.extractDate(date: vm.profile.first?.dateOfBirth ?? Date(), format: "dd/MM/yy"))")
-                                    .font(.title3)
-                                    .fontWeight(.semibold)
+                                    .font(.headline)
                             }
                             .padding(.vertical, 1)
                             Spacer()
