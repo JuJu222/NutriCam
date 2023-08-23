@@ -32,6 +32,11 @@ struct ContentView: View {
     }
     
     func scheduleNotifications() {
+        if UserDefaults.standard.bool(forKey: "notificationsScheduled") {
+            print("Notifications already scheduled")
+            return
+        }
+        
         let notificationTimes: [DateComponents] = [
             makeDateComponents(hour: 6),
             makeDateComponents(hour: 12),
@@ -62,6 +67,7 @@ struct ContentView: View {
                             print("Error scheduling notification:\(error)")
                         } else {
                             print("Notifications scheduled successfully")
+                            UserDefaults.standard.set(true, forKey: "notificationsScheduledKey")
                         }
                     }
                 }

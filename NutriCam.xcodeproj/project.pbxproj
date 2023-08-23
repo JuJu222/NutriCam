@@ -14,6 +14,7 @@
 		4C30EECA2A73625900D91D59 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C30EEC92A73625900D91D59 /* ContentView.swift */; };
 		4C30EECC2A73625B00D91D59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C30EECB2A73625B00D91D59 /* Assets.xcassets */; };
 		4C30EECF2A73625B00D91D59 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C30EECE2A73625B00D91D59 /* Preview Assets.xcassets */; };
+		4C3B7EC72A944E8A00B06C77 /* FoodClassifierModel.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 4C3B7EC62A944E8A00B06C77 /* FoodClassifierModel.mlpackage */; };
 		8D0D79AD2A8609C800AF36DB /* ConsumedFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D79AC2A8609C800AF36DB /* ConsumedFoodView.swift */; };
 		8D0D79AF2A86124400AF36DB /* ConsumedFoodCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D79AE2A86124400AF36DB /* ConsumedFoodCardView.swift */; };
 		8D1BFE4E2A88A64000033159 /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1BFE4D2A88A64000033159 /* ChartData.swift */; };
@@ -93,6 +94,7 @@
 		4C30EEC92A73625900D91D59 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4C30EECB2A73625B00D91D59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C30EECE2A73625B00D91D59 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4C3B7EC62A944E8A00B06C77 /* FoodClassifierModel.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = FoodClassifierModel.mlpackage; sourceTree = "<group>"; };
 		8D0D79AC2A8609C800AF36DB /* ConsumedFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumedFoodView.swift; sourceTree = "<group>"; };
 		8D0D79AE2A86124400AF36DB /* ConsumedFoodCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsumedFoodCardView.swift; sourceTree = "<group>"; };
 		8D1BFE4D2A88A64000033159 /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 		4C30EEC62A73625900D91D59 /* NutriCam */ = {
 			isa = PBXGroup;
 			children = (
+				4C3B7EC62A944E8A00B06C77 /* FoodClassifierModel.mlpackage */,
 				8DC758812A7E5854001E98BE /* Helper */,
 				8D93205E2A81479B00C4D1B2 /* Data */,
 				8D4D64882A7D100E002B6200 /* Model */,
@@ -400,6 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C30EECA2A73625900D91D59 /* ContentView.swift in Sources */,
+				4C3B7EC72A944E8A00B06C77 /* FoodClassifierModel.mlpackage in Sources */,
 				8D0D79AD2A8609C800AF36DB /* ConsumedFoodView.swift in Sources */,
 				4C30EEC82A73625900D91D59 /* NutriCamApp.swift in Sources */,
 				4C002F1A2A7757E500DB9844 /* CGImagePropertyOrientation+UIImageOrientation.swift in Sources */,
