@@ -22,7 +22,7 @@ struct OnBoardingFirstView: View {
                 .bold()
                 .padding(.horizontal, 32)
             
-            Text("We can help you to calculate your body's daily nutritional requirements.")
+            Text("We can help you to calculate your body's daily nutritional requirements")
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 32)
             

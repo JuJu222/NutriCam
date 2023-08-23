@@ -18,12 +18,12 @@ struct OnBoardingThirdView: View {
                 .frame(width: 300)
                 .padding(.bottom, 32)
             
-            Text("Calculate Your Calories ")
+            Text("Calculate Your Calories")
                 .font(.title3)
                 .bold()
                 .padding(.horizontal, 32)
             
-            Text("To recognize the nutrients in the food that you eat")
+            Text("And achieve your daily nutritional goals")
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 32)
             
