@@ -1,0 +1,18 @@
+{
+  "Outputs" : {
+    "var_379" : {
+      "MLFeatureShortDescription" : ""
+    },
+    "classLabel" : {
+      "MLFeatureShortDescription" : ""
+    }
+  },
+  "Inputs" : {
+    "image" : {
+      "MLFeatureShortDescription" : ""
+    }
+  },
+  "TrainingInputs" : {
+
+  }
+}
