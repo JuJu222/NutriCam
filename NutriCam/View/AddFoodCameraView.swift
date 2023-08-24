@@ -277,6 +277,7 @@ struct AddFoodCameraView: View {
                             }
                         }
                         .onAppear {
+                            vm.hintFoods = []
                             classification.updateClassifications(for: camera.image!)
                         }
                         .onChange(of: classification.doneClassifying) { newValue in
@@ -288,7 +289,9 @@ struct AddFoodCameraView: View {
                         }
                         .onChange(of: vm.hintFoods) { newValue in
                             withAnimation{
-                                food = vm.hintFoods[0]
+                                if vm.hintFoods.count > 0 {
+                                    food = vm.hintFoods[0]
+                                }
                             }
                         }
                     }
