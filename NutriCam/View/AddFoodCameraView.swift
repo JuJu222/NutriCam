@@ -102,7 +102,7 @@ struct AddFoodCameraView: View {
                                             }
                                         }
                                         .padding(8)
-                                        .background(Color(UIColor.systemBackground))
+                                        .background(colorScheme == .light ? .white : Color(UIColor.systemGray6))
                                         .cornerRadius(8)
                                     }
                                     .padding()
@@ -223,7 +223,6 @@ struct AddFoodCameraView: View {
                                         .cornerRadius(100)
                                     }
                                 }
-                                .background(Color("Background"))
                                 .onAppear {
                                     measures = food.measures ?? []
                                     
@@ -257,7 +256,6 @@ struct AddFoodCameraView: View {
                         }
                         .navigationTitle(food.food?.label ?? "Please Wait...")
                         .padding()
-                        .background(Color("Background"))
                         .toolbar {
                             ToolbarItem(placement: .navigationBarLeading) {
                                 Button {
@@ -295,6 +293,7 @@ struct AddFoodCameraView: View {
                             }
                         }
                     }
+                    .background(Color("Background"))
                     .navigationDestination(for: String.self) { view in
                         if view == "SelectFoodViewVariant" {
                             SelectFoodView(vm: vm, newSearch: false)

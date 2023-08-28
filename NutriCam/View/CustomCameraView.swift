@@ -9,6 +9,7 @@ import SwiftUI
 import AVFoundation
 
 struct CustomCameraView: View {
+    @Environment(\.colorScheme) var colorScheme
     @EnvironmentObject var camera: CameraModel
     @Environment(\.dismiss) var dismiss
     @Binding var showCamera: Bool
@@ -27,20 +28,25 @@ struct CustomCameraView: View {
                             }
                         }
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .ignoresSafeArea(.all, edges: .all)
                     }
                 }
             if camera.isTaken {
-                Color.black.overlay(
-                    Image(uiImage: camera.image!)
-                        .resizable()
-                        .scaledToFit()
-                        .ignoresSafeArea(.all, edges: .all)
-//                        .overlay {
-//                            Rectangle()
-//                                .stroke(Color.yellow, style: StrokeStyle(lineWidth: 5.0,lineCap: .round, lineJoin: .bevel, dash: [60]))
-//                                .frame(width: UIScreen.main.bounds.width / 1.2, height: UIScreen.main.bounds.height / 2)
-//                        }
-                )
+                if colorScheme == .light {
+                    Color.white.overlay(
+                        Image(uiImage: camera.image!)
+                            .resizable()
+                            .scaledToFit()
+                            .ignoresSafeArea(.all, edges: .all)
+                    )
+                } else {
+                    Color.black.overlay(
+                        Image(uiImage: camera.image!)
+                            .resizable()
+                            .scaledToFit()
+                            .ignoresSafeArea(.all, edges: .all)
+                    )
+                }
             }
             VStack {
                 if camera.isTaken {
@@ -106,7 +112,7 @@ struct CustomCameraView: View {
                                     .font(.system(size: 15))
                                     .multilineTextAlignment(.center)
                             }
-                            .foregroundColor(.white)
+                            .foregroundColor(colorScheme == .light ? .black : .white)
                             .fontWeight(.semibold)
                             .padding(.vertical, 10)
                             .padding(.horizontal, 20)
