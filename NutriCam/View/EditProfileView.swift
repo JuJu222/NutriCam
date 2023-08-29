@@ -49,7 +49,7 @@ struct EditProfileView: View {
                                     }
                                 }
                         }
-                        Picker("Gender", selection: $vm.gender) {
+                        Picker("Sex", selection: $vm.gender) {
                             ForEach(genderOptions, id: \.self) { option in
                                 Text(option)
                             }

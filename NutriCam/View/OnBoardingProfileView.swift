@@ -61,7 +61,7 @@ struct OnBoardingProfileView: View {
                                 }
                             }
                     }
-                    Picker("Gender", selection: $gender) {
+                    Picker("Sex", selection: $gender) {
                         ForEach(genderOptions, id: \.self) { option in
                             Text(option)
                         }
